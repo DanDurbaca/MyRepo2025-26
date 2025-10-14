@@ -11,7 +11,7 @@
 <body>
     <?php
     include_once("CommonCode.php");
-    NavigationBar();
+    NavigationBar("Home");
     ?>
     <h1>Welcome to our shop. This should be a great day</h1>
 </body>
