@@ -2,11 +2,30 @@
 
 function NavigationBar($callingPage)
 {
+    $navigationBarLinks = [
+        "Home" => "Home.php",
+        "Contact" => "Contact.php",
+        "Products" => "Products.php",
+        "NewLink" => "NewLink.php"
+    ];
+
 ?>
     <div class="navBar">
-        <a <?php if ($callingPage == "Mickey") print "class='highlight'"; ?> href="Home.php">Home</a>
-        <a <?php if ($callingPage == "Donald") print "class='highlight'"; ?> href="Contact.php">Contact</a>
-        <a <?php if ($callingPage == "Peppa") print "class='highlight'"; ?> href="Products.php">Products</a>
+
+        <?php
+        //for ($i = 0; $i < count($navigationBarItems); $i++) 
+        // Another method of going through the items of an array in PHP:
+        foreach ($navigationBarLinks as $keyVariable => $valueVariable) {
+        ?>
+            <a <?= ($callingPage == $keyVariable) ? "class='highlight'" : ""; ?>
+                href="<?= $valueVariable ?>"> <?= $keyVariable ?> </a>
+
+        <?php
+        }
+
+        ?>
+
+
     </div>
 <?php
 }
