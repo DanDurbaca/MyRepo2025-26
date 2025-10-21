@@ -21,15 +21,15 @@
         print("Registration in process<br>");
         // we need to advance with the registration...
         // check if the passwords match:
-        if ($_POST["psw"] == $_POST["pswAgain"]) {
-            print("Passwords match. You will be registered ...");
+        if (($_POST["psw"] == $_POST["pswAgain"]) && (!userAlreadyRegistered($_POST["Username"]))) {
+            print("Passwords match AND you have chosen a valid user. You will be registered ...");
             // we need TO SAVE the username and password into the "database"
             $fHandler = fopen("Clients.csv", "a");
             fwrite($fHandler, "\n" . $_POST["Username"] . ";" . $_POST["psw"]);
             fclose($fHandler);
         } else {
             $bShowForm = true;
-            print("Error. The two passwords do not match. Please try again !");
+            print("Error. The two passwords do not match OR the user already exists. Please try again !");
         }
     }
 
