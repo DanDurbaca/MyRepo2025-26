@@ -6,7 +6,7 @@ function NavigationBar($callingPage)
         "Home" => "Home.php",
         "Contact" => "Contact.php",
         "Products" => "Products.php",
-        "NewLink" => "NewLink.php"
+        "Register" => "Register.php"
     ];
 
 ?>
