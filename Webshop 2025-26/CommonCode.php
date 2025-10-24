@@ -1,12 +1,37 @@
 <?php
+$language = "EN";
+if (isset($_GET["lang"])) {
+    $language = $_GET["lang"];
+}
+
+//print("The current language is" . $language);
+
+$arrayOfTranslations = [];
+
+$fileTranslations = fopen("Translation.csv", "r");
+while (!feof($fileTranslations)) {
+    $lineFromFile = fgets($fileTranslations);
+    $piecesOfTranslations = explode(";", $lineFromFile);
+    //$arrayOfTranslations[$piecesOfTranslations[0]] = ($language == "EN") ? $piecesOfTranslations[1] : $piecesOfTranslations[2];
+    // doing the same thing with a full if statement:
+    if ($language == "EN")
+        $arrayOfTranslations[$piecesOfTranslations[0]] = $piecesOfTranslations[1];
+    else
+        $arrayOfTranslations[$piecesOfTranslations[0]] = $piecesOfTranslations[2];
+}
+
+//var_dump($arrayOfTranslations);
+
 
 function NavigationBar($callingPage)
 {
+    global $language;
+    global $arrayOfTranslations;
     $navigationBarLinks = [
-        "Home" => "Home.php",
-        "Contact" => "Contact.php",
-        "Products" => "Products.php",
-        "Register" => "Register.php"
+        $arrayOfTranslations["HomeBtn"] => "Home.php",
+        $arrayOfTranslations["ContactBtn"] => "Contact.php",
+        $arrayOfTranslations["ProductBtn"] => "Products.php",
+        $arrayOfTranslations["RegisterBtn"] => "Register.php"
     ];
 
 ?>
@@ -18,12 +43,18 @@ function NavigationBar($callingPage)
         foreach ($navigationBarLinks as $keyVariable => $valueVariable) {
         ?>
             <a <?= ($callingPage == $keyVariable) ? "class='highlight'" : ""; ?>
-                href="<?= $valueVariable ?>"> <?= $keyVariable ?> </a>
+                href="<?= $valueVariable ?>?lang=<?= $language ?>"> <?= $keyVariable ?> </a>
 
         <?php
         }
 
         ?>
+        <form>
+            <select name="lang" onchange="this.form.submit()">
+                <option value="EN" <?php if ($language == "EN") print "selected"; ?>>English</option>
+                <option value="RO" <?php if ($language == "RO") print "selected"; ?>>Romanian</option>
+            </select>
+        </form>
 
 
     </div>

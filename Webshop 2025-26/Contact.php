@@ -15,11 +15,11 @@
     NavigationBar("Contact");
     ?>
 
-    <h1>Contact Us</h1>
-    <p>This is our contact information...</p>
+    <h1><?= $arrayOfTranslations["ContactText"] ?></h1>
+    <p><?= $arrayOfTranslations["ContactInfo"] ?></p>
     <ul>
-        <li>Email: info@example.com</li>
-        <li>Phone: +1 234 567 890</li>
+        <li><?= $arrayOfTranslations["EmailLabel"] ?>: info@example.com</li>
+        <li><?= $arrayOfTranslations["EmailLabel"] ?>: +1 234 567 890</li>
         <li>Address: 123 Main Street, City, Country</li>
     </ul>
     <form method="POST">
@@ -39,8 +39,8 @@
         var_dump($_GET)
     */
     //print($_GET);
-    var_dump($_GET);
-    var_dump($_POST);
+    //var_dump($_GET);
+    //var_dump($_POST);
 
     if (isset($_POST["fname"])) {
     ?>

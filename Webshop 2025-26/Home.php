@@ -13,7 +13,7 @@
     include_once("CommonCode.php");
     NavigationBar("Home");
     ?>
-    <h1>Welcome to our shop. This should be a great day</h1>
+    <h1><?= $arrayOfTranslations["HomeText"] ?></h1>
 </body>
 
 </html>

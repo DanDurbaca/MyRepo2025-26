@@ -1,0 +1,24 @@
+Key;EnglishText;RomanianText
+HomeBtn;Home;Acasă
+ContactBtn;Contact;Contact
+ProductBtn;Products;Produse
+RegisterBtn;Register;Înregistrează-te
+HomeText;Welcome to our shop. This should be a great day; Bine ați venit în magazinul nostru. Ar trebui să fie o zi grozavă
+ContactText;Contact us; Contactați-ne
+ContactInfo;This is our contact information...; Acestea sunt informațiile noastre de contact...
+EmailLabel;Email Address; Adresa de email
+PhoneLabel;Phone Number; Număr de telefon
+AddressLabel;Address; Adresă
+FirstNameLabel;First Name; Prenume
+PasswordLabel;Your password:; Parola dvs.:
+SendBtn;Send this data; Trimite aceste date
+OurProductsText;Our Products; Produsele noastre
+ApplesProduct;Apples - fresh and juicy; Mere - proaspete și suculente
+BananasProduct;Bananas - rich in potassium; Banane - bogate în potasiu
+CarrotsProduct;Carrots - good for your eyesight; Morcovi - buni pentru vedere
+TomatoesProduct;Tomatoes - perfect for salads; Roșii - perfecte pentru salate
+PotatoesProduct;Potatoes - versatile and filling; Cartofi - versatili și sățioși
+RegisterText;Create your account; Creează-ți contul
+PickUsernameLabel;Pick a username:; Alege un nume de utilizator:
+Pick a passwordLabel;Pick a password:; Alege o parolă:
+RegisterBtn;Register now; Înregistrează-te acum
