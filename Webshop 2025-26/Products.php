@@ -15,13 +15,35 @@
     ?>
 
     <h1>Our Products</h1>
-    <ul>
-        <li>Apples</li>
-        <li>Bananas</li>
-        <li>Carrots</li>
-        <li>Tomatoes</li>
-        <li>Potatoes</li>
-    </ul>
+
+    <div class="AllProducts">
+
+        <?php
+        $fileProducts = fopen("Products.csv", "r");
+        fgets($fileProducts);
+        while (!feof($fileProducts)) {
+            $oneProduct = fgets($fileProducts);
+            $individualItemComponents = explode(";", $oneProduct);
+            if (count($individualItemComponents) == 6) {
+        ?>
+                <div class="OneProduct">
+                    <div><?= $individualItemComponents[($language == "EN") ? 0 : 5] ?></div>
+                    <img src="./images/<?= $individualItemComponents[1] ?>">
+                    <div><?= $individualItemComponents[2] ?> EUR/kg</div>
+                    <div><?= $individualItemComponents[($language == "EN") ? 3 : 4] ?></div>
+                </div>
+
+        <?php
+            }
+        }
+        ?>
+
+
+
+
+
+    </div>
+
 
 </body>
 

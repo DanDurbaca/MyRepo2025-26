@@ -20,3 +20,20 @@
 .navBar a:hover {
     color: blue;
 }
+
+.AllProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.OneProduct {
+    border: 2px solid black;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightsalmon;
+}
