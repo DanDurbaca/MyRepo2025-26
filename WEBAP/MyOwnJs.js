@@ -1,10 +1,5 @@
 $(function () {
-    $("#ChangeThis").html("Hello, World!");
+    $("#doChange").on("click", function () {
+        $("#ChangeThis").html("Hello JQuery after btn press");
+    });
 });
-
-/*function changeText() {
-    document.getElementById("ChangeThis").innerHTML = "Hello, World!";
-}
-
-document.addEventListener("DOMContentLoaded", changeText);
-*/
