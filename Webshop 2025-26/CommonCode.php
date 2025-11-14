@@ -31,7 +31,8 @@ function NavigationBar($callingPage)
         $arrayOfTranslations["HomeBtn"] => "Home.php",
         $arrayOfTranslations["ContactBtn"] => "Contact.php",
         $arrayOfTranslations["ProductBtn"] => "Products.php",
-        $arrayOfTranslations["RegisterBtn"] => "Register.php"
+        $arrayOfTranslations["RegisterBtn"] => "Register.php",
+        $arrayOfTranslations["LoginBtn"] => "Login.php"
     ];
 
 ?>
