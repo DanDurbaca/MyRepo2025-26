@@ -1,4 +1,19 @@
 <?php
+
+session_start();
+
+if (isset($_POST["Logout"])) {
+    session_unset();
+    session_destroy();
+    session_start();
+}
+
+//var_dump($_SESSION);
+if (!isset($_SESSION["UserLogged"])) {
+    $_SESSION["UserLogged"] = false;
+}
+
+
 $language = "EN";
 if (isset($_GET["lang"])) {
     $language = $_GET["lang"];
@@ -27,26 +42,40 @@ function NavigationBar($callingPage)
 {
     global $language;
     global $arrayOfTranslations;
-    $navigationBarLinks = [
-        $arrayOfTranslations["HomeBtn"] => "Home.php",
-        $arrayOfTranslations["ContactBtn"] => "Contact.php",
-        $arrayOfTranslations["ProductBtn"] => "Products.php",
-        $arrayOfTranslations["RegisterBtn"] => "Register.php",
-        $arrayOfTranslations["LoginBtn"] => "Login.php"
-    ];
 
 ?>
     <div class="navBar">
 
-        <?php
-        //for ($i = 0; $i < count($navigationBarItems); $i++) 
-        // Another method of going through the items of an array in PHP:
-        foreach ($navigationBarLinks as $keyVariable => $valueVariable) {
-        ?>
-            <a <?= ($callingPage == $keyVariable) ? "class='highlight'" : ""; ?>
-                href="<?= $valueVariable ?>?lang=<?= $language ?>"> <?= $keyVariable ?> </a>
+        <a <?= ($callingPage == $arrayOfTranslations["HomeBtn"]) ? "class='highlight'" : ""; ?>
+            href="Home.php?lang=<?= $language ?>"> <?= $arrayOfTranslations["HomeBtn"] ?> </a>
+
+        <a <?= ($callingPage == $arrayOfTranslations["ContactBtn"]) ? "class='highlight'" : ""; ?>
+            href="Contact.php?lang=<?= $language ?>"> <?= $arrayOfTranslations["ContactBtn"] ?> </a>
+
+        <a <?= ($callingPage == $arrayOfTranslations["ProductBtn"]) ? "class='highlight'" : ""; ?>
+            href="Products.php?lang=<?= $language ?>"> <?= $arrayOfTranslations["ProductBtn"] ?> </a>
 
         <?php
+        if (!$_SESSION["UserLogged"]) {
+        ?>
+
+            <a <?= ($callingPage == $arrayOfTranslations["RegisterBtn"]) ? "class='highlight'" : ""; ?>
+                href="Register.php?lang=<?= $language ?>"> <?= $arrayOfTranslations["RegisterBtn"] ?> </a>
+
+
+            <a <?= ($callingPage == $arrayOfTranslations["LoginBtn"]) ? "class='highlight'" : ""; ?>
+                href="Login.php?lang=<?= $language ?>"> <?= $arrayOfTranslations["LoginBtn"] ?> </a>
+        <?php
+        } else {
+            print("Welcome " . $_SESSION["Username"]);
+        ?>
+
+            <form method="POST">
+                <input type="submit" value="LOGOUT" name="Logout">
+            </form>
+
+        <?php
+
         }
 
         ?>

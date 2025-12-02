@@ -32,7 +32,11 @@
             if ($_POST["Username"] == $userNameInFile) {
                 print("UserName found .. checking password");
                 if ($_POST["psw"] == $pswInFile) {
-                    print("You are logged in!");
+                    //print("You are logged in!");
+                    $_SESSION["UserLogged"] = true;
+                    $_SESSION["Username"] = $userNameInFile;
+                    // force page refresh.... + redirect to home
+                    header("Refresh:0; url=Home.php");
                 } else {
                     print("Passwords do not match.. .please try again");
                 }
@@ -47,7 +51,7 @@
             <input type="test" name="Username">
             <div>Password</div>
             <input type="password" name="psw">
-            <input type="submit" value="Register">
+            <input type="submit" value="Login">
         </form>
 
     <?php
