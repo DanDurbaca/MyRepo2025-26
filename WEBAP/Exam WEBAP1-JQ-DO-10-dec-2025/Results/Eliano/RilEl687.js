@@ -5,11 +5,9 @@ let Options = ["Red", "Blue", "Yellow"];
 let amount = 0;
 
 function start() {
-
     let inputName = $("<input type='number'>");
     inputName.attr("placeholder", "Quantity");
     $("body").html(inputName);
-
 
     let mycolorsSelect = $("<select>");
     for (let i = 0; i < Options.length; i++) {
@@ -20,73 +18,49 @@ function start() {
     }
     $("body").append(mycolorsSelect);
 
-
-    let create = $('<button>');
+    let create = $("<button>");
     create.html("Create");
     $("body").append(create);
 
-
-    let clear = $('<button>');
+    let clear = $("<button>");
     clear.html("Clear");
     $("body").append(clear);
 
     clear.on("click", function () {
-        $(start)
-    })
+        $(start);
+    });
 
     create.on("click", function () {
-
         for (let a = 0; a < inputName.val(); a++) {
-
             if (mycolorsSelect.val() == 0) {
-
                 let newbox = $("<p class='red'>");
-                newbox.html("<br>")
-                $('body').append(newbox);
+                newbox.html("<br>");
+                $("body").append(newbox);
 
-                newbox.click(
-                    function () {
-                        $('body').html($(start))
-                    }
-                );
-            }
-
-            else if (mycolorsSelect.val() == 2) {
+                newbox.click(function () {
+                    $("body").html($(start));
+                });
+            } else if (mycolorsSelect.val() == 2) {
                 let newbox = $("<p class='yellow'>");
-                newbox.html("<br>")
+                newbox.html("<br>");
                 for (let a = 0; a < inputName.val(); a++) {
+                    $("body").append(newbox);
 
-                    $('body').append(newbox);
-
-                    newbox.click(
-                        function () {
-                            $('body').html($(start))
-                        }
-                    );
+                    newbox.click(function () {
+                        $("body").html($(start));
+                    });
                 }
-            }
-
-            else if (mycolorsSelect.val() == 1) {
+            } else if (mycolorsSelect.val() == 1) {
                 let newbox = $("<p class='blue'>");
 
-
-                newbox.html("<br>")
+                newbox.html("<br>");
                 for (let a = 0; a < inputName.val(); a++) {
-
-                    $('body').append(newbox);
-                    newbox.click(
-                        function () {
-                            $('body').html($(start))
-                        }
-                    );
+                    $("body").append(newbox);
+                    newbox.click(function () {
+                        $("body").html($(start));
+                    });
                 }
             }
         }
-    })
-
-
+    });
 }
-
-
-
-
