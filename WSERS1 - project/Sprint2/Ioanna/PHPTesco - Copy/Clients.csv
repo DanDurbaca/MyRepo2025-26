@@ -1,0 +1,9 @@
+Username;Password;UserTypes
+Toto;$2y$10$cehC0gyreBmCnIW6/Y6GF.fj9BYqs2BP/BTMp69BDNsEKKjCkm.eu;
+Jumbo;$2y$10$0NdJ1gI2C4PwyrWzcfMf0eAVyjV3kPenJO/v1D.559.vMV7gkGkvi;
+jonzzz;$2y$10$a/GePy3LZlo7ogJzRc5h3.cyGfNil01qCJ/nj9G8rCWFAhR.JQq0K;admin_user
+stel;$2y$10$jNrfcLDrKajE0BRqLi83n.Syw0OYdXpq8tIDL3T..egDINcf39dHO;regular_customer
+abcd;$2y$10$zApvn9yJU8lT8KxENbw9Tu7O6oFpuNTJjhm2p/CvkeHDa91ojirGG;regular_customer
+aaaa;$2y$10$YOZN7H8vgnFCAVtfO9rrreRZ8GoIB9m/YI0JG2K/6t17aA.K7Pz5y;regular_customer
+TotoTest;$2y$10$wuy.Nsu879j1Z1ViYB3z/e4XT0ZGfkNZvJeMExhaUSfjStedhc3W.;regular_customer
+stelarian;$2y$10$I4H1hTrPh65Lia4LO7dexexjOmqqXQwJix2KU87oMuf1Ui4jfmpQa;regular_customer

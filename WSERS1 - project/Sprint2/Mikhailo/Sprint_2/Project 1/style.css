@@ -1,0 +1,560 @@
+/* =========================================================
+   ORANGESHOP PREMIUM STYLE.CSS
+   Palette: Black (#111), White (#fff), Orange Shades (#ff7f00, #ff4500)
+   Features: Stickers, Prints, Gradients, Hover Animations, Floating Elements
+========================================================= */
+
+/* ===========================
+   RESET & BASE
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    color: #111;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* ===========================
+   LINKS
+=========================== */
+a {
+    text-decoration: none;
+    color: #ff7f00;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff4500;
+    left: 0;
+    bottom: -3px;
+    transition: 0.4s;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(90deg, #111, #222);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navBar a {
+    margin-right: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.navBar a.active {
+    color: #ff7f00;
+    font-size: 1.05rem;
+}
+
+.navBar form select {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #ff7f00;
+    font-weight: 600;
+    cursor: pointer;
+    background: #fff;
+    color: #111;
+    transition: all 0.3s ease;
+}
+
+.navBar form select:hover {
+    border-color: #ff4500;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+    background: radial-gradient(circle at top left, #ff7f00 0%, #ff4500 100%);
+    color: #fff;
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.hero .btn {
+    position: relative;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, #fff, #ffddcc);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #ff4500;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.hero .btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.hero .btn:hover::before {
+    top: 0;
+    left: 0;
+}
+
+.hero .btn:hover {
+    color: #fff;
+    background: #ff4500;
+}
+
+/* ===========================
+   PRODUCTS PAGE
+=========================== */
+.products {
+    padding: 4rem 2rem;
+    background: #fff3e0 url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="%23ffddcc" opacity="0.05"/></svg>') repeat;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #111;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Product Stickers */
+.product-card::before {
+    content: attr(data-sticker);
+    position: absolute;
+    top: 15px;
+    left: -40px;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.4rem 2rem;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-size: 0.8rem;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: #111;
+}
+
+.product-card p {
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.product-card button {
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 0 1rem 1rem 1rem;
+    padding: 0.7rem 0;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-card button:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: linear-gradient(45deg, #ff4500, #ff7f00);
+}
+
+/* Floating Sparkles */
+.product-card::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    color: #ffdd33;
+    opacity: 0.7;
+    animation: float 6s infinite ease-in-out;
+}
+
+/* ===========================
+   CONTACT PAGE
+=========================== */
+.contact-section {
+    padding: 5rem 2rem;
+    background: radial-gradient(circle at top left, #fff3e0, #ffebd1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,127,0,0.1);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out alternate;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.contact-info, .contact-form {
+    flex: 1 1 350px;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.contact-info:hover, .contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+/* Sticker Star */
+.contact-info::after, .contact-form::after {
+    content: '★';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #ff7f00;
+    opacity: 0.5;
+    transform: rotate(-20deg);
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(-20deg); }
+    100% { transform: rotate(340deg); }
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    border: 2px solid #ffddcc;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.25);
+    outline: none;
+    transform: scale(1.02);
+}
+
+.contact-form input[type="submit"] {
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.9rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: linear-gradient(45deg, #ff4500, #ff7f00);
+}
+
+/* ===========================
+   REGISTRATION PAGE
+=========================== */
+form.registration {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #fff url('data:image/svg+xml,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="50" fill="%23ffebcc" opacity="0.05"/></svg>') repeat;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+form.registration:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+form.registration div {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #111;
+}
+
+form.registration input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    border: 2px solid #ffddcc;
+    transition: all 0.4s ease;
+}
+
+form.registration input:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.3);
+    outline: none;
+    transform: scale(1.02);
+}
+
+form.registration input[type="submit"] {
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 0.9rem;
+}
+
+form.registration input[type="submit"]:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: linear-gradient(45deg, #ff4500, #ff7f00);
+}
+
+/* ===========================
+   ADMIN PANEL
+   Styles for admin product creation page (Admin.php)
+   These rules are intentionally scoped to .admin-panel to avoid
+   impacting other forms/pages.
+============================ */
+.admin-panel {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    background: #fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><rect width="60" height="60" fill="%23ffebcc" opacity="0.03"/></svg>') repeat;
+    padding: 2.2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.admin-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.admin-panel .messages {
+    margin-bottom: 1rem;
+}
+
+.admin-panel .messages p { color: #138000; font-weight:700; }
+.admin-panel .messages ul { color: #b00020; margin-left: 1rem; }
+
+.admin-panel form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.admin-panel form input[type="text"],
+.admin-panel form input[type="number"],
+.admin-panel form textarea,
+.admin-panel form input[type="file"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    border: 2px solid #ffddcc;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.admin-panel form input[type="text"]:focus,
+.admin-panel form input[type="number"]:focus,
+.admin-panel form textarea:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.18);
+    outline: none;
+    transform: scale(1.01);
+}
+
+.admin-panel form textarea {
+    grid-column: 1 / -1;
+    min-height: 120px;
+    resize: vertical;
+}
+
+.admin-panel form input[type="file"] {
+    grid-column: 1 / -1;
+    padding: 0.6rem 0.8rem;
+}
+
+.admin-panel form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 0.75rem 1.6rem;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.admin-panel form button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+}
+
+/* Make admin form single column on small screens */
+@media screen and (max-width: 768px) {
+    .admin-panel form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* ===========================
+   FLOATING ANIMATIONS
+=========================== */
+@keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-15px) translateX(10px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media screen and (max-width: 768px) {
+    .contact-container, .registration-container, .product-grid {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .products h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navBar a {
+        margin: 0.5rem 0;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .product-card img {
+        height: 150px;
+    }
+}

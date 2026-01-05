@@ -1,0 +1,58 @@
+.ProductItems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    padding: 60px 100px;
+    justify-items: center;
+}
+
+.OneProduct {
+    background: linear-gradient(180deg, rgba(40, 20, 80, 0.9) 0%, rgba(60, 30, 100, 0.95) 100%);
+    border: 2px solid rgba(180, 120, 255, 0.4);
+    border-radius: 18px;
+    width: 350px;
+    padding: 2.5rem;
+    box-shadow: 0 0 30px rgba(140, 90, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.OneProduct:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(190, 140, 255, 0.6);
+}
+
+.OneProduct img {
+    width: 230px;
+    height: 230px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(200, 150, 255, 0.3);
+}
+
+.OneProduct div {
+    font-size: 1.2rem;
+    margin: 0.4rem 0;
+    color: #f5eaff;
+}
+
+.OneProduct div:last-child {
+    margin-top: 0.8rem;
+    color: #ffe6ff;
+    font-weight: bold;
+    text-shadow: 0 0 6px rgba(180, 120, 255, 0.8);
+}
+
+/* Input custom style */
+input[type="number"] {
+    background-color: #8e6fff69;
+    color: black;
+    border-radius: 8px;
+    padding: 5px;
+    width: 70px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+}

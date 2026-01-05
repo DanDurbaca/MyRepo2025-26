@@ -1,0 +1,104 @@
+.register {
+    background: linear-gradient(180deg, #1a0f2e 0%, #2a1844 100%);
+    border: 2px solid rgba(160, 100, 255, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 0 25px rgba(108, 99, 255, 0.4);
+    color: #f5e6ff;
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 3rem 2.5rem;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.register::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border: 2px dashed rgba(230, 200, 255, 0.2);
+    border-radius: 18px;
+    pointer-events: none;
+    animation: glowBorder 6s linear infinite;
+}
+
+@keyframes glowBorder {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(180, 120, 255, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(220, 180, 255, 0.9);
+    }
+}
+
+.register h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.2rem;
+    color: #d5b4ff;
+    text-shadow: 0 0 12px rgba(200, 160, 255, 0.8);
+    margin-bottom: 1rem;
+    animation: shimmer 3s infinite ease-in-out;
+}
+
+.register p {
+    font-size: 1.1rem;
+    color: #e7d6ff;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.register-form label {
+    font-size: 1.2rem;
+    color: #cdaeff;
+    text-shadow: 0 0 6px rgba(180, 120, 255, 0.6);
+}
+
+.register-form input {
+    width: 90%;
+    max-width: 400px;
+    background: rgba(30, 20, 50, 0.6);
+    border: 2px solid rgba(150, 100, 255, 0.3);
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #f0e0ff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+    border-color: #caa8ff;
+    box-shadow: 0 0 14px rgba(180, 120, 255, 0.5);
+    background: rgba(60, 40, 90, 0.8);
+}
+
+.register-form button {
+    background: linear-gradient(90deg, #8f6fff, #caa8ff);
+    color: #1a0f2e;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(200, 150, 255, 0.4);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.register-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(200, 150, 255, 0.8);
+}

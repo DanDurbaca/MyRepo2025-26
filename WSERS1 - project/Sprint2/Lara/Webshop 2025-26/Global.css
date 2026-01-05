@@ -1,0 +1,206 @@
+/*Body and background*/
+body {
+    background: url("Pictures/BackGround.gif") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'VT323', monospace;
+    color: #f7eaff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*Navigation Bar*/
+.navBar {
+    background: rgba(30, 10, 60, 0.85);
+    border-bottom: 2px solid rgba(180, 120, 255, 0.5);
+    box-shadow: 0 0 20px rgba(150, 100, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: 70px;
+}
+
+.navBar a {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #f9eaff;
+    text-decoration: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s;
+    padding: 6px 12px;
+}
+
+.navBar a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px #d8b4ff, 0 0 20px #b98fff;
+    transform: scale(1.05);
+}
+
+.highlight {
+    background: linear-gradient(90deg, #7c4dff, #a678ff);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(160, 100, 255, 0.6);
+}
+
+/*Language Selector*/
+.langSwitch {
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.langSwitch select {
+    background: rgba(120, 80, 200, 0.3);
+    color: #f9eaff;
+    border: 1px solid rgba(200, 150, 255, 0.5);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-family: 'VT323', monospace;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.langSwitch select:hover {
+    background: rgba(150, 100, 255, 0.4);
+    box-shadow: 0 0 10px rgba(180, 120, 255, 0.6);
+}
+
+/*Headings*/
+h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.4rem;
+    text-align: center;
+    color: #1a0f2e;
+    text-shadow:
+        0 0 8px rgba(91, 60, 250, 0.6),
+        0 0 20px rgba(173, 109, 255, 0.4);
+    letter-spacing: 1px;
+    position: relative;
+    margin-bottom: 2.5rem;
+    animation: shimmer 3s infinite linear;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #a36bff, #6c63ff, #00bfa6);
+    margin: 0.6rem auto 0;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+}
+
+@keyframes shimmer {
+    0% {
+        text-shadow: 0 0 6px rgba(91, 60, 250, 0.5), 0 0 20px rgba(173, 109, 255, 0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 14px rgba(91, 60, 250, 0.8), 0 0 30px rgba(173, 109, 255, 0.6);
+    }
+
+    100% {
+        text-shadow: 0 0 6px rgba(91, 60, 250, 0.5), 0 0 20px rgba(173, 109, 255, 0.3);
+    }
+}
+
+/*Input numbers (for Products)*/
+input[type="number"] {
+    background: rgba(140, 100, 255, 0.2);
+    border: 1px solid rgba(200, 150, 255, 0.4);
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px;
+    width: 70px;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
+    font-family: 'VT323', monospace;
+    transition: 0.2s;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    background-color: rgba(160, 100, 255, 0.25);
+    border-color: #d8b9ff;
+    box-shadow: 0 0 8px #d1a8ff;
+}
+
+/*Product grid*/
+.ProductItems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    padding: 60px 100px;
+    justify-items: center;
+}
+
+.OneProduct {
+    background: linear-gradient(180deg, rgba(40, 20, 80, 0.9) 0%, rgba(60, 30, 100, 0.95) 100%);
+    border: 2px solid rgba(180, 120, 255, 0.4);
+    border-radius: 18px;
+    width: 350px;
+    padding: 2.5rem;
+    box-shadow: 0 0 30px rgba(140, 90, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.OneProduct:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(190, 140, 255, 0.6);
+}
+
+.OneProduct img {
+    width: 230px;
+    height: 230px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(200, 150, 255, 0.3);
+}
+
+.OneProduct div {
+    font-size: 1.2rem;
+    margin: 0.4rem 0;
+    color: #f5eaff;
+}
+
+.OneProduct div:last-child {
+    margin-top: 0.8rem;
+    color: #ffe6ff;
+    font-weight: bold;
+    text-shadow: 0 0 6px rgba(180, 120, 255, 0.8);
+}
+
+/*Media queries for responsiveness*/
+@media (max-width: 1100px) {
+    .ProductItems {
+        padding: 40px 50px;
+        gap: 40px;
+    }
+
+    .OneProduct {
+        width: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .OneProduct {
+        width: 280px;
+        padding: 2rem;
+    }
+
+    .OneProduct img {
+        width: 180px;
+        height: 180px;
+    }
+}

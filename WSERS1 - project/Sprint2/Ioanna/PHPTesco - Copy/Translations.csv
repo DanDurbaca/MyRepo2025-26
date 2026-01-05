@@ -1,0 +1,39 @@
+Key;EN;GR
+nav_home;Home;Αρχική
+nav_contact;Contact;Επικοινωνία
+nav_products;Products;Προϊόντα
+nav_register;Register;Εγγραφή
+home_title;Every little helps;Κάθε λίγο βοηθάει
+contact_title;Contact Us;Επικοινωνήστε μαζί μας
+contact_info_text;This is our contact information...;Αυτές είναι οι πληροφορίες επικοινωνίας μας...
+contact_email;Email;Email
+contact_phone;Phone;Τηλέφωνο
+contact_address;Address;Διεύθυνση
+contact_fname;First name:;Όνομα:
+contact_password;Your password:;Ο κωδικός σας:
+contact_submit;Send this data;Αποστολή δεδομένων
+contact_welcome;Welcome to our website;Καλώς ήρθατε στην ιστοσελίδα μας
+register_title;Registration form:;Φόρμα εγγραφής:
+register_processing;Registration in process;Η εγγραφή είναι σε εξέλιξη
+register_passwords_match;Passwords match and valid username. You will be registered...;Οι κωδικοί ταιριάζουν. Θα εγγραφείτε...
+register_passwords_error;Error. The two passwords do not match or user already exists. Please try again!;Σφάλμα. Οι δύο κωδικοί δεν ταιριάζουν. Παρακαλώ δοκιμάστε ξανά!
+register_username;Pick a username:;Επιλέξτε όνομα χρήστη:
+register_password;Pick a password;Επιλέξτε κωδικό πρόσβασης
+register_password_again;Confirm password;Επιβεβαιώστε τον κωδικό
+register_submit;Register;Εγγραφή
+login_title;Login;Σύνδεση
+login_username;Username:;Όνομα χρήστη:
+login_password;Password:;Κωδικός πρόσβασης:
+login_submit;Login;Σύνδεση
+login_error;Invalid username or password!;Λάθος όνομα χρήστη ή κωδικός!
+login_success;Login successful! Welcome;Επιτυχής σύνδεση! Καλώς ήρθατε
+nav_login;Login;Σύνδεση
+nav_admin;Admin;Διαχειρ
+logout;Logout;Αποσύνδεση
+currency_symbol;£;£
+HomeBtn;Home;Σπίτι
+ContactBtn;Contact;Επαφή
+ProductBtn;Products;Προϊόντα
+RegisterBtn;Register;Register
+LoginBtn;Login;Login
+AdminBtn;Admin;Διαχειρ

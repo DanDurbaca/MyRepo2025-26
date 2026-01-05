@@ -1,0 +1,100 @@
+.navBar a,
+.navBar span,
+.navBar select {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #f9eaff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #ffd6ff;
+    text-shadow: 0 0 12px #b88cff, 0 0 25px #8a5cff;
+    margin-bottom: 1.5rem;
+}
+
+.register {
+    background: linear-gradient(180deg, rgba(40, 20, 80, 0.9), rgba(60, 30, 100, 0.95));
+    border: 2px solid rgba(180, 120, 255, 0.4);
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(140, 90, 255, 0.3);
+    padding: 2.5rem;
+    margin: 50px auto;
+    max-width: 600px;
+    text-align: left;
+    color: #f5e6ff;
+}
+
+.register h2 {
+    text-align: center;
+}
+
+.register label {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #cdaeff;
+    text-shadow: 0 0 6px rgba(180, 120, 255, 0.6);
+}
+
+.register input {
+    width: 100%;
+    padding: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    border: 1px solid rgba(180, 120, 255, 0.4);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #f5e6ff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.register input:focus {
+    border-color: #d8b9ff;
+    box-shadow: 0 0 12px rgba(180, 120, 255, 0.6);
+    background: rgba(60, 40, 90, 0.8);
+}
+
+.register button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-family: 'VT323', monospace;
+    background: linear-gradient(90deg, #6b4ae0, #a36bff);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.register button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(160, 100, 255, 0.6);
+}
+
+.success,
+.error {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'VT323', monospace;
+}
+
+.success {
+    color: #b7ffb7;
+    background: rgba(100, 255, 100, 0.1);
+    border: 1px solid rgba(100, 255, 100, 0.4);
+    text-shadow: 0 0 8px rgba(100, 255, 100, 0.6);
+}
+
+.error {
+    color: #ffb7b7;
+    background: rgba(255, 100, 100, 0.1);
+    border: 1px solid rgba(255, 100, 100, 0.4);
+    text-shadow: 0 0 8px rgba(255, 100, 100, 0.6);
+}
