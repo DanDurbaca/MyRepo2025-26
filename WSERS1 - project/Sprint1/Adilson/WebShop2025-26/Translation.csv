@@ -1,0 +1,32 @@
+key;EnglishText;PortugueseText
+HomeBtn;Home;Casa
+ContactBtn;Contact;Contacto
+ProductBtn;Product;Prudutos
+LogInBtn;Log In;Iniciar Sessão
+RegisterBtn;Register;Registrar
+HomeTextH1;Welcome to MyModificationGarage;Bem vindo a MyModificationGarage
+HomeText;Discover amazing modification and parts for your car, contact us for more info, or browse our latest offers. Use the navigation bar above to explore.;Descubra modificações e peças incríveis para o seu carro, contacte-nos para mais informações ou consulte as nossas últimas ofertas. Utilize a barra de navegação acima para explorar.
+ContactTextH1;Contact Information;Informacão de Contacto
+Phonetrnsl;Phone:;Telefone:
+addresstrnsl;address:;endereço:
+Fnametrnsl;First name:;Primeiro nome:
+Lnametrnsl;Last name:;Ultimo nome:
+sppWlcH1;welcome to our suport ;Bem vindo ao nosso suporte 
+sppWlctxt;Feel free to reach out to us with any questions or feedback!;Sinta-se à vontade para nos contactar com quaisquer perguntas ou comentários!
+RgH1;Registration Form;Formulário de Registo
+Rgprogress;registration in progress...;registo em progresso...
+Rgwelcome;Welcome you are now registered!;Bem-vindo, você está agora registado!
+Rgpssw!;Passwords do not match or user alredy exists, please try again.;As palavras-passe não coincidem ou o utilizador já existe, por favor tente novamente.
+Rgusrn;Choose a User Name;Escolha um nome de utilizador
+Rgpssw;Choose a password;Escolha uma senha
+Rgpssw2;Repeat the password;Repita a senha
+lgnusr;User Name:;Nome de usuario:
+lgnpssw;Password:;Senha:
+Rgdob;Date of birth:;Data de nascimento:
+lgncheck;Checking...;A confirmar...
+lgnsuccess;Login successful. Welcome ;Sessão iniciada com sucesso. Bem vindo 
+lgnfail;Invalid username or password.;Nome de usuario ou senha invalido.
+CartBtn;Cart;Carrinho
+CartTextH1;Shopping Cart;Carrinho de Compras
+CartText;Your shopping cart is currently empty. Browse our products and add items to your cart!;Seu carrinho de compras está vazio. Navegue pelos nossos produtos e adicione itens!
+CartEmpty;Your cart is empty;Seu carrinho está vazio

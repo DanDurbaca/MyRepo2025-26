@@ -1,0 +1,25 @@
+Key;EnglishText;RussianText
+HomeBtn;Home;Главная
+ContactBtn;Contact;Страница контактов
+ProductBtn;Products;Продукты
+RegisterBtn;Register;Регистрация
+HomeText;Welcome to Our Web Shop!;Добро пожаловать в наш интернет-магазин!
+HomeP;Browse our products and enjoy your shopping experience.;Просмотрите наши товары и наслаждайтесь процессом покупок.
+ContactT;This is our contact information;Это наша контактная информация
+ContactEmail;Email:;Электронная почта:
+ContactPhone;Phone:;Телефон:
+ContactAddress;Address:;Адрес:
+ContactHours;Business Hours:;Часы работы:
+ProductsT;This are our products:;Это наши продукты:
+RegistrationForm;Registration Form;Форма регистрации
+RegistrationName;Choose an User Name;Выберите имя пользователя
+RegistrationPassword;Choose a password;Выберите пароль
+RegistrationEmail;Email;Электронная почта
+RegistrationPhone;Phone;Телефон
+LoginBtn;Login;Войти
+logincheck;Checking;Проверка
+loginsuccess;You logged in successfully ;Вы успешно вошли в систему
+loginfail;Your login failed;Вход не выполнен
+loginuser;User;Пользователь
+loginpassword;Password;Пароль
+LoginT;Login;Войти

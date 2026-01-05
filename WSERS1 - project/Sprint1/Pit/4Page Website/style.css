@@ -1,0 +1,407 @@
+
+/* ==============================
+   Modern, responsive base styles
+   (no HTML/PHP changes required)
+   ============================== */
+
+/* Design tokens */
+:root{
+  --bg: #0b0c10;
+  --surface: #111218;
+  --card: #161820;
+  --muted: #9aa3b2;
+  --text: #e6e8ee;
+  --primary: #7c5cff;
+  --primary-600:#6e4bff;
+  --accent: #2dd4bf;
+  --border: rgba(255,255,255,0.08);
+  --shadow: 0 10px 30px rgba(0,0,0,.35), 0 2px 10px rgba(0,0,0,.2);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-lg: 22px;
+  --transition: 220ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* Light theme (auto) */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --card: #ffffff;
+    --muted: #5b6575;
+    --text: #0e1320;
+    --primary: #6b5cff;
+    --primary-600:#5c4cff;
+    --accent: #14b8a6;
+    --border: rgba(12, 23, 52, 0.08);
+    --shadow: 0 10px 30px rgba(12, 23, 52, .08), 0 2px 10px rgba(12, 23, 52, .06);
+  }
+}
+
+/* Reset + base */
+*,
+*::before,
+*::after{ box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+}
+
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 80% -200px, rgba(124,92,255,.18), transparent 60%),
+              radial-gradient(1000px 600px at -200px 40%, rgba(45,212,191,.12), transparent 60%),
+              var(--bg);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth focus outline */
+:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--primary) 60%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Links general */
+a{ color: var(--primary); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* ==============================
+   Header
+   ============================== */
+header{
+  background:
+    linear-gradient(180deg, rgba(124,92,255,.20), rgba(124,92,255,0) 60%),
+    linear-gradient(180deg, rgba(45,212,191,.14), rgba(45,212,191,0) 70%),
+    var(--surface);
+  color: var(--text);
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 2;
+}
+
+header h1, header h2, header h3{
+  margin: 0.2rem 0;
+  letter-spacing: .2px;
+}
+
+/* ==============================
+   Top navigation
+   ============================== */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  padding: .85rem 1rem;
+  color: var(--text);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 16px rgba(0,0,0,.08);
+}
+
+.nav a{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .55rem .9rem;
+  border-radius: 999px;
+  transition: background-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: inset 0 0 0 1px var(--border);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+.nav a:hover{
+  background-color: color-mix(in srgb, var(--primary) 14%, transparent);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 40%, var(--border));
+}
+
+.nav a.highlight{
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 22%, transparent), transparent 90%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 55%, var(--border));
+  transform: none;
+}
+
+/* ==============================
+   Main container
+   ============================== */
+main{
+  padding: clamp(1rem, 2.5vw, 2rem);
+  width: min(1100px, 92%);
+  margin: 18px auto;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Section titles */
+section h3{
+  margin: 0 0 1rem 0;
+  padding: 1.1rem 1.2rem;
+  text-align: left;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 80%, transparent), transparent);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* ==============================
+   Products layout
+   ============================== */
+.Products{
+  position: relative;
+  top: 10px;
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(14px, 2.2vw, 22px);
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Product card */
+.OneProduct{
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding: 14px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, transparent), transparent 80%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+  margin-inline: auto;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.OneProduct:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.18);
+  border-color: color-mix(in srgb, var(--primary) 38%, var(--border));
+}
+
+/* Product title */
+.TitleProduct{
+  font-family: ui-rounded, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .2px;
+  color: var(--text);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 12%, transparent), transparent);
+  padding: .65rem .8rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin: 0;
+}
+
+/* Product image */
+.ProductsImage{
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+}
+
+/* ==============================
+   Login section
+   ============================== */
+.Login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 52vh;
+  padding: 1rem;
+}
+
+.Login button{
+  padding: .95rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: 0;
+  background: linear-gradient(180deg, var(--primary), var(--primary-600));
+  color: #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px color-mix(in srgb, var(--primary) 40%, transparent);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+}
+
+.Login button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--primary) 50%, transparent);
+  filter: saturate(1.05);
+}
+
+.Login button:active{
+  transform: translateY(0);
+}
+
+/* ==============================
+   Language / selects
+   ============================== */
+.language,
+.weed-select select,
+select{
+  width: 100%;
+  max-width: 420px;
+  padding: .7rem .9rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.language:focus-visible,
+.weed-select select:focus-visible,
+select:focus-visible{
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+.weed-select{
+  position: relative;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  margin: 10px 0 18px 0;
+}
+
+/* ==============================
+   Side gifs (auto-hide on small)
+   ============================== */
+.side-gif{
+  position: fixed;
+  width: 160px;
+  z-index: 100;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,.3));
+  transform: translateY(-50%) scale(2.1);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.left-gif{ left: 24px; top: 50%; }
+.right-gif{ right: 24px; top: 50%; }
+
+@media (max-width: 1100px){
+  .side-gif{ opacity: .25; transform: translateY(-50%) scale(1.4); }
+}
+
+@media (max-width: 900px){
+  .side-gif{ display: none; }
+}
+
+/* ==============================
+   Tables & utilities (if present)
+   ============================== */
+table{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+th, td{
+  padding: .85rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+th{
+  text-align: left;
+  font-weight: 700;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 85%, transparent), transparent);
+}
+
+tr:hover td{
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
+}
+
+/* Buttons (generic) */
+button, .btn{
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==============================
+   Motion & accessibility
+   ============================== */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
+
+/* Center the very last text on index (the <h3> inside the final <section>) */
+body > section:last-of-type > h3{
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Optional: a little side padding on smaller screens to keep it clear of the GIFs */
+@media (max-width: 1200px){
+  body > section:last-of-type > h3{
+    padding-inline: clamp(0rem, 6vw, 6rem);
+  }
+}
+
+/* center login + register form ONLY */
+body > form{
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+    max-width:420px;
+    width:100%;
+}
+
+/* Center ONLY the titles on login + register pages */
+body > h1{
+  text-align: center !important;
+}
+
+/* (Already used for centering the forms without touching navbar) */
+body > form{
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  max-width: 420px;
+  width: 100%;
+}
+
+
+/* ==============================
+   Legacy fallbacks from original
+   (kept so existing HTML still works)
+   ============================== */
+
+/* Keep original colors as gentle fallback variables are applied above */
+.nav a:hover{ /* retain slight raise from original */ }
+.nav a.highlight{ /* underline effect replaced by pill emphasis */ }
+
+/* Maintain compatibility: if any inline styles expect these */
+.ProductsImage{ height: auto; }

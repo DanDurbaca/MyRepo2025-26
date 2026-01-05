@@ -1,0 +1,96 @@
+.navBar {
+    background-color: lightcoral;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: rgb(77, 34, 105);
+    font-weight: bold;
+}
+
+.navBar a:hover {
+    color: rgb(45, 66, 250);
+}
+
+.highlight {
+    background: linear-gradient(90deg, #b8a7e9, #a678ff);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(160, 100, 255, 0.6);
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-size: 16px;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: url('Pictures/background5.gif') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100%;
+}
+
+.text {
+    color: white;
+}
+
+.divCentered {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(60, 72, 100, 0.12);
+    padding: 48px 32px;
+    margin: 48px auto 0 auto;
+    margin-bottom: 48px;
+    max-width: 540px;
+    text-align: center;
+}
+
+.fonth1 {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 2.8rem;
+    color: #3b3b5c;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.fontp {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #5a5a7a;
+    margin-bottom: 12px;
+}
+
+.allDivs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.divStyle {
+    background-color: #ffffff;
+    color: rgb(54, 0, 78);
+    border-radius: 10px;
+    padding: 10px;
+    width: 220px;
+    text-align: center;
+}
+
+.productNameDivStyle {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.colorWite {
+    color: #240077;
+    font-size: 1.1em;
+    margin: 6px 0;
+}

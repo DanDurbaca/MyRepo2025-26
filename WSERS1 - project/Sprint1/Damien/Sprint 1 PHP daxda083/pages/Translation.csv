@@ -1,0 +1,19 @@
+Key;EnglishText;GermanText
+HomeBtn;Home;Startseite
+ProductsBtn;Products;Produkte
+RegisterBtn;Register;Registrierung
+LOGINBtn;LOG IN;Anmelden
+Welcomelable; Welcome to our FreedomShop <br> BUY YOUR FREEDOM BACK!; Willkommen auf unserem Freiheits Shop <br> KAUFEN SIE SICH IHRE FREIHEIT ZURÜCK!
+Passwordlable; Please enter your name below to continue: ;Bitte geben sie ihren namen hie runtern ein:
+Userlable;Pick a Username:;Geben sie einen Benutzername ein:
+1passwordlable;Pick a Password:;Geben sie ein Password ein:
+2passwordlable;Re-enter Password:;Geben sie das Password nachmal ein:
+registerlable;Register;Registriren
+PasswordUserErrorlable;Passwords match and you have chosen a valid user. You will be registered ...;Die Passwörter stimmen überein und Sie haben einen gültigen Benutzer ausgewählt. Sie werden registriert ...
+PasswordErrorlable;Passwords do not match or the User already exists. Please try again.;Die Passwörter stimmen nicht überein oder der Benutzer existiert bereits. Bitte versuchen Sie es erneut.
+Progresslable;Registration in progress...<br>;Registrierung läuft...<br>
+EmailLable; Enter your email:; Geben sie ihre email ein:
+PhoneLable; Enter your phone number:; Geben sie ihre Telefon nummer ein:
+Productslable; Our Products; Unsere Produkte
+succeslable; You loggecd in successfully!; Du hast dich erfolgreich eingeloggt!
+invalidlable; Invalid username or password.;Ungültiger Benutzername oder Passwort.

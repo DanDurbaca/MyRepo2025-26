@@ -1,0 +1,47 @@
+Key;en;fr;de;
+Home;Home;Accueil;Startseite;
+Products;Products;Produits;Produkte;
+Contact;Contact;Contact;Kontakt;
+About;About;À propos;Über;
+Registration;Registration;Inscription;Registrierung;
+Login;Login;Login;Login;
+welcomelab;Welcome to my shop;Bienvenue dans ma boutique;Willkommen in meinem Shop;
+name;Your user name;Votre nom d'utilisateur;Ihr Benutzername;
+email;Your email;Votre adresse e-mail;Ihre E-Mail-Adresse;
+reg;Registration form will go here;Le formulaire de réinscription sera disponible ici;Das Formular zur erneuten Registrierung wird hier eingefügt;
+regbutton;Register; S'inscrire;Registrieren;
+pasw;Your password;Votre mot de passe;Ihr Passwort;
+conf;Confirm your password;Confirmez votre mot de passe;Bestätigen Sie Ihr Passwort;
+secret;Your secret password;Votre mot de passe secret;Ihr geheimes Passwort;
+confsecretp;Confirm your secret password;Confirmez votre mot de passe secret;Bestätigen Sie Ihr geheimes Passwort;
+PasswordConfirmed;Password confirmed;Mot de passe confirmé;Passwort bestätigt;
+PasswordsNoMatch;Passwords do not match;Les mots de passe ne correspondent pas;Passwörter stimmen nicht überein;
+SecretConfirmed;Secret password confirmed;Mot de passe secret confirmé;Geheimes Passwort bestätigt;
+SecretNoMatch;Secret passwords do not match;Les mots de passe secrets ne correspondent pas;Geheime Passwörter stimmen nicht überein;
+registrationSuccess;Registration successful for user;Inscription réussie pour l'utilisateur;Registrierung erfolgreich für Benutzer;
+UserExists;Username already exists;Le nom d'utilisateur existe déjà;Benutzername existiert bereits;
+Welcome;Welcome to OrangeShop;Bienvenue sur OrangeShop;Willkommen bei OrangeShop;
+Quality;Quality products delivered to your door.;Des produits de qualité livrés à votre porte.;Qualitätsprodukte direkt zu Ihnen geliefert;
+ShopNow;Shop Now;Acheter maintenant;Jetzt einkaufen;
+FeaturedProducts;Featured Products;Produits vedettes;Empfohlene Produkte;
+Price;Price;Prix;Preis;
+AddToCart;Add to Cart;Ajouter au panier;In den Warenkorb;
+Rights;All rights reserved.;Tous droits réservés.;Alle Rechte vorbehalten.
+RegistrationSuccess;Registration successful for user: ;Inscription réussie pour l'utilisateur : ;Registrierung erfolgreich für Benutzer;
+ContactUs;Contact Us;Contactez-nous;Kontaktieren Sie uns;
+ContactIntro;We would love to hear from you. Please fill out the form below or reach us using the contact details.;Nous serions ravis d'avoir de vos nouvelles. Remplissez le formulaire ci-dessous ou contactez-nous via nos coordonnées.;Wir würden uns freuen, von Ihnen zu hören. Bitte füllen Sie das Formular unten aus oder kontaktieren Sie uns über die angegebenen Kontaktdaten.
+OurInfo;Our Contact Information;Nos coordonnées;Unsere Kontaktinformationen
+Address;Address;Adresse;Adresse;
+Phone;Phone;Téléphone;Telefon;
+Email;Email;E-mail;E-Mail;
+YourName;Your Name;Votre nom;Ihr Name;
+YourEmail;Your Email;Votre e-mail;Ihre E-Mail;
+Message;Message;Message;Nachricht;
+Send;Send Message;Envoyer le message;Nachricht senden;
+Thanks;Thank you for contacting us! We will get back to you soon.;Merci de nous avoir contactés ! Nous vous répondrons bientôt.;Danke, dass Sie uns kontaktiert haben! Wir melden uns bald bei Ihnen;
+RegMessage;Registration successful for user: ;Enregistrement réussi pour l'utilisateur : ;Registrierung für Benutzer erfolgreich: ;
+RegPswDoNotMatch;Passwords do not match ;Les mots de passe ne correspondent pas.;Die Passwörter stimmen nicht überein. ;
+PaswConf;Password registration confirm;Confirmation de l'enregistrement du mot de passe;Passwortregistrierung bestätigen;
+SPaswConf;Secret password registration confirm;Confirmation de l'enregistrement du mot de passe secret;Registrierung mit geheimem Passwort bestätigen;
+SRegPswDoNotMatch;Secret password don't match;Le mot de passe secret ne correspond pas.;Das geheime Passwort stimmt nicht überein.;
+

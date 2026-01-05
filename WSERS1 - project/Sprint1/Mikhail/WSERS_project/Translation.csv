@@ -1,0 +1,64 @@
+Key;EnglishText;RussianText
+
+HomeBtn;Home;Дом
+ProductsBtn;Products;Продукты
+RegisterBtn;Register;Регистрация
+LoginBtn;Login;Вход
+Language1;English;Английский
+Language2;Russian;Русский
+HomeH1;Best Holiday Destinations;Лучшие места для отдыха
+RegisterH1;Registration form:;Форма регистрации:
+RegisterLabel1;Username:;Имя пользователя:
+RegisterLabel2;Email:;Электронная почта:
+RegisterLabel3;Age:;Возраст:
+RegisterLabel4;Password:;Пароль:
+RegisterLabel5;Confirm password:;Подтвердите пароль:
+RegisterLabel6;Register;Зарегистрироваться
+RegisterOut1;Fill in the form completely and try again;Заполните форму полностью и попробуйте ещё раз
+RegisterOut2;Username already used. Try again;Имя пользователя уже использованно. Попробуйте ещё раз
+RegisterOut3;Passwords do not match. Try again; Пароли не совпадают. Попробуйте ещё раз
+RegisterOut4;Success. You will be registered...;Успешно. Вы будете зарегистрированны...
+LoginH1;Login form:;Форма входа:
+LoginLabel1;Username:;Имя пользователя:
+LoginLabel2;Password:;Пароль:
+LoginLabel3;Login;Войти
+LoginOut1;Fill in the form completely and try again;Заполните форму полностью и попробуйте ещё раз
+LoginOut2;You are logged in;Вы авторизированны
+LoginOut3;Wrong username or password;Неверное имя пользователя или пароль
+BahamasFC;Bahamas;Багамы
+BahamasP;The roughly 700 islands that make up the Bahamas lure millions of visitors to this paradise's white sandy shores, duty-free shops, fishing and scuba diving excursions and luxurious accommodations each year. Nature enthusiasts can explore pristine protected areas like the Leon Levy Native Plant Preserve (on Eleuthera) and Lucayan National Park (on Grand Bahama Island) or take it easy at one of the country's many beaches or private islands. Meanwhile, history buffs can explore the ruins and artifacts from the colonial era and indigenous peoples like the Lucayan Indians.;Около 700 островов, входящих в состав Багамских островов, ежегодно привлекают миллионы туристов к белоснежным песчаным берегам этого райского уголка, магазинам беспошлинной торговли, рыбной ловле и дайвингу, а также роскошному отдыху. Любители природы могут исследовать нетронутые охраняемые территории, такие как заповедник местных растений имени Леона Леви (на Эльютере) и национальный парк Лукайян (на острове Гранд-Багама), или отдохнуть на одном из многочисленных пляжей или частных островов. Любители истории могут исследовать руины и артефакты колониальной эпохи, а также познакомиться с жизнью коренных народов, таких как индейцы лукайян.
+BahamasH1;What to do:;Чем заняться:
+BahamasLI1;Shopping;Шопинг
+BahamasLI2;Scuba Diving;Скуба Дайвинг
+BahamasLI3;Swimming;Плаванье
+BaliFC;Bali;Бали
+BaliP;History, culture and food with nature and beautiful beaches is a complete package for a perfect holiday destination. Bali is one of the most popular destinations these days amongst couples and families. Indonesia is itself an island country, therefore, the beaches here are out of the world. The beaches have a huge variety from the calm ones to the black volcanic ones in the city of Bali. Dry season of May to September is the preferred time for travellers due to low humidity.;История, культура, гастрономия, природа и прекрасные пляжи – всё это идеально подходит для отдыха. Бали – одно из самых популярных направлений среди пар и семей. Индонезия сама по себе островная страна, поэтому пляжи здесь просто неземные. Пляжи здесь самые разнообразные: от спокойных до чёрных вулканических, как в городе Бали. Сухой сезон с мая по сентябрь – лучшее время для путешественников благодаря низкой влажности.
+BaliH1;What to do:;Чем заняться:
+BaliLI1;Mountains;Горы
+BaliLI2;Food;Еда
+BaliLI3;Surfing;Сёрфинг
+FijiFC;Fiji;Фиджи
+FijiP;With its turquoise waters, glittering sands and luxe resorts, Fiji is similar to many other tropical getaways. Likewise, the set of 333 islands caters to lovebirds of all kinds. Plus, adventure-seekers, like surfers and divers, appreciate the archipelago’s quality waves and coral reefs. Since it's more than 1,300 miles from New Zealand's North Island in the South Pacific Ocean, Fiji affords you the delectable feeling of seclusion. Fijian customs will make you feel a million miles away too: Ever tasted the dizzying kava drink? If not, it's about time you did.;С бирюзовыми водами, сверкающим песком и роскошными курортами Фиджи не уступает многим другим тропическим курортам. Кроме того, 333 острова, которые идеально подходят для влюблённых всех мастей, идеально подойдут для любителей приключений. Кроме того, любители приключений, такие как сёрферы и дайверы, оценят великолепные волны и коралловые рифы архипелага. Находясь более чем в 2100 километрах от новозеландского Северного острова в южной части Тихого океана, Фиджи дарит вам восхитительное чувство уединения. Фиджийские обычаи тоже заставят вас почувствовать себя в миллионе миль от него: вы когда-нибудь пробовали головокружительный напиток кава? Если нет, то самое время попробовать.
+FijiH1;What to do:;Чем заняться:
+FijiLI1;Surfing;Сёрфинг
+FijiLI2;Swimming;Плаванье
+FijiLI3;Beaches;Пляжи
+LasVegasFC;Las Vegas;Лас Вегас
+LasVegasP;Gambling is the first word that comes to your mind after hearing the name of the beautiful city of Las Vegas. It has got something for everybody with different tastes and interests. Luxurious lifestyle, nightlife, drinks, casinos, clubs, games, spa, shopping, food and what not. The hotels in the city are just amazing, the architecture, the hospitality and the world-class facilities that they offer are something to die for. It is known as the entertainment capital of the world because of 24 hours fun-filled activities going throughout the strip for everyone.;Азартные игры – первое, что приходит на ум, когда слышишь название прекрасного города Лас-Вегас. Здесь каждый найдет себе развлечение по душе, с разными вкусами и интересами. Роскошный образ жизни, ночная жизнь, напитки, казино, клубы, игры, спа, шопинг, еда и многое другое. Отели в городе просто потрясающие, а архитектура, гостеприимство и первоклассные удобства, которые они предлагают, – это нечто особенное. Лас-Вегас называют мировой столицей развлечений благодаря круглосуточным развлечениям на любой вкус и кошелек.
+LasVegasH1;What to do:;Чем заняться:
+LasVegasLI1;Casino;Казино
+LasVegasLI2;Shopping;Шопинг
+LasVegasLI3;Night Clubs;Ночные Клубы
+RomeFC;Rome;Рим
+RomeP;The Eternal City- Rome is famous for its rich ancient culture and heritage, food, culture and the beaches. The beautiful Roman art and culture, the nicely designed museums and palaces, the story of the most important and oldest civilisations, the Romans, the majestic and fascinating architecture, the mouth-watering pizzas, pastas and cheese and premier wines, Gelato- the Italian style ice-cream, the artistic streets, the fashion fiesta and the favourable season throughout the year makes it one of the best and most loved tourist destinations all across the world.;Вечный город – Рим славится богатой древней культурой и наследием, кухней, культурой и пляжами. Прекрасное римское искусство и культура, изысканные музеи и дворцы, история древнейших цивилизаций, римлян, величественная и завораживающая архитектура, аппетитные пиццы, пасты, сыры, первоклассные вина, джелато – итальянское мороженое, художественные улицы, фестивали моды и благоприятная погода в течение всего года делают его одним из лучших и самых популярных туристических направлений во всем мире.
+RomeH1;What to do:;Чем заняться:
+RomeLI1;Museums;Музеи
+RomeLI2;Architecture;Архитектура
+RomeLI3;Food;Еда
+TurksCaicosFC;Turks & Caicos;Теркс и Кайкос
+TurksCaicosP;The Turks & Caicos Islands have the perfect antidote for your hectic lifestyle: blindingly white sand fringed by shimmering azure water, colorful coral reefs, crispy conch fritters and an easygoing vibe – despite its knack for attracting the rich and famous to its shores. Turks & Caicos holds tight to its reputation as an exclusive and secluded getaway, and regular vacationers to these skinny strips of alabaster sand will tell you that they wouldn't have it any other way.;Острова Теркс и Кайкос — идеальное противоядие от вашего суматошного образа жизни: ослепительно белый песок, окаймлённый мерцающей лазурной водой, красочные коралловые рифы, хрустящие оладьи из раковин и непринуждённая атмосфера — несмотря на то, что они привлекают к своим берегам богатых и знаменитых. Теркс и Кайкос твёрдо держатся за свою репутацию эксклюзивного и уединённого места отдыха, и те, кто регулярно отдыхает на этих узких полосках алебастрового песка, скажут вам, что иного бы и представить себе не могли.
+TurksCaicosH1;What to do:;Чем заняться:
+TurksCaicosLI1;Museums;Музеи
+TurksCaicosLI2;Reefs;Рифы
+TurksCaicosLI3;Sunbathing;Солнечные Ванны
+Footer;Dvoinishnikov Mikhail 2TPIFI1 WSERS;Двойнишников Михаил 2TPIFI1 WSERS
