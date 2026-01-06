@@ -5,6 +5,12 @@ function start() {
         // we need to start an AJAX request:
         $.get("LoadPeople.php", { cityName: $("#cityNameFilter").val() }, callbackFromServer);
     });
+
+    let counter = 0;
+    setInterval(function () {
+        console.log("Another second passed " + counter);
+        counter++;
+    }, 1000);
 }
 
 function callbackFromServer(responseFromServer) {
