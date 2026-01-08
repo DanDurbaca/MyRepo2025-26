@@ -1,0 +1,69 @@
+Key;EnglishText;PortugueseText
+HomeBtn;Home;Início
+Country1Btn;"Country #1";"País #1"
+Country2Btn;"Country #2";"País #2"
+RegisterBtn;Register;Registrar
+LoginBtn;Login;"Iniciar sessão"
+LogoutBtn;Logout;Sair
+AdminBtn;Admin;Administrador
+HomeText;"Welcome! In this website, you can find information about two countries and some of their highly visited places. Indulge yourself in the wonders of these countries. Refer to the navigation bar to learn more.";"Bem-vindo! Neste site, você encontrará informações sobre dois países e alguns de seus lugares mais visitados. Maravilhe-se com as maravilhas desses países. Consulte a barra de navegação para saber mais."
+Italy;Italy;Itália
+Thailand;Thailand;Tailândia
+RomeTitle;Rome;Roma
+RomeHeader;Rome;Roma
+RomeLink;https://en.wikipedia.org/wiki/Rome;https://pt.wikipedia.org/wiki/Roma
+RomeDescription;"The capital of Italy, known for ancient history and remarkable archaeological sites.";"A capital da Itália, famosa pela história antiga e seus sítios arqueológicos."
+Recommendations;"Some recommended places to visit include:";"Alguns locais recomendados para visitar incluem:"
+Colosseum;Colosseum;Coliseu
+Pantheon;Pantheon;Panteão
+Museums;"Vatican museums";"Museus Vaticanos"
+MilanTitle;Milan;Milão
+MilanHeader;Milan;Milão
+MilanLink;https://en.wikipedia.org/wiki/Milan;https://pt.wikipedia.org/wiki/Milão
+MilanDescription;"The most luxurious and expensive place in Italy.";"O lugar mais luxuoso e caro da Itália."
+Cathedral;"Cathedral of Milan";"Catedral de Milão"
+TourGuide;"Tour guide of Da Vinci's ""The Last Supper""";"Guia turístico da obra ""A Última Ceia"" de Da Vinci"
+Navigali;"Navigali boat trip";"Passeio de barco Navigali"
+SicilyTitle;Sicily;Sicília
+SicilyHeader;Sicily;Sicília
+SicilyLink;https://en.wikipedia.org/wiki/Sicily;https://pt.wikipedia.org/wiki/Sicília
+SicilyDescription;"Italy's biggest peninsula, famous for its beaches, wine, and mafia history.";"A maior península da Itália, famosa pelas suas praias, vinhos, e história da máfia."
+Palermo;"Cathedral of Palermo";"Catedral de Palermo"
+Taormina;"Ancient Theatre of Taormina";"Teatro Antigo de Taormina"
+RoyalPalace;"Royal Palace of Palermo";"Palácio Real de Palermo"
+BangkokLink;https://en.wikipedia.org/wiki/Bangkok;https://pt.wikipedia.org/wiki/Bangkok
+BangkokDescription;"The capital of Thailand, known for its vibrant culture, street food, and temples.";"A capital da Tailândia, conhecida pela sua cultura vibrante, comida de rua e templos."
+GrandPalace;"Grand Palace";"Grande Palácio"
+GiantSwing;"The Giant Swing";"o Balanço Gigante"
+WatArun;"Wat Arun";"Wat Arun"
+KhonKaenHeader;"Khon Kaen";"Khon Kaen"
+KhonKaenLink;https://en.wikipedia.org/wiki/Khon_Kaen;https://pt.wikipedia.org/wiki/Khon_Kaen
+KhonKaenDescription;"Known for high-quality silk and local markets.";"Famosa pela seda de alta qualidade e mercados locais."
+NationalMuseum;"Khon Kaen National Museum";"Museu Nacional Khon Kaen"
+PhraNakhon;"Phra Mahathat Kaen Nakhon";"Phra Mahathat Kaen Nakhon"
+TonTann;"Ton Tann Market";"Mercado Ton Tann"
+KoPhiPhiHeader;"Ko Phi Phi";"Ko Phi Phi"
+KoPhiPhiLink;https://en.wikipedia.org/wiki/Ko_Phi_Phi;https://pt.wikipedia.org/wiki/Ko_Phi_Phi
+KoPhiPhiDescription;"Beautiful islands with limestone cliffs and turquoise waters.";"Ilhas bonitas com falésias de calcário e águas turquesa."
+MayaBay;"Maya Bay";"Baía da Maia"
+VikingCave;"Viking Cave";"Gruta Viking"
+TonsaiBay;"Tonsai Bay";"Baía de Tonsai"
+LoginH1;"Login to your account";"Faça login no sua conta"
+LoginLabel1;Username;"Nome de usuário"
+LoginLabel2;Password;Senha
+LoginLabel3;Login;Entrar
+LoginOut1;"Please fill in all fields.";"Por favor, preencha todos os campos."
+LoginOut2;"Login successful!";"Login realizado com sucesso!"
+LoginOut3;"Incorrect username or password.";"Nome de usuário ou senha incorretos."
+RegisterH1;"Registration form";"Formulário de registro"
+RegisterUsername;Username;"Nome de usuário"
+RegisterPassword;Password;Senha
+RegisterPasswordAgain;"Repeat Password";"Repita a senha"
+RegisterSubmit;Register;Registrar
+RegisterSuccess;"Registration successful!";"Registro realizado com sucesso!"
+RegisterFailMatch;"Passwords do not match.";"As senhas não coincidem."
+RegisterFailExists;"User already exists.";"Usuário já existe."
+RegisterFailEmpty;"Please fill all fields.";"Por favor, preencha todos os campos."
+LoggedInAs;"Logged in as";"Conectado como"
+City_Porto;Porto;Porto
+Place_Something;Something;Something
