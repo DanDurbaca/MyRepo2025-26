@@ -1,47 +1,46 @@
 $(start);
-
 let currentUser = null;
-let lastSeenMessageId = 0;
+let lastMessageSeenId = 0;
 
 function start() {
-    let userName = $("<input>");
-    userName.attr("placeholder", "Please pick a username");
-    $("body").append(userName);
-
-    let btnLogin = $("<button>");
-    btnLogin.html("Login");
-    $("body").append(btnLogin);
-    btnLogin.on("click", function () {
-        currentUser = userName.val();
-        startChat();
-    });
-}
-
-function startChat() {
-    $("body").html("");
-    let messageBoard = $("<div>");
-    messageBoard.attr("class", "myMessages");
-    $("body").append(messageBoard);
-    messageBoard.attr("id", "messages");
-    let welcomeDiv = $("<div>");
-    welcomeDiv.html("Welcome to the webchat " + currentUser + ". Please type a message and click send:");
-    $("body").append(welcomeDiv);
-
-    let message = $("<input>");
-    message.attr("placeholder", "Your message");
-    $("body").append(message);
-    let btnSendMessage = $("<button>");
-    btnSendMessage.html("Send");
-    btnSendMessage.on("click", function () {
-        $.post("server.php", { userName: currentUser, message: message.val() });
-        message.val("");
-    });
-    $("body").append(btnSendMessage);
-    setInterval(function () {
-        $.get("server.php", { lastMessageSeen: lastSeenMessageId }, function (replyFromServer) {
-            messageBoard.append(replyFromServer);
-            lastSeenMessageId = Number($("#messages div:last-of-type .MsgId").html());
-            //console.log($("#messages div:last-of-type .MsgId").html());
+    let userNameInput = $("<input>");
+    userNameInput.attr("placeholder", "Please type your username:");
+    $("body").append(userNameInput);
+    let btnStartChat = $("<button>");
+    btnStartChat.html("Start chat");
+    $("body").append(btnStartChat);
+    btnStartChat.on("click", function () {
+        $("body").html("");
+        currentUser = userNameInput.val();
+        $.post("ServerAPI.php", { UserName: currentUser }, function (dataBack) {
+            // nothing to do when the server replies !!
+            console.log(dataBack);
         });
-    }, 2000);
+        let messagesDiv = $("<div>");
+        messagesDiv.attr("class", "myMessages");
+        $("body").append(messagesDiv);
+        let newMessageInput = $("<input>");
+        newMessageInput.attr("placeholder", "new message");
+        $("body").append(newMessageInput);
+        let sendMessgeBtn = $("<button>");
+        sendMessgeBtn.html("Send");
+        $("body").append(sendMessgeBtn);
+        sendMessgeBtn.on("click", function () {
+            let messageToSend = newMessageInput.val();
+            newMessageInput.val("");
+            $.post("serverAPI.php", { user: currentUser, message: messageToSend }, function (dataBack) {
+                // callback from the server:
+                console.log(dataBack);
+            });
+        });
+        setInterval(function () {
+            $.get("serverAPI.php", { lastSeenMessage: lastMessageSeenId }, function (databaBack) {
+                messagesDiv.append(databaBack);
+                let lastMessagediv = $(".myMessages div:last-child span");
+                lastMessageSeenId = Number(lastMessagediv.html());
+                console.log(lastMessageSeenId);
+            });
+            // we need to CHANGE the lastMessageSeenId
+        }, 2000);
+    });
 }
