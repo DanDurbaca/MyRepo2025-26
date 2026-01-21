@@ -2,3 +2,5 @@ Username;Email;Password;Secret password;Admin
 Dude;dude@dude.com;$2y$10$uZGcErlHfhHAtxzh/SIQVuw9pBLFw9t92LH6cMMoZgR6P2SSv.oYy;$2y$10$v6YlpM6RavWP11gRSrB7veCSTGYckC/42gv170zDpOxuGxXZaB8QS;1
 toto;toto2@gmail.com;$2y$10$VvjgPClEgSwjo89WmvanpelOwU0cLmfaDVhZu6qW8o55XWXdXxiRC;$2y$10$CAzeT38a/ngMUSh83r1ocOmYKEjXSWsT.y9ZHsE.czR2x14P4Ctfe;0
 lolo;lolo@gmail.com;$2y$10$jdzUXrlRVvTYl22BoORqfewYpRlXRT/hbozAzmxlFtPh6y.sRHNui;$2y$10$..D.CuFCil8XZbrOePNyjOl81XFleEK1OoEGqTA7dC1MWgc0oLIvy;regular client
+Test;dd@dd.com;$2y$10$.GcdpHHptwbhrHAkzZwWH./J6IHqpbtk2bWJCTnuqnA0G8TWuIn5m;$2y$10$acHEqaw5LgE/ImSc7Fx03uST76xqyAl2C0ROUDLy0vbPkIseO9.3.;regular client
+TestAdmin;dd@dd.com;$2y$10$J.ye7iGGevi59aYzcwlxku63kdzXFVDSknLnw9KNYsVboa63FWgRm;$2y$10$wiEbnwXlKNsmkZhSme/fpeIJNoC/k8p41gpo2aSeSk7HXTmRRAK8K;1

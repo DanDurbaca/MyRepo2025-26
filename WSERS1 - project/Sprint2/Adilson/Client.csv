@@ -1,0 +1,5 @@
+Username;Password;Email;Date of birth;Admin
+admin;$2y$10$aswhQ8Yhp4qnRxSxaFSxwei/Xfg5zvMwZ4K.04jwwz25gosRXiBz6;adilson.cruz200733404@gmail.com;2007-05-15;yes
+customer111;$2y$10$Ct2XsmocasWp8Ee0qHA4MelhEeAwvd.LbN4U9SJSmcspv4cysoeTu;DiaAd524@school.lu;2025-12-26;no
+Test;$2y$10$I.wz10/F3KcnKrtrAYLu6OKT6iYuGCPAKkmmnKmuIimis.kOahCzy;dd@dd.com;1979-02-21;no
+TestAdmin;$2y$10$17o3QgVjcEcFZOAPBc48Wen10GvHT0ny6OWy8xG0CJrY.KxIzTa9q;dd@dd.com;1979-02-21;yes

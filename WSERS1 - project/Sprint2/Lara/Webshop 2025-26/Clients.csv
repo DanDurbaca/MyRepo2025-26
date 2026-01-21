@@ -1,3 +1,5 @@
 username;displayname;email;password;usertype
 bib;bib;bib@gmail.com;$2y$10$ngp3A7AySsBFgdtZtdnLEeNkr4nUXB4s0yPEsyDkiiNe5qLR7USiu;regular
 larissa;issa;issa@gmail.com;$2y$10$iENtggjXpIB7wy/4OHsqueb.zQJlaO26nq7oWdJOy0w8ZbGJMhAlm;Admin
+Test;Dude;dd@dd.com;$2y$10$QD1cjqiCFbfBN3lHL83v8uNPU6bAxHz5lnIxti1y3nlHyKTNUZ4s.;regular
+TestAdmin;Daaaaan;dd@dd.com;$2y$10$AH5cWS5MIIGugJdKiYTP0O.fSK7UW/JbnxNKR4V6WgNiCPT37oMd.;Admin

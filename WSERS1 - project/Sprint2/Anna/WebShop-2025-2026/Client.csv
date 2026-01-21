@@ -3,3 +3,5 @@ Username, Password, Admin
 123;123
 Admin;$2y$10$dJMyu5MDp8tg5XeC6cUqOeSvFkyOQgsZdGCKr6PwuF5tCt/7g6TyC;yes
 uwu;$2y$10$E1p.qJTeSYehDa20TQ3WtenfukIu6YkCs8c6VfElN6IFVBS5udO4C;no
+Test;$2y$10$ueO93UX3WUNtefnYTSWKqOSFFI5EF0ZdjmaIp6L9/.vikp/R7N9d.;no
+TestAdmin;$2y$10$4QgBlpsG62E8BNpIjqC0IuSVj9Tc5O1alsIsQdtLGqxxT5aY9XI.K;yes
