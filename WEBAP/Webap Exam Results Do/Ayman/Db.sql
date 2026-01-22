@@ -13,7 +13,7 @@ create table Orders(
     itemId int not null,
     quantity int not null
 );
-insert into items(itemName,stock) VALUES("Pears",2);
+insert into items(itemName,stock) VALUES("Apples",2);
 insert into items(itemName,stock) VALUES("Cereals",20);
 insert into items(itemName,stock) VALUES("Cars",21);
 insert into items(itemName,stock) VALUES("Boardgames",11);
