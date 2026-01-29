@@ -33,7 +33,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 if (isset($_POST["itemId"], $_POST["stock"])) {
-    
+
     $itemId = (int) $_POST["itemId"];
     $stock = (int) $_POST["stock"];
 
@@ -76,6 +76,4 @@ if (isset($_POST["itemId"], $_POST["stock"])) {
 
     echo "Order placed successfully";
     exit;
-
-
 }

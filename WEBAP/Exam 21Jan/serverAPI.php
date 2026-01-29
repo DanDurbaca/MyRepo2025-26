@@ -79,6 +79,7 @@ if (isset($_POST["orderItem"], $_POST["orderQty"])) {
         print("This item does not exist");
     } else {
         $row = $result->fetch_assoc();
+
         if ($row["stock"] < $_POST["orderQty"])
             print("Out of stock");
         else {
