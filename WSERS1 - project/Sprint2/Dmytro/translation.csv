@@ -1,0 +1,43 @@
+Key;English;Ukrainian
+HomeBtn;home;головна
+ProductBtn;mentors;ментори
+ContactBtn;contact;зв'язатися
+RegisterBtn;register;зареєструватися
+LoginBtn;login;увійти
+LogoutBtn;Log out;Вихід
+Mentor;Choose Your Mentor;Вибери наставника
+WelcomeSlogan1;Here you don't buy things. You buy development.;Тут не продають речі. Тут купують розвиток.
+WelcomeQuestion;Who are you today?;Хто ти сьогодні?
+WelcomeChoose;Choose a mentor for your path.;Обери наставника під свій шлях.
+WelcomeFocus;Strength, style, code, discipline, rhythm — what do you want to train?;Сила, стиль, код, дисципліна, ритм — що ти хочеш прокачати?
+WelcomeStartBtn;Go to mentors;Перейти до наставників
+WelcomeNoTomorrow;There is no "I'll start tomorrow";Немає «почну завтра»
+WelcomeChange;You either change yourself today — or you stay in place.;Ти або змінюєш себе сьогодні — або стоїш на місці.
+Contact;Contact us;Зв’яжіться з нами
+UnameCnt;Your username;Ваш логін
+EmailCnt;Your email;Ваша електронна адреса
+Msg;Message;Повідомлення
+SendCnt;Send message;Надіслати повідомлення
+Key;English;Ukrainian
+RegForm;Registration form;Форма реєстрації
+UnameReg;Username;Ім’я користувача
+NameReg;Name;Ім’я
+EmailReg;Email;Електронна пошта
+Password;Password;Пароль
+PasswordConf;Password confirmation;Підтвердження пароля
+SendReg;Send;Надіслати
+LoginLogin;Login;Вхід
+UnameEmail;Username or email;Ім’я користувача або електронна адреса
+PasswordLogin;Password;Пароль
+RegTaken;Username is already taken;Ім’я користувача вже зайняте
+RegPassNotConf;Password is not confirmed;Пароль не підтверджено
+RegSuccess;Registration has been successfully completed;Реєстрацію успішно завершено
+LoginSuccess;Login has been successfully completed;Вхід успішно виконано
+LoginError;Username/email or password do not match.;Ім’я користувача/електронна адреса або пароль не збігаються
+MentorsH1;Mentors;Ментори
+addPdctH;Add a new mentor;Додати нового ментора
+addPBtn;Add;Додати
+pnameENInput;Enter the name;Ведіть ім'я
+priceInput;Enter the price;Ведіть ціну
+descENInput;Enter the description;Ведіть опис
+imgInput;Attach image;Прикрипіть зображення

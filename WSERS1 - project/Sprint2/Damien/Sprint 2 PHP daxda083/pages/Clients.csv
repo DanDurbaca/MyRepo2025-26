@@ -1,3 +1,5 @@
 username;password;email;phone;usertype
 Cool_guy;$2y$10$e/NbG71yQwYx6fRaXht43Ol7kojKgzazPf.cO5j9dJxRWyfOHkfoO;cool@gmail.com;66345345;user
 daxda083;$2y$10$IWi10sfIESe8DrF5JC5oMui2CDjlm5o.Vl5K1IAqTM1g6Dd9oB.Ke;123@123.com;6767676767;admin
+Test;$2y$10$45RKYZ.XnQk0MwZfwtE3qeXWR8CAVWR9pgzQsv0RYEfd5cPNgcqsa;dd@dd.com;333333;regular
+TestAdmin;$2y$10$o25n5NFipE6ufRn4spms8.SsYoRLlDVDVXNPdVstzXsoxi3WZYFNK;dd@dd.com;333333;admin

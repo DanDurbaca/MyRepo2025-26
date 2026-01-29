@@ -1,0 +1,200 @@
+body {
+    background: url('img/background.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.navBar {
+    background-color: rgba(30, 90, 200, 0.85);
+    /* semi-transparent blue */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 10px;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 6px 16px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.active {
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    background: #174080;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 6px 16px;
+}
+
+.navLink:hover {
+    background: #3a7bd5;
+    color: #fff;
+}
+
+.navBarRight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cartIcon {
+    text-decoration: none;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.cartIcon:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+}
+
+.cartIcon.active {
+    background: #174080;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.divStyle {
+    text-align: center;
+    width: 180px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divStyle:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.divStyle img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.divStyle:hover img {
+    transform: scale(1.05);
+}
+
+.productNameDivStyle {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allDivs {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.colorWite {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.allDivs > .divStyle > div:last-child {
+    color: #e0e0e0;
+    font-size: 13px;
+    margin-top: 8px;
+    min-height: 35px;
+    line-height: 1.4;
+}
+
+.addToCartBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.addToCartBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.addToCartBtn:active {
+    transform: scale(0.98);
+}
+
+.cartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.emptyCartMessage {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 500px;
+}
+
+.emptyCartMessage p {
+    color: #e0e0e0;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.continueShopping {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.continueShopping:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
