@@ -1,0 +1,76 @@
+<?php
+$file = fopen("Client.csv", "r");
+if (file_exists("test.csv")) {
+    if (($handle = fopen("test.csv", "r")) !== false) {
+        while (($data = fgetcsv($handle)) !== false) {   
+        }
+        fclose($handle);
+    }
+}
+?>
+<!doctype html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        <style>
+            .blue {
+                background-color: lightblue;
+            }
+
+            .red {
+                background-color: lightpink;
+            }
+        </style>
+     
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">DURBACA Dan</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">12591000.0000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:_ExtendedDescription msdt:dt="string"></mso:_ExtendedDescription>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">DURBACA Dan</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:TriggerFlowInfo msdt:dt="string"></mso:TriggerFlowInfo>
+<mso:ContentTypeId msdt:dt="string">0x01010011B4E716D0B6E84C8B474E637401A33D</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+    <body>
+        <h2>Task 1:</h2>
+
+            <form>
+                <select name="numLines" onchange="this.form.submit()">
+                    <option value="0" <?php if ($value == "0") print "selected"; ?>>Show line 0</option>
+                    <option value="1" <?php if ($value == "1") print "selected"; ?>>Show line 1</option>
+                    <option value="2" <?php if ($value == "2") print "selected"; ?>>Show line 2</option>
+                    <option value="3" <?php if ($value == "3") print "selected"; ?>>Show line 3</option>
+                </select>
+                <input type="submit" value="Display" />
+            </form>
+
+        <br />The number of unique values on line 2 is 5<br />The least frequent value on this line is x<br />The most frequent value on this line is w 
+        <br /><br />
+        <table>
+            <tr>
+                <td class="blue">x...1</td>
+
+                <td>y...2</td>
+
+                <td>z...2</td>
+
+                <td class="blue">t...1</td>
+
+                <td class="red">w...5</td>
+            </tr>
+        </table>
+
+        <h2>Task 2:</h2>
+        <form>
+            <input type="submit" name="showAll" value="Show statistics for all lines" />
+        </form>
+    </body>
+</html>
