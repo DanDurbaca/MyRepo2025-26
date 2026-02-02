@@ -14,6 +14,6 @@ create table Orders(
     quantity int not null
 );
 insert into items(itemName,stock) VALUES("Apples",2);
-insert into items(itemName,stock) VALUES("Bananas",20);
-insert into items(itemName,stock) VALUES("Peaches",21);
-insert into items(itemName,stock) VALUES("TestItem",11);
+insert into items(itemName,stock) VALUES("Cereals",20);
+insert into items(itemName,stock) VALUES("Cars",21);
+insert into items(itemName,stock) VALUES("Boardgames",11);
