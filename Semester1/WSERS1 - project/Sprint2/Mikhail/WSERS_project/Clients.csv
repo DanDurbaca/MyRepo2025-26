@@ -1,0 +1,5 @@
+Username;Password;Email;Age;UserType
+
+
+Test;$2y$10$CU4PCqXrZ7oAAFzO267i/.LaeWak2SBvHIk5lZSHTDehIVa0gDpKO;dd@dd.com;22;customer
+TestAdmin;$2y$10$nlU9S07vES075gmN5ZMfm.IIj/zTG4aTwOjk56t50QrYG/HVXt4Ym;dd@dd.com;22;admin
