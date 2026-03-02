@@ -1,0 +1,65 @@
+.typing-cursor::after {
+  content: "|";
+  display: inline-block;
+  color: #fff;
+  margin-left: 0.01em;
+  animation: blink 0.7s infinite;
+}
+
+#page-content {
+  height: 100vh;
+  background: url("../images/home-page/home-page.webp") no-repeat center;
+  background-size: 120em 65em;
+}
+
+#glass {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#main-title {
+  font-size: 3em;
+  color: #fff;
+  padding: 0.1em 0;
+}
+
+#highlighted-text-1 {
+  color: #ff0000;
+  background: #333;
+  padding: 0.05em;
+  border-radius: 0.15em;
+}
+
+#highlighted-text-2 {
+  color: #000;
+  background: #900000;
+  padding: 0.05em;
+  border-radius: 0.15em;
+}
+
+#page-description {
+  margin: 2em 0 7em 0;
+}
+
+#page-description p {
+  font-size: 1.6em;
+  color: #fff;
+  opacity: 0;
+  animation: fadeIn 7s forwards;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
