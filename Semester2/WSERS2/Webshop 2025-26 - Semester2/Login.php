@@ -19,25 +19,25 @@
 
     if (isset($_POST["Username"], $_POST["psw"])) {
         $bShowForm = false;
-        $file = fopen("Clients.csv", "r");
-        while (!feof($file)) {
-            $line = fgets($file);
-            $line_exploded = explode(";", $line);
 
-            $userNameInFile = trim($line_exploded[0]);
-            $pswInFile = str_replace("\n", "", $line_exploded[1]);
+        $sqlFindUser = $connection->prepare("SELECT * from users where username=?");
+        $sqlFindUser->bind_param("s", $_POST["Username"]);
+        $sqlFindUser->execute(); // pray that this works
 
-            if ($_POST["Username"] == $userNameInFile) {
-                print("UserName found .. checking password");
-                if ($_POST["psw"] == $pswInFile) {
-                    //print("You are logged in!");
-                    $_SESSION["UserLogged"] = true;
-                    $_SESSION["Username"] = $userNameInFile;
-                    // force page refresh.... + redirect to home
-                    header("Refresh:0; url=Home.php");
-                } else {
-                    print("Passwords do not match.. .please try again");
-                }
+        $sqlResult = $sqlFindUser->get_result();
+        // there can be either 0 or 1 result in the sql result
+        if ($sqlResult->num_rows == 0) {
+            print("Username not found");
+        } else {
+            $row = $sqlResult->fetch_assoc();
+            if (password_verify($_POST["psw"], $row["password"])) {
+                //print("You are logged in!");
+                $_SESSION["UserLogged"] = true;
+                $_SESSION["Username"] = $row["username"];
+                // force page refresh.... + redirect to home
+                header("Refresh:0; url=Home.php");
+            } else {
+                print("Passwords do not match.. .please try again");
             }
         }
     }
