@@ -13,7 +13,7 @@ if (isset($_POST["itemToBuy"], $_POST["quantityToBuy"])) {
     $item = $_POST["itemToBuy"];
     if (isset($_SESSION["Cart"][$item])) {
         // we have already ordered an item with this id
-        $_SESSION["Cart"][$item] = $_SESSION["Cart"][$item] + $_POST["quantityToBuy"];
+        $_SESSION["Cart"][$item] = (int)$_SESSION["Cart"][$item] + (int)$_POST["quantityToBuy"];
     } else {
         $_SESSION["Cart"][$item] =  $_POST["quantityToBuy"];
     }
