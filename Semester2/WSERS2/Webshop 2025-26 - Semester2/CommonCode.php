@@ -2,6 +2,24 @@
 
 session_start();
 $connection = new mysqli("localhost", "root", "", "myShop2026");
+if (isset($_SESSION["Cart"])) {
+    // I have an already existing cart
+    // nothing to do here
+} else {
+    $_SESSION["Cart"] = [];
+}
+
+if (isset($_POST["itemToBuy"], $_POST["quantityToBuy"])) {
+    $item = $_POST["itemToBuy"];
+    if (isset($_SESSION["Cart"][$item])) {
+        // we have already ordered an item with this id
+        $_SESSION["Cart"][$item] = $_SESSION["Cart"][$item] + $_POST["quantityToBuy"];
+    } else {
+        $_SESSION["Cart"][$item] =  $_POST["quantityToBuy"];
+    }
+}
+
+
 
 if (isset($_POST["Logout"])) {
     session_unset();
@@ -81,6 +99,7 @@ function NavigationBar($callingPage)
         }
 
         ?>
+        <a href="ShopCartContents.php"><img width="50px" src="images/ShopCart.webp"></a>
         <form>
             <select name="lang" onchange="this.form.submit()">
                 <option value="EN" <?php if ($language == "EN") print "selected"; ?>>English</option>
