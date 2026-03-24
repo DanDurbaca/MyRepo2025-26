@@ -64,6 +64,13 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
+create table Messages(
+    id INT primary key AUTO_INCREMENT,
+    messageText varchar(255),
+    username varchar(100) not null,
+    FOREIGN KEY (username) REFERENCES users (username)
+);
+
 -- Insert all user rows
 INSERT INTO users (username, password) VALUES
     ('Toto', '111'),

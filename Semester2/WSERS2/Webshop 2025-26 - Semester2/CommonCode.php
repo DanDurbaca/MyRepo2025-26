@@ -89,6 +89,8 @@ function NavigationBar($callingPage)
         } else {
             print("Welcome " . $_SESSION["Username"]);
         ?>
+            <a <?= ($callingPage == "Forum") ? "class='highlight'" : ""; ?>
+                href="Forum.php"> Forum </a>
 
             <form method="POST">
                 <input type="submit" value="LOGOUT" name="Logout">
