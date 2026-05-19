@@ -64,6 +64,20 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
+create table Orders (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    username varchar(100) not null,
+    FOREIGN KEY (username) REFERENCES users (username)
+);
+
+create table BoughtItems (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    orderId integer not null,
+    productId integer not null,
+    quantity integer not null,
+    FOREIGN KEY (orderId) REFERENCES Orders (id),
+    FOREIGN KEY (productId) REFERENCES products (id)
+);
 create table Messages(
     id INT primary key AUTO_INCREMENT,
     messageText varchar(255),

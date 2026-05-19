@@ -1,0 +1,62 @@
+Key;EnglishText;GermanText
+
+HomeBtn;Home;Startseite
+ProductBtn;Product;Produkte
+AboutUSBtn;About us;Über uns
+ContactBtn;Contact;Kontakt
+RegistrationBtn;Registration;Registrieren
+LoginBtn;Login;Anmelden
+WagenBtn;Cart;Warenkorb
+
+WelcomeText1;🎁 Welcome to the CS:GO Case Shop!;🎁 Willkommen im CS:GO Case Shop!
+WelcomeText2;Enter the ultimate marketplace for CS:GO cases! At our shop, you’ll find a wide selection of cases featuring exclusive weapon skins and rare collectibles.<br>Whether you’re chasing legendary knives, vibrant rifles, or unique pistols, every case is a chance to unlock something extraordinary.<br><br>Browse our collection, imagine the possibilities, and take your inventory to the next level. You never know what rare drop awaits you!<br>Let the opening begin.;Tauche ein in den ultimativen Marktplatz für CS:GO Cases! In unserem Shop findest du eine große Auswahl an Cases mit exklusiven Waffenskins und seltenen Sammlerstücken.<br>Ob du legendäre Messer, auffällige Gewehre oder einzigartige Pistolen jagst – jede Kiste ist eine Chance, etwas Außergewöhnliches zu erhalten.<br><br>Stöbere durch unsere Kollektion, träume von den Möglichkeiten und bringe dein Inventar auf das nächste Level. Du weißt nie, welcher seltene Drop auf dich wartet!<br>Lass das Öffnen beginnen.
+
+WelcomeTextProducts;Our Products;Unsere Produkte
+WelcomeTextProducts2;Add to Cart;In den Warenkorb
+
+WelcomeTextaboutus;About us;Über uns
+WelcomeTextaboutus2;🎉 Our shop is young and passionate, driven by the excitement of CS:GO and the thrill of opening cases.;🎉 Unser Shop ist jung und leidenschaftlich, angetrieben von der Begeisterung für CS:GO und dem Nervenkitzel des Case-Openings.
+WelcomeTextaboutus3;📦 We specialize in CS:GO cases carefully selected collections filled with exclusive skins and rare items that players love to unlock.;📦 Unsere Spezialität sind CS:GO Cases sorgfältig ausgewählte Kollektionen voller exklusiver Skins und seltener Items, die Spieler gerne freischalten.
+WelcomeTextaboutus4;😊 The tone is energetic and fun, highlighting the excitement, playfulness, and emotional rush of discovering rare drops inside each case.;😊 Der Ton ist energiegeladen und spielerisch und betont die Aufregung, Verspieltheit und den emotionalen Kick beim Entdecken seltener Drops in jeder Kiste.
+
+WelcomeTextContact;Contact Us;Kontaktieren Sie uns
+WelcomeTextContact2;Do you have any questions? Send us a message!;Haben Sie Fragen? Senden Sie uns eine Nachricht!
+WelcomeTextContact3;Name:;Name:
+WelcomeTextContact4;Email.;Email
+WelcomeTextContact5;Message:;Nachricht:
+WelcomeTextContact6;Send;Senden
+WelcomeTextContact7;Thanks for you message;Danke für deine Nachricht.
+WelcomeTextContact8;we will aswer the message soon;Wir werden die Nachricht bald beantworten.
+
+WelcomeTextRegistor;Registrate now!;Jetzt registrieren!
+WelcomeTextRegistor2;Registration in process<br>;Registrierung läuft<br>
+WelcomeTextRegistor3;Password match. You will be registered ...; Passwort übereinstimmt. Sie werden registriert ...
+WelcomeTextRegistor4;Error. The two passwords do not match or the user already exists. Please try again!;Fehler. Die beiden Passwörter stimmen nicht überein oder der Benutzer existiert bereits. Bitte versuchen Sie es erneut!
+WelcomeTextRegistor5;Pick a <b>username:</b>;Wählen Sie einen <b>Benutzernamen:</b>
+WelcomeTextRegistor6;Pick your <b>Mail:</b>;Wählen Sie ihre <b>E-Mail:</b>
+WelcomeTextRegistor7;Pick a <b>password:</b>;Wählen Sie ein <b>Passwort:</b>
+WelcomeTextRegistor8;Pick your <b>country:</b>;Wählen Sie ihr <b>Land:</b>
+WelcomeTextRegistor9;Registrate;Registrieren
+
+WelcomeTextLogin;Login now!;Jetzt einloggen!
+WelcomeTextLogin2;✅ Login successful! Welcome back,;✅ Login erfolgreich! Willkommen zurück,
+WelcomeTextLogin3;❌ Error: Username or password incorrect, or account does not exist.;❌ Fehler: Benutzername oder Passwort falsch, oder Account existiert nicht.
+WelcomeTextLogin4;Username;Benutzername
+WelcomeTextLogin5;Password;Passwort
+WelcomeTextLogin6;Login;Einloggen
+
+WelcomeTextCart;➡️ Click on this text ⬅️;➡️ Drücken sie auf diesen Text ⬅️
+
+Admin;Admin;Admin
+Admin1;Access denied. Admins only.;Zugriff verweigert. Nur für Administratoren.
+Admin2;You will be redirected...;Sie werden weitergeleitet...
+Admin3;Product successfully created!;Produkt erfolgreich erstellt!
+Admin4;Image upload failed.;Das Hochladen des Bildes ist fehlgeschlagen.
+Admin5;Create New Product;Neues Produkt erstellen
+Admin6;Product Name (EN):;Produktname (EN):
+Admin7;Product Name (GE):;Produktname (GE):
+Admin8;Product Image:;Produktbild:
+Admin9;Price:;Preis
+Admin10;Description (EN):;Beschreibung (EN):
+Admin11;Description (GE):;Beschreibung (GE):
+Admin12;Create Product;Produkt erstellen

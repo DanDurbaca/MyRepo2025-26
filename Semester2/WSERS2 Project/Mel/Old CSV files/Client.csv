@@ -1,0 +1,7 @@
+Username;Password;email;country;Role
+
+Dude;$2y$10$oLGmqO1LjPXAcM6v/cE8fuvqv8i0iy/VYmUo9cgKQoGydyb/sN1Ly;dude@dude;Ro;user
+Mel;$2y$10$C5LYvrPEdHyMZz515QKNLewKGxglwmpa2KbJCVcQFll0uUSUUHvTe;a@a;lu;admin
+mimi;$2y$10$yHznpONkLRDPDcaizVOkp.t3g4Lx1MIwCn4z4Cid0U5C3JEntlDPa;mimi@mimi;123;user
+123;$2y$10$Xd8YgfWW4QMtxozPfmugU.DKJwvY7TopHejafuriSUKX1mPVDYXLO;edwd@sdc;123;user
+g;$2y$10$JOkApLJkrtHYEYX3MnLYDOVjOzpnkgkKCGzP1rmP7IohEdfivcNDe;g@g;g;user

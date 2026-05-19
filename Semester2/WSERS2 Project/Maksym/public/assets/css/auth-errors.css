@@ -1,0 +1,27 @@
+#errors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  background: #ff0000;
+  border: #000 solid 0.2em;
+  width: 32em;
+  height: 3em;
+  border-radius: 0.5em;
+  transform: translate(-50%, -50%);
+}
+
+#errors h2 {
+  color: #000;
+  font-size: 1.3em;
+  text-align: center;
+  margin-left: 1em;
+}
+
+#error-close {
+  font-size: 1em;
+  margin-right: 1em;
+  cursor: pointer;
+}

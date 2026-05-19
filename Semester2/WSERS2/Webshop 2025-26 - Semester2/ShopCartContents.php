@@ -12,32 +12,64 @@
     <?php
     include_once("CommonCode.php");
     NavigationBar("Products");
+    //print($_SESSION["Username"]);
+
+    if (isset($_POST["PlaceOrder"])) {
+        if (count($_SESSION["Cart"]) > 0) {
+
+            $sqlInsertOrder = $connection->prepare("INSERT INTO Orders (username) VALUES (?)");
+            $sqlInsertOrder->bind_param("s", $_SESSION["Username"]);
+            $sqlInsertOrder->execute();
+
+            $order_id = $connection->insert_id;
+
+
+            foreach ($_SESSION["Cart"] as $itemId => $itemQuantity) {
+
+                $sqlInsertBoughtItem = $connection->prepare("INSERT INTO BoughtItems (orderId, productId, quantity) VALUES (?,?,?)");
+                $sqlInsertBoughtItem->bind_param("iii", $order_id, $itemId, $itemQuantity);
+                $sqlInsertBoughtItem->execute();
+            }
+
+
+
+            $_SESSION["Cart"] = [];
+        }
+    }
+
     ?>
 
-    <h1>Shop cart contents</h1>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-        </tr>
-        <?php
+    <?php
+    if (count($_SESSION["Cart"]) > 0) {
+    ?>
 
-
-        foreach ($_SESSION["Cart"] as $itemId => $itemQuantity) {
-        ?>
+        <h1>Shop cart contents</h1>
+        <table>
             <tr>
-                <td> <?= $itemId ?> </td>
-                <td> <?= $itemQuantity ?> </td>
+                <th>Item</th>
+                <th>Quantity</th>
             </tr>
-        <?php
-        }
+            <?php
+            foreach ($_SESSION["Cart"] as $itemId => $itemQuantity) {
+            ?>
+                <tr>
+                    <td> <?= $itemId ?> </td>
+                    <td> <?= $itemQuantity ?> </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </table>
 
 
-        ?>
-
-    </table>
-
-
+        <form method="POST">
+            <input type="submit" value="Place order" name="PlaceOrder">
+        </form>
+    <?php
+    } else {
+        print("There is nothing to do here. Please add things to the cart first");
+    }
+    ?>
 </body>
 
 </html>
