@@ -1,0 +1,17 @@
+#prev-messages {
+  background: #0000ff;
+  width: 100vw;
+  height: 80vh;
+  border: 1em solid #000;
+}
+
+#prev-messages div {
+  color: #fff;
+}
+
+#message-field {
+  width: 50vw;
+  font-size: 2em;
+  border: 0.1em solid #000;
+  background: #aaa;
+}

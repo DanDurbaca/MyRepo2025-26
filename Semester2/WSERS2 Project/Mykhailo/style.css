@@ -1,0 +1,1065 @@
+/* =========================================================
+   ORANGESHOP PREMIUM STYLE.CSS
+   Palette: Black (#111), White (#fff), Orange Shades (#ff7f00, #ff4500)
+   Features: Stickers, Prints, Gradients, Hover Animations, Floating Elements
+========================================================= */
+
+/* ===========================
+   RESET & BASE
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    color: #111;
+    /* Use the same soft orange radial background as the contact page */
+    background: radial-gradient(circle at top left, #fff3e0, #ffebd1);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===========================
+   LINKS
+=========================== */
+a {
+    text-decoration: none;
+    color: #ff7f00;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff4500;
+    left: 0;
+    bottom: -3px;
+    transition: 0.4s;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linear-gradient(90deg, #111, #222);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navBar a {
+    margin-right: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.navBar a.active {
+    color: #ff7f00;
+    font-size: 1.05rem;
+}
+
+.navBar form select {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #ff7f00;
+    font-weight: 600;
+    cursor: pointer;
+    background: #fff;
+    color: #111;
+    transition: all 0.3s ease;
+}
+
+.navBar form select:hover {
+    border-color: #ff4500;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+    background: radial-gradient(circle at top left, #ff7f00 0%, #ff4500 100%);
+    color: #fff;
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.hero .btn {
+    position: relative;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, #fff, #ffddcc);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #ff4500;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.hero .btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.hero .btn:hover::before {
+    top: 0;
+    left: 0;
+}
+
+.hero .btn:hover {
+    color: #fff;
+    background: #ff4500;
+}
+
+/* ===========================
+   SITE HEADING (outlined)
+   Applies a bold white heading with a black outline / stroke
+   and fallback multi-shadow for older browsers.
+=========================== */
+.site-heading, h1.site-heading {
+    color: #fff;
+    -webkit-text-stroke: 2px #000; /* Chrome, Safari */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-align: center;
+    display: block;
+    /* Fallback outline using multiple shadows for non-WebKit browsers */
+    text-shadow:
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+        0 6px 18px rgba(0,0,0,0.25);
+    padding: 0.6rem 0;
+}
+
+/* Slightly larger when used inside hero to maintain design */
+.hero h1.site-heading { font-size: 3.2rem; }
+
+/* ===========================
+   PRODUCTS PAGE
+=========================== */
+.products {
+    padding: 4rem 2rem;
+    background: #fff3e0 url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50" fill="%23ffddcc" opacity="0.05"/></svg>') repeat;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #111;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Product Stickers */
+.product-card::before {
+    content: attr(data-sticker);
+    position: absolute;
+    top: 15px;
+    left: -40px;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: bold;
+    padding: 0.4rem 2rem;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-size: 0.8rem;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    padding: 1rem;
+    font-size: 1.3rem;
+    color: #111;
+}
+
+.product-card p {
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.product-card button {
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 0 1rem 1rem 1rem;
+    padding: 0.7rem 0;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-card button:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: linear-gradient(45deg, #ff4500, #ff7f00);
+}
+
+/* Floating Sparkles */
+.product-card::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    color: #ffdd33;
+    opacity: 0.7;
+    animation: float 6s infinite ease-in-out;
+}
+
+/* ===========================
+   PRODUCT META (price + quantity) IMPROVEMENTS
+   Align price and quantity, style the select/input and actions
+=========================== */
+.product-card .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 1rem 1rem;
+}
+
+.product-card .price {
+    font-weight: 700;
+    color: #111;
+    font-size: 1rem;
+}
+
+.product-card .quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.product-card .quantity label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.product-card .quantity select,
+.product-card .quantity input[type="number"] {
+    padding: 0.32rem 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #111;
+    height: 34px;
+    font-weight: 600;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.product-card .actions {
+    padding: 0 1rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.product-card button {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Small screens: stack price and quantity */
+@media (max-width: 420px) {
+    .product-card .meta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    .product-card .quantity {
+        justify-content: flex-start;
+    }
+}
+
+/* ===========================
+   CONTACT PAGE
+=========================== */
+.contact-section {
+    padding: 5rem 2rem;
+    background: radial-gradient(circle at top left, #fff3e0, #ffebd1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,127,0,0.1);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out alternate;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.contact-info, .contact-form {
+    flex: 1 1 350px;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.contact-info:hover, .contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+/* Sticker Star */
+.contact-info::after, .contact-form::after {
+    content: '★';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #ff7f00;
+    opacity: 0.5;
+    transform: rotate(-20deg);
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(-20deg); }
+    100% { transform: rotate(340deg); }
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    border: 2px solid #ffddcc;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.25);
+    outline: none;
+    transform: scale(1.02);
+}
+
+.contact-form input[type="submit"] {
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.9rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: linear-gradient(45deg, #ff4500, #ff7f00);
+}
+
+/* ===========================
+   REGISTRATION PAGE
+=========================== */
+form.registration {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #fff url('data:image/svg+xml,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="50" fill="%23ffebcc" opacity="0.05"/></svg>') repeat;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+form.registration:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+form.registration div {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #111;
+}
+
+form.registration input {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    border: 2px solid #ffddcc;
+    transition: all 0.4s ease;
+}
+
+form.registration input:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.3);
+    outline: none;
+    transform: scale(1.02);
+}
+
+form.registration input[type="submit"] {
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    padding: 0.9rem;
+}
+
+form.registration input[type="submit"]:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: linear-gradient(45deg, #ff4500, #ff7f00);
+}
+
+/* ===========================
+   ADMIN PANEL
+   Styles for admin product creation page (Admin.php)
+   These rules are intentionally scoped to .admin-panel to avoid
+   impacting other forms/pages.
+============================ */
+.admin-panel {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    background: #fff url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><rect width="60" height="60" fill="%23ffebcc" opacity="0.03"/></svg>') repeat;
+    padding: 2.2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.admin-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.admin-panel .messages {
+    margin-bottom: 1rem;
+}
+
+.admin-panel .messages p { color: #138000; font-weight:700; }
+.admin-panel .messages ul { color: #b00020; margin-left: 1rem; }
+
+.admin-panel form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.admin-panel form input[type="text"],
+.admin-panel form input[type="number"],
+.admin-panel form textarea,
+.admin-panel form input[type="file"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    border: 2px solid #ffddcc;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.admin-panel form input[type="text"]:focus,
+.admin-panel form input[type="number"]:focus,
+.admin-panel form textarea:focus {
+    border-color: #ff7f00;
+    box-shadow: 0 0 10px rgba(255,127,0,0.18);
+    outline: none;
+    transform: scale(1.01);
+}
+
+.admin-panel form textarea {
+    grid-column: 1 / -1;
+    min-height: 120px;
+    resize: vertical;
+}
+
+.admin-panel form input[type="file"] {
+    grid-column: 1 / -1;
+    padding: 0.6rem 0.8rem;
+}
+
+.admin-panel form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 0.75rem 1.6rem;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.admin-panel form button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+}
+
+/* Make admin form single column on small screens */
+@media screen and (max-width: 768px) {
+    .admin-panel form {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+   FORUM
+   Styles for forum.php: threads list, thread cards, new thread form,
+   comments, replies, and pagination. Matches site theme and is responsive.
+============================ */
+
+.forum-container {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    background: #fff;
+    padding: 1.8rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.forum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.forum-header h2 {
+    font-size: 1.6rem;
+    color: #111;
+}
+
+.forum-actions { display: flex; gap: 0.8rem; align-items: center; }
+
+.btn-new-thread {
+    padding: 0.6rem 1rem;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-new-thread:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+
+.thread-list { display: grid; gap: 1rem; }
+
+.thread-card {
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff, #fffaf6);
+    border: 1px solid rgba(255,127,0,0.06);
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thread-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+
+.thread-main { padding-right: 0.5rem; }
+
+.thread-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.35rem;
+}
+
+.thread-title a { color: inherit; }
+
+.thread-excerpt { color: #555; font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+.thread-meta { font-size: 0.85rem; color: #777; display: flex; gap: 0.8rem; align-items: center; }
+
+.thread-stats { text-align: right; color: #222; }
+
+.thread-stats .stat { display: block; font-weight: 800; color: #ff7f00; }
+
+.thread-card .badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: rgba(255,127,0,0.12);
+    color: #ff4500;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.new-thread {
+    margin: 1rem 0 0.6rem 0;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.new-thread input[type="text"],
+.new-thread textarea,
+.new-thread select {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease;
+}
+
+.new-thread textarea { min-height: 120px; resize: vertical; }
+
+.new-thread input:focus, .new-thread textarea:focus { box-shadow: 0 6px 24px rgba(255,127,0,0.06); outline: none; border-color: #ff7f00; }
+
+.comment-list { margin-top: 1rem; display: grid; gap: 0.8rem; }
+
+.comment {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.comment .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(45deg,#fff,#ffebdd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #ff4500;
+}
+
+.comment .content { flex: 1; }
+
+.comment .content .meta { font-size: 0.85rem; color: #666; margin-bottom: 0.25rem; }
+
+.comment .content p { color: #333; font-size: 0.95rem; }
+
+.reply-form { margin-top: 0.6rem; display:flex; gap:0.6rem; align-items:flex-start; }
+
+.reply-form textarea { flex:1; min-height:60px; }
+
+.pagination-forum { display:flex; gap:0.5rem; justify-content:center; margin-top:1rem; }
+
+.pagination-forum a {
+    padding: 0.45rem 0.8rem;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    color: #111;
+    font-weight:700;
+}
+
+.pagination-forum a.active { background: linear-gradient(45deg,#ff7f00,#ff4500); color:#fff; }
+
+/* Responsive forum tweaks */
+@media screen and (max-width: 768px) {
+    .thread-card { grid-template-columns: 1fr; }
+    .forum-header { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+    .thread-stats { text-align:left; }
+}
+
+@media screen and (max-width: 480px) {
+    .forum-container { padding: 1rem; }
+    .comment .avatar { width:40px; height:40px; }
+}
+
+/* ===========================
+   CART
+=========================== */
+.cart {
+    max-width: 980px;
+    margin: 2.5rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.cart h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.cart p { margin: 1rem 0; color: #444; }
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.cart-table thead th {
+    text-align: left;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(90deg, #fff6f0, #fff3e0);
+    color: #111;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(0,0,0,0.04);
+}
+
+.cart-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    color: #333;
+}
+
+.cart-table tfoot td {
+    font-weight: 800;
+    padding: 0.9rem 1rem;
+    background: rgba(255,127,0,0.03);
+}
+
+.cart .btn-checkout {
+    display: inline-block;
+    padding: 0.75rem 1.2rem;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(255,127,0,0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cart .btn-checkout:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(255,127,0,0.16); }
+
+/* Empty cart message */
+.cart p:empty, .cart .empty {
+    text-align: center;
+    padding: 2rem 0;
+    color: #777;
+}
+
+/* ===========================
+   SITE FOOTER (enhanced)
+=========================== */
+footer.site-footer {
+    background: linear-gradient(180deg, #0d0d0d, #111);
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+footer.site-footer .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+footer.site-footer p { margin: 0.3rem 0; color: #ddd; }
+
+footer.site-footer p.small { font-size: 0.85rem; color: #bbb; }
+
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* ===========================
+   FLOATING ANIMATIONS
+=========================== */
+@keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-15px) translateX(10px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media screen and (max-width: 768px) {
+    .contact-container, .registration-container {
+        flex-direction: column;
+    }
+
+    /* product-grid is a CSS Grid — don't try to use flex properties on it.
+       On smaller screens force a single-column grid so product cards stack. */
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .products h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navBar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navBar a {
+        margin: 0.5rem 0;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+
+    .product-card img {
+        height: 150px;
+    }
+}
+
+/* ===== Cart / Buy button styles ===== */
+.buy-button {
+    padding: 0.7rem 1.2rem;
+    background: linear-gradient(45deg, #ff7f00, #ff4500);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.buy-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+/* accessibility helper */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.purchase-message {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    background: #eaffea;
+    border: 1px solid #b6f0b6;
+    color: #1b7a1b;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* ===========================
+   CART PAGE STYLES
+=========================== */
+.cart {
+    padding: 3rem 2rem;
+}
+
+.cart h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 2rem;
+    color: #111;
+}
+
+.cart .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.cart .cart-table thead th {
+    text-align: left;
+    padding: 1rem;
+    background: linear-gradient(90deg, #fff3e0, #fff1e6);
+    color: #111;
+    font-weight: 700;
+}
+
+.cart .cart-table tbody td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+    vertical-align: middle;
+}
+
+.cart .cart-table img {
+    max-width: 4rem;
+    height: auto;
+    border-radius: 6px;
+    vertical-align: middle;
+    margin-right: 0.75rem;
+}
+
+.cart .cart-table input[type="number"] {
+    width: 4.5rem;
+    padding: 0.28rem 0.4rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    font-weight: 600;
+}
+
+.cart .cart-table tfoot td {
+    padding: 1rem;
+    background: linear-gradient(90deg, #fff7f0, #fff4ec);
+    font-weight: 700;
+}
+
+.cart .update-button {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cart .update-button:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+}
+
+.cart .buy-button {
+    /* keep existing look but slightly larger and aligned */
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+}
+
+.remove-button {
+    background: transparent;
+    border: none;
+    color: #c44;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 0.1rem 0.35rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.remove-button:hover {
+    background: rgba(255,69,0,0.06);
+    color: #ff4500;
+}
+
+/* layout wrapper that matched the screenshot: centered white panel */
+.cart > .panel {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 1.6rem;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+/* small screens */
+@media (max-width: 720px) {
+    .cart .cart-table thead th, .cart .cart-table tbody td {
+        padding: 0.75rem;
+    }
+    .cart .cart-table img { max-width: 3.2rem; }
+}
