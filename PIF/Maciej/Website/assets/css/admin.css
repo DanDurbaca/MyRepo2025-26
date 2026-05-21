@@ -1,0 +1,7 @@
+/* ===== ADMIN STYLESHEET – aggregates admin‑only CSS ===== */
+
+@import url('admin/admin-dashboard.css');
+@import url('admin/admin-forms.css');
+@import url('admin/admin-layout.css');
+@import url('admin/admin-tables.css');
+@import url('admin/admin-users.css');

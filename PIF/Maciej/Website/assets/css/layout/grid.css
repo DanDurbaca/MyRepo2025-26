@@ -1,0 +1,14 @@
+/* ===== GRID & CARDS ===== */
+.grid {
+    display: grid;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}

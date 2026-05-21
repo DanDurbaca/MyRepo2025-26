@@ -1,0 +1,85 @@
+/* ===== SPECIFIC PAGE STYLES ===== */
+/* Admin Users and Stations pages */
+.admin-users .card,
+.admin-stations .card {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #4a90e2;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Section headers with colored background */
+.admin-users .admin-item-header,
+.admin-stations .admin-item-header {
+    display: inline-block;           
+    background: #4a90e2;         
+    color: #fff;                 
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 16px;               
+    border-radius: 12px;            
+    margin-bottom: 15px;            
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); 
+}
+
+/* ===== FORM LAYOUTS ===== */
+/* Flexible form layouts for admin pages */
+.create-user-form,
+.admin-user-form,
+.create-station-form,
+.admin-station-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Form rows with flexible wrapping */
+.create-user-form .form-row,
+.admin-user-form .form-row,
+.create-station-form .form-row,
+.admin-station-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* Form groups with minimum width */
+.create-user-form .form-group,
+.admin-user-form .form-group,
+.create-station-form .form-group,
+.admin-station-form .form-group {
+    flex: 1 1 180px;
+    min-width: 180px;
+}
+
+/* Fixed width for role/owner selects */
+.admin-create-user select[name="role"],
+.create-station-form select[name="owner"] {
+    flex: 0 0 150px;
+}
+
+/* ===== ACTION BUTTON GROUPS ===== */
+/* Container for form action buttons */
+.admin-user-actions,
+.create-user-actions,
+.admin-station-actions,
+.create-station-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* Slightly larger Create buttons */
+.create-user-actions .btn,
+.create-station-actions .btn {
+    padding: 10px 22px;
+    font-size: 14px;
+}
+
+/* Form elements inside action containers */
+.admin-user-actions form,
+.admin-station-actions form {
+    margin: 0;
+}

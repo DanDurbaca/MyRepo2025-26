@@ -1,0 +1,238 @@
+/* ===== STATISTICS CARDS ===== */
+/* Grid layout for stats cards */
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Individual stat card with hover effect */
+.admin-stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Icon container for stats */
+.stat-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+/* Stat text content */
+.stat-info h3 {
+    margin: 0 0 5px;
+    font-size: 2.2rem;
+    color: #2c3e50;
+}
+
+.stat-info p {
+    margin: 0 0 5px;
+    color: #666;
+    font-weight: 600;
+}
+
+.stat-info small {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* ===== ADMIN QUICK ACTIONS ===== */
+/* Section for quick action buttons */
+.admin-actions {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.admin-actions h2 {
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Grid layout for action cards */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Clickable action card for admin tasks */
+.action-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-color: #2eaf52; /* Green border on hover */
+}
+
+.action-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.action-card p {
+    margin: 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ===== RECENT ACTIVITY SECTIONS ===== */
+/* Two-column layout for recent users/stations */
+.admin-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 992px) {
+    .admin-sections {
+        grid-template-columns: 1fr; /* Stack on tablet */
+    }
+}
+
+/* Individual section container */
+.admin-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.admin-section h2 {
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+/* List of recent items */
+.recent-list {
+    margin-bottom: 20px;
+}
+
+/* Individual recent item (user or station) */
+.recent-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+.recent-item:hover {
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.recent-item:last-child {
+    border-bottom: none;
+}
+
+/* Avatar/icon for recent items */
+.recent-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: #4a90e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.recent-info {
+    flex: 1;
+}
+
+.recent-info h4 {
+    margin: 0 0 5px;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.recent-info p {
+    margin: 0 0 5px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== ROLE/STATUS BADGES ===== */
+/* Base badge style */
+.user-role, .station-owner, .station-unassigned {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Specific badge colors */
+.user-role.admin {
+    background: #e63946; /* Red for admin */
+    color: white;
+}
+
+.user-role.user {
+    background: #6c757d; /* Gray for regular user */
+    color: white;
+}
+
+.station-owner {
+    background: #2eaf52; /* Green for assigned */
+    color: white;
+}
+
+.station-unassigned {
+    background: #f39c12; /* Orange for unassigned */
+    color: white;
+}

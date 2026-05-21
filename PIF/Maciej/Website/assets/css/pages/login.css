@@ -1,0 +1,89 @@
+/* Login page enhancements – targets .container.card */
+
+/* Main heading */
+.container.card h1 {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #2eaf52, #1b8a3a, #0f5e25, #2eaf52);
+    background-size: 300% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 4s ease infinite, fadeSlideIn 0.8s ease-out;
+    margin-bottom: 10px;
+}
+
+/* Flashy "Please log in" text */
+.container.card p:first-of-type {
+    background: linear-gradient(135deg, #2eaf52, #1b8a3a, #0f5e25);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.3rem;
+    font-weight: 700;
+    animation: fadeSlideIn 0.8s ease-out;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+@keyframes fadeSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Error message style */
+.container.card .alert {
+    font-size: 0.95rem;
+}
+
+/* Login button spacing */
+.container.card .btn-primary {
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* "Don't have an account?" section */
+.container.card .mt-3 p {
+    font-size: 0.95rem;
+}
+
+.container.card .mt-3 a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Optional: center the footer section */
+.container.card .mt-3 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.container.card .mt-3 p {
+    margin-bottom: 0.25rem;
+}
+
+/* Auth footer styles (if you use .auth-footer instead of .mt-3) */
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+.auth-footer p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+.signup-link {
+    font-weight: 600;
+    color: #2eaf52;
+    text-decoration: none;
+}
+.signup-link:hover {
+    text-decoration: underline;
+}

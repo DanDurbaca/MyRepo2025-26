@@ -1,0 +1,17 @@
+/* ===== STATIONS ===== */
+/* Collection info styling */
+.collection-info p,
+.station-info p,
+.shared-info p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.collection-info strong,
+.station-info strong,
+.shared-info strong {
+    color: #333;
+    min-width: 120px;
+    display: inline-block;
+}

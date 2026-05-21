@@ -1,0 +1,92 @@
+/* ===== TABLES ===== */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.table th {
+    border-bottom: 2px solid #2eaf52;
+    padding: 15px 12px;
+    text-align: center;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #f9f9f9;
+}
+
+.table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table tr:hover {
+    background-color: #f5f9f5;
+}
+
+/* ===== TABLE CONTROLS ===== */
+.table-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 550px;
+    margin: 10px auto 15px auto;
+    justify-content: flex-start;
+}
+
+.table-controls #counter {
+    margin-left: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Collections table specific */
+.collections-table-container {
+    overflow-x: auto;
+    margin-top: 1em;
+}
+
+.collections-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Header & cells */
+.collections-table th,
+.collections-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+/* Header background */
+.collections-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Hover row effect */
+.collections-table tr:hover {
+    background: #fafafa;
+}
+
+/* ===== FIX COLUMN WIDTHS ===== */
+.collections-table th.name,
+.collections-table td.name,
+.collections-table th.creator,
+.collections-table td.creator {
+    min-width: 180px;
+    word-break: break-word;
+}
+
+/* Actions & Share columns */
+.actions-cell,
+.share-cell {
+    min-width: 120px;
+}

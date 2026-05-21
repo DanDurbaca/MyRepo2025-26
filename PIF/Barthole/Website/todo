@@ -1,0 +1,64 @@
+[REQUIRED]
+# Deliverables
+- Annotated source code of the website
+- Planning documentation for each user story
+
+[ACCESS: PUBLIC (Without login)]
+- [x] Login with username & password
+- [x] Registration / create new user account
+
+[ACCESS: AUTHENTICATED (Logged-in users)]
+- [x] Logout
+- [x] Simple welcome page
+- [x] List own stations
+    - [x] Edit station name
+    - [x] Edit station description
+- [x] Register unassigned station by serial number
+- [x] Edit own user account
+    - username, password, email, first name, last name
+- [x] View measurement data from own stations
+    - filter by date/time
+- [x] Friend management
+    - add users as friends
+    - display friends
+    - end friendships
+- [x] Collections
+    - add measurement data to collections (only from own stations)
+    - collection = (station, start datetime, end datetime)
+    - rename own collections
+    - delete own collections
+    - share collections with friends
+    - undo sharing
+    - view collections shared with you
+
+[ACCESS: ADMIN (additional)]
+- [x] Edit / delete any user account
+- [x] Assign admin rights
+- [x] Create new user accounts
+- [x] Edit / delete any station
+- [x] Create new stations
+- [x] View/filter/delete measurement data from all stations (by date/time)
+- [x] Add measurement data from all stations to collections
+- [x] Rename / delete any collection
+- Note: Admins may only share collections they created themselves
+
+[SHOULD]
+- [] Welcome dashboard showing current measurements from own stations
+- [x] Appealing, user-friendly design (UX)
+- [x] Validate user inputs
+- [x] Friend requests require confirmation (no direct adds)
+- [] When friendship ends, automatically unshare collections between the two users
+
+[COULD - Nice to have]
+- [] Register stations via QR code
+- [x] Display measurement data with diagrams / charts
+- [] Responsive design (adapt to screen sizes)
+- [] Themes (light/dark) persistent after logout
+- [] Multi-language support persistent after logout
+- [] Notifications / emails for events (friend requests, shares, errors)
+- [] User-to-user chat
+- [] Invite links to onboard new users
+
+Documentation (All lab + Workshop sprints)
+Website + db
+raspi configuration

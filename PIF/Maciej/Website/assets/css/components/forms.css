@@ -1,0 +1,80 @@
+/* ===== FORMS ===== */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input,
+select,
+textarea {
+    padding: 10px 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ===== FORM ROW ===== */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-top: 15px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* ADMIN INPUT CONSISTENCY */
+.form-row input,
+.form-row select,
+.form-row textarea {
+    min-height: 42px;
+}
+
+.form-row textarea {
+    min-height: 60px;
+}
+
+.form-row .btn {
+    align-self: flex-end;
+}
+
+/* Inline forms */
+.inline-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.inline-form input,
+.inline-form select {
+    min-width: 120px;
+    padding: 6px 8px;
+    font-size: 13px;
+}
+
+.inline-form-wrapper {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.inline-form .btn-small {
+    padding: 6px 10px;
+    font-size: 0.9em;
+}
