@@ -1,0 +1,682 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --warning-color: #f39c12;
+    
+    /* Light theme colors */
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
+    --border-color: #dee2e6;
+    --input-bg: #ffffff;
+    --input-text: #212529;
+    --table-bg: #ffffff;
+    --table-border: #dee2e6;
+    --modal-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme colors */
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --sidebar-bg: #1a1a1a;
+    --sidebar-text: #e0e0e0;
+    --border-color: #404040;
+    --input-bg: #2d2d2d;
+    --input-text: #e0e0e0;
+    --table-bg: #1e1e1e;
+    --table-border: #404040;
+    --modal-bg: #1e1e1e;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Global fixes */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    min-height: 100vh;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .nav-link {
+    color: var(--sidebar-text);
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background: #34495e;
+    color: var(--primary-color);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    background: var(--bg-color);
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    overflow-x: hidden;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 2px 15px var(--shadow-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, background-color 0.3s ease;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.card-body, .card-footer {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* Tables */
+.table-responsive {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+table {
+    width: 100%;
+    table-layout: auto;
+    background-color: var(--table-bg);
+    color: var(--text-color);
+}
+
+th, td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-color: var(--table-border);
+    color: var(--text-color);
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(52, 152, 219, 0.1);
+}
+
+/* Forms */
+.form-control, .form-select {
+    max-width: 100%;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--border-color);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--primary-color);
+}
+
+.form-label {
+    color: var(--text-color);
+}
+
+/* Modals */
+.modal-content {
+    background-color: var(--modal-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.modal-header, .modal-body, .modal-footer {
+    background-color: var(--modal-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* Alerts */
+.alert {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Navbar */
+.navbar-light.bg-white {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color);
+}
+
+.navbar-brand, .navbar-text {
+    color: var(--text-color) !important;
+}
+
+/* Nav Tabs */
+.nav-tabs {
+    border-bottom-color: var(--border-color);
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--card-bg);
+    border-color: var(--border-color) var(--border-color) var(--card-bg);
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+}
+
+.btn-success {
+    background: var(--success-color);
+    border: none;
+    color: white;
+}
+
+.btn-danger {
+    background: var(--danger-color);
+    border: none;
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning-color);
+    border: none;
+    color: white;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-outline-secondary {
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Badges */
+.badge-admin {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+}
+
+.badge-user {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+}
+
+/* Filter Section */
+.filter-section {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    color: var(--text-color);
+}
+
+/* Dashboard specific */
+.stat-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--primary-color);
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Fix for the top-right button */
+.position-fixed.theme-toggle-btn {
+    margin: 15px !important;
+}
+
+/* Fix for sidebar button */
+#sidebar-theme-toggle {
+    background: transparent;
+    color: var(--sidebar-text) !important;
+    border: 1px solid var(--sidebar-text);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+#sidebar-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: var(--primary-color) !important;
+}
+
+#sidebar-theme-toggle i {
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+#sidebar-theme-toggle .theme-text {
+    margin-left: 5px;
+    font-size: 0.9rem;
+}
+
+/* Profile page specific fixes */
+.list-group-item {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Fix navbar text in dark mode */
+.dark-mode .navbar-light .navbar-brand,
+.dark-mode .navbar-light .navbar-text,
+.dark-mode .navbar-light .nav-link {
+    color: var(--text-color) !important;
+}
+
+.dark-mode #sidebar-theme-toggle {
+    border-color: #666;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode #sidebar-theme-toggle:hover {
+    border-color: var(--primary-color);
+    background: rgba(52, 152, 219, 0.1);
+}
+
+/* Fix breadcrumb and other text elements */
+.dark-mode .breadcrumb-item.active {
+    color: var(--text-color);
+}
+
+.dark-mode a {
+    color: #6ab0f3;
+}
+
+.dark-mode a:hover {
+    color: #8dc2ff;
+}
+
+/* Fix table text */
+.dark-mode table th {
+    color: var(--text-color);
+}
+
+/* Fix button outlines */
+.dark-mode .btn-outline-secondary {
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.dark-mode .btn-outline-secondary:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+/* Fix form labels */
+.dark-mode .form-label {
+    color: var(--text-color);
+}
+
+/* Fix modal text */
+.dark-mode .modal-title {
+    color: var(--text-color);
+}
+
+/* Fix dropdown menu */
+.dark-mode .dropdown-menu {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.dark-mode .dropdown-item {
+    color: var(--text-color);
+}
+
+.dark-mode .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+/* Fix pagination */
+.dark-mode .page-link {
+    background-color: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.dark-mode .page-link:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.dark-mode .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Fix the text in profile stats */
+.dark-mode .stat-card .card-title.text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* Fix sidebar login info */
+.dark-mode .sidebar .text-white {
+    color: var(--sidebar-text) !important;
+}
+
+/* Fix the dark mode specific issue with black text on dark background */
+.dark-mode * {
+    color: var(--text-color) !important;
+}
+
+/* Override for specific elements that should keep their color */
+.dark-mode .text-white,
+.dark-mode .btn-primary,
+.dark-mode .btn-success,
+.dark-mode .btn-danger,
+.dark-mode .btn-warning,
+.dark-mode .badge,
+.dark-mode .alert.alert-success,
+.dark-mode .alert.alert-danger,
+.dark-mode .alert.alert-warning,
+.dark-mode .alert.alert-info {
+    color: white !important;
+}
+
+/* Keep Bootstrap text utilities but adjust for dark mode */
+.dark-mode .text-primary { color: #6ab0f3 !important; }
+.dark-mode .text-success { color: #4cd964 !important; }
+.dark-mode .text-danger { color: #ff6b6b !important; }
+.dark-mode .text-warning { color: #ffd166 !important; }
+.dark-mode .text-info { color: #54c7ec !important; }
+
+/* Fix links that should stand out */
+.dark-mode a:not(.btn):not(.nav-link):not(.dropdown-item) {
+    color: #6ab0f3 !important;
+}
+
+/* Card text colors in dark mode */
+.dark-mode .text-primary,
+.dark-mode .text-success,
+.dark-mode .text-warning,
+.dark-mode .text-info,
+.dark-mode .text-danger,
+.dark-mode .text-secondary {
+    opacity: 0.9;
+}
+
+/* Badge colors in dark mode */
+.dark-mode .badge {
+    color: white !important;
+}
+
+/* Alert text colors */
+.alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6,
+.alert p, .alert span, .alert div {
+    color: inherit;
+}
+
+/* Form text colors */
+.dark-mode .form-text {
+    color: #b0b0b0;
+}
+
+/* Text utility classes for dark mode */
+.dark-mode .text-muted {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode .text-dark {
+    color: var(--text-color) !important;
+}
+
+/* Profile statistics card */
+.stat-card .card-body h2 {
+    color: var(--primary-color);
+}
+
+.dark-mode .stat-card .card-body h5.text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* Profile page text colors */
+.dark-mode .card p,
+.dark-mode .card h5,
+.dark-mode .card h6,
+.dark-mode .card strong {
+    color: var(--text-color);
+}
+
+/* Dark mode specific adjustments */
+.dark-mode .table {
+    --bs-table-bg: var(--table-bg);
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --bs-table-striped-color: var(--text-color);
+    --bs-table-active-bg: rgba(255, 255, 255, 0.1);
+    --bs-table-active-color: var(--text-color);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.075);
+    --bs-table-hover-color: var(--text-color);
+    color: var(--text-color);
+    border-color: var(--table-border);
+}
+
+.dark-mode .bi-sun {
+    display: none;
+}
+
+.dark-mode .bi-moon {
+    display: inline-block;
+}
+
+.light-mode .bi-sun {
+    display: inline-block;
+}
+
+.light-mode .bi-moon {
+    display: none;
+}
+
+/* Input placeholder color */
+.dark-mode ::placeholder {
+    color: #a0a0a0;
+}
+
+/* Selection color */
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Scrollbar styling */
+.dark-mode ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* EMERGENCY FIXES - Add these at the end of your style.css */
+
+/* Force white text on theme buttons */
+.theme-toggle-btn,
+#theme-toggle,
+#sidebar-theme-toggle {
+    color: white !important;
+    background-color: #3498db !important;
+    border: none !important;
+}
+
+.theme-toggle-btn:hover,
+#theme-toggle:hover,
+#sidebar-theme-toggle:hover {
+    background-color: #2980b9 !important;
+    color: white !important;
+}
+
+/* Force profile statistics to use correct colors */
+.dark-mode .list-group-item,
+.dark-mode .list-group-item span {
+    color: #e0e0e0 !important;
+    background-color: #1e1e1e !important;
+}
+
+/* Fix all black text in dark mode */
+.dark-mode *:not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.badge):not(.text-white) {
+    color: #e0e0e0 !important;
+}
+
+/* Ensure theme button icons are visible */
+.theme-toggle-btn i,
+#theme-toggle i,
+#sidebar-theme-toggle i {
+    color: white !important;
+}
+
+/* Quick profile page fix */
+.dark-mode .card-body,
+.dark-mode .card-header,
+.dark-mode .card-footer {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .card-body *:not(.btn):not(.badge),
+.dark-mode .card-header *:not(.btn):not(.badge),
+.dark-mode .card-footer *:not(.btn):not(.badge) {
+    color: #e0e0e0 !important;
+}
+
+/* Ensure theme consistency for all pages */
+body.dark-mode {
+    color-scheme: dark;
+}
+
+/* Apply dark mode to all common elements */
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #a0a0a0 !important;
+}
+
+.dark-mode .btn-primary {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+    color: white !important;
+}
+
+.dark-mode .btn-success {
+    background-color: #2ecc71 !important;
+    border-color: #2ecc71 !important;
+    color: white !important;
+}
+
+.dark-mode .btn-outline-light {
+    color: #e0e0e0 !important;
+    border-color: #666 !important;
+}
+
+.dark-mode .btn-outline-light:hover {
+    background-color: #666 !important;
+    color: white !important;
+}

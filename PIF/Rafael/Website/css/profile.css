@@ -1,0 +1,54 @@
+/* Profile page specific dark mode fixes */
+
+/* Profile stats cards */
+.profile-stats .list-group-item {
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+.profile-stats .badge {
+    color: white !important;
+}
+
+/* Profile header */
+.profile-header .bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Account info section */
+.account-info p {
+    color: var(--text-color) !important;
+}
+
+.account-info strong {
+    color: var(--text-color) !important;
+}
+
+/* Danger zone card */
+.border-danger {
+    border-color: var(--danger-color) !important;
+}
+
+.bg-danger.text-white {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+}
+
+/* Form validation */
+.is-invalid {
+    border-color: var(--danger-color) !important;
+}
+
+.invalid-feedback {
+    color: var(--danger-color) !important;
+}
+
+/* Profile avatar */
+.bg-primary.rounded-circle {
+    background-color: var(--primary-color) !important;
+}
+
+.text-white {
+    color: white !important;
+}
