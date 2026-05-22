@@ -1,0 +1,100 @@
+/* Styles for REPIF front page and navigation */
+:root{
+    --bg:#f7fbfc;
+    --card:#ffffff;
+    --muted:#4b5563;
+    --accent:#0ea5a4;
+    --accent-contrast:#ffffff;
+    --radius:8px;
+    --nav-height:64px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:#0b1220}
+
+/* Site nav */
+.site-nav{background:linear-gradient(90deg, #06202a, #0e5960);color:white}
+.site-nav .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 18px}
+.site-nav .brand{color:var(--accent-contrast);text-decoration:none;font-weight:700;font-size:18px;padding:6px 8px;border-radius:6px}
+.site-nav .nav-toggle{margin-left:auto;background:transparent;border:0;color:var(--accent-contrast);font-size:20px;cursor:pointer;display:none}
+
+.site-nav .nav-links{list-style:none;margin:0;padding:0;display:flex;gap:12px;align-items:center}
+.site-nav .nav-links li{margin:0}
+.site-nav .nav-links a{display:inline-block;padding:8px 12px;border-radius:6px;color:var(--accent-contrast);text-decoration:none;font-weight:600}
+.site-nav .nav-links a{display:inline-block;padding:8px 12px;border-radius:6px;color:var(--accent-contrast);text-decoration:none;font-weight:600;transition:background .18s ease,transform .12s ease,box-shadow .18s ease}
+.site-nav .nav-links a:hover{background:rgba(255,255,255,0.06)}
+.site-nav .nav-links a.active{background:rgba(255,255,255,0.14);box-shadow:inset 0 -3px 0 rgba(255,255,255,0.06), 0 6px 18px rgba(14,89,96,0.12);transform:translateY(-1px)}
+.site-nav .lang-link{opacity:0.95;font-weight:600}
+
+/* Mobile: collapse into hamburger */
+@media (max-width:860px){
+  .site-nav .nav-toggle{display:inline-block}
+  .site-nav .nav-links{position:absolute;top:var(--nav-height);left:0;right:0;background:linear-gradient(180deg,#08353a,#052628);flex-direction:column;padding:12px 18px;display:none;z-index:80}
+  .site-nav.open .nav-links{display:flex}
+  .site-nav .nav-inner{position:relative}
+}
+
+/* Page card */
+main.indexMain{max-width:1100px;margin:36px auto;padding:28px;background:var(--card);border-radius:var(--radius);box-shadow:0 8px 24px rgba(12,20,30,0.06)}
+main.indexMain h1{margin:0;color:#062b31}
+
+footer{max-width:1100px;margin:18px auto;text-align:center;color:var(--muted);font-size:14px}
+
+@media (max-width:640px){
+    main.indexMain{margin:18px;padding:18px}
+}
+
+/* Admin / form / table styles */
+.indexMain h2{margin-top:8px;color:#083536}
+.admin-table{width:100%;border-collapse:collapse;margin:16px 0;background:var(--card);border-radius:6px;overflow:hidden}
+.admin-table th,.admin-table td{padding:12px 14px;text-align:left;border-bottom:1px solid rgba(12,20,30,0.04)}
+.admin-table thead th{background:linear-gradient(90deg, rgba(6,43,49,0.95), rgba(14,89,96,0.95));color:var(--accent-contrast);font-weight:700}
+.admin-table tr:nth-child(even) td{background:rgba(2,6,8,0.02)}
+
+form{margin:12px 0;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+form label{font-weight:600;color:var(--muted)}
+/* make text-like controls fill available width while keeping buttons compact */
+form input[type="text"],form input[type="number"],form input[type="date"],form select{padding:10px;border:1px solid #d6e6e6;border-radius:6px;background:#fbffff;width:100%;max-width:760px}
+form input[type="submit"],form button{background:var(--accent);color:var(--accent-contrast);border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;width:auto;align-self:flex-start}
+form input[type="submit"]:hover,form button:hover{opacity:0.95}
+
+.heading h1{margin:0;color:#062b31}
+
+/* small utility */
+.muted{color:var(--muted);font-size:14px}
+
+@media (max-width:860px){
+  .admin-table th,.admin-table td{padding:10px 8px}
+  form{gap:8px}
+}
+
+/* Measurement table specifics */
+.measurement-table thead th{background:rgba(6,43,49,0.9);color:var(--accent-contrast);font-weight:700}
+.measurement-table td, .measurement-table th{white-space:nowrap}
+.measurement-table tbody tr td{vertical-align:middle}
+.measurement-table{font-size:14px}
+@media (max-width:640px){
+  .measurement-table{font-size:13px}
+}
+
+/* Horizontal form row for label + input + button */
+.form-row{display:flex;gap:10px;align-items:center;width:100%;flex-wrap:wrap}
+.form-row label{min-width:160px;flex:0 0 160px}
+.form-row input[type="text"],.form-row input[type="number"],.form-row input[type="date"],.form-row select{flex:1;width:auto;max-width:760px}
+.form-actions{display:flex;gap:8px;align-items:center}
+
+/* icon-only button (used for logout) */
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-contrast);border:0;cursor:pointer;padding:0;font-weight:700}
+.icon-btn svg{width:18px;height:18px;display:block}
+.icon-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+/* larger variant for prominent actions */
+.icon-btn-lg{width:48px;height:48px;border-radius:10px}
+.icon-btn-lg svg{width:22px;height:22px}
+
+/* label displayed next to icon on larger screens */
+.icon-btn .btn-label{display:none;margin-left:10px;font-weight:700;font-size:15px}
+@media (min-width:720px){
+  .icon-btn.icon-btn-lg{width:auto;padding:10px 14px;border-radius:10px}
+  .icon-btn.icon-btn-lg svg{width:20px;height:20px}
+  .icon-btn .btn-label{display:inline-block}
+}
