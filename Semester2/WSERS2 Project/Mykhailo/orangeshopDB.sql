@@ -1,4 +1,4 @@
-
+drop database OrangeShopDB;
 CREATE OR REPLACE DATABASE OrangeShopDB;
 USE OrangeShopDB;
 

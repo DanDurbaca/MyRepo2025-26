@@ -6,7 +6,7 @@
 -- Generation Time: Apr 16, 2026 at 10:24 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
-DROP Database 4pagewebsite;
+
 CREATE Database 4pagewebsite;
 USE 4pagewebsite;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";

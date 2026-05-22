@@ -4,7 +4,7 @@
 <head>
     <title>HTSTA Final Project</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="\HTSTAProject/HTSTA_FinalProject_2024_FerSi630/style.css?<?= time() ?>">
+    <link rel="stylesheet" href="..\style.css?<?= time() ?>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 

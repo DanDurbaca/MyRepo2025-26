@@ -1,4 +1,4 @@
-drop database HTSTA_DB;
+
 create database HTSTA_DB;
 use HTSTA_DB;
 
