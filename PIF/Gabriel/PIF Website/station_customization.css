@@ -1,0 +1,383 @@
+/* =========================
+   RESET
+   ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   PAGE BASE
+   ========================= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #212a44ff;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* =========================
+   LAYOUT
+   ========================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+.back-form {
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-btn:hover {
+    background-color: #555;
+}
+
+/* =========================
+   HEADINGS
+   ========================= */
+h1 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+}
+
+h2 {
+    color: #444;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0de3bff;
+}
+
+h3 {
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   SECTIONS (WHITE CARDS)
+   ========================= */
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+/* =========================
+   FORMS & INPUTS
+   ========================= */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* =========================
+   PRIMARY BUTTON
+   ========================= */
+input[type="submit"],
+.btn-primary {
+    background-color: #f0de3bff;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+input[type="submit"]:hover,
+.btn-primary:hover {
+    background-color: #e0ce2bff;
+}
+
+/* =========================
+   STATION LIST (MANAGEMENT PAGE)
+   ========================= */
+.stations-list {
+    display: grid;
+    gap: 20px;
+}
+
+.station-card {
+    background-color: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.station-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.station-id {
+    font-size: 13px;
+    color: #666;
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.station-desc {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.station-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+.btn-view {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-view:hover {
+    background-color: #0056b3;
+}
+
+.btn-edit {
+    background-color: #f0de3bff;
+    color: #212a44ff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    background-color: #e0ce2bff;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.btn-share {
+    background-color: #007bff;
+    color: #212a44ff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-share:hover {
+    background-color: #0056b3;
+}
+
+/* =========================
+   MESSAGES
+   ========================= */
+.error {
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    color: #c62828;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   TABLE (MEASUREMENTS PAGE)
+   ========================= */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+thead {
+    background-color: #f0de3bff;
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #eef1f5;
+}
+
+/* =========================
+   BADGES (OPTIONAL FOR MEASUREMENTS)
+   ========================= */
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.badge-ok {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* =========================
+   MODALS (EDIT / DELETE)
+   ========================= */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* =========================
+   NO DATA MESSAGE
+   ========================= */
+.no-data {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-style: italic;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .station-actions {
+        flex-direction: column;
+    }
+
+    .station-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+}

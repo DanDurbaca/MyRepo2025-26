@@ -1,0 +1,51 @@
+/* ===== SHARED PAGE ===== */
+/* Shared card specific */
+.shared-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shared-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.shared-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.shared-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.shared-by {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.shared-info div {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.remove-btn {
+    align-self: flex-end;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+}

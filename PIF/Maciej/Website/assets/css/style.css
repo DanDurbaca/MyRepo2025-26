@@ -1,0 +1,32 @@
+/* ===== MAIN STYLESHEET – aggregates all modular CSS ===== */
+
+/* Base styles */
+@import url('base/reset.css');
+@import url('base/typography.css');
+@import url('base/utilities.css');
+
+/* Components */
+@import url('components/alerts.css');
+@import url('components/badges.css');
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/forms.css');
+@import url('components/modal.css');
+@import url('components/tables.css');
+
+/* Layout */
+@import url('layout/container.css');
+@import url('layout/footer.css');
+@import url('layout/grid.css');
+@import url('layout/navigation.css');
+
+/* Page-specific (non‑admin) */
+@import url('pages/dashboard.css');
+@import url('pages/friends.css');
+@import url('pages/profile.css');
+@import url('pages/shared.css');
+@import url('pages/stations.css');
+@import url('pages/login.css');
+
+/* Dark mode preferences */
+@import url('preferences/dark-mode.css');

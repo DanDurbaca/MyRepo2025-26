@@ -1,0 +1,60 @@
+/* Dark mode – simple global override */
+body.dark {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark .container,
+body.dark .card,
+body.dark .station-card,
+body.dark .main-nav,
+body.dark footer,
+body.dark .modal-content,
+body.dark .profile-content,
+body.dark .friend-card,
+body.dark .shared-card,
+body.dark .admin-stat-card,
+body.dark .admin-actions,
+body.dark .admin-section,
+body.dark .collections-table tr,
+body.dark .table th,
+body.dark .table td {
+    background-color: #2a2a2a !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+/* Ensure text remains readable */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark p,
+body.dark label,
+body.dark .text-muted {
+    color: #f0f0f0 !important;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #555 !important;
+}
+
+body.dark a {
+    color: #6ab04c !important;
+}
+
+/* Admin dashboard quick action cards */
+body.dark .action-card {
+    background-color: #333 !important;
+    color: #e0e0e0 !important;
+    border-color: #555 !important;
+}
+
+body.dark .action-card h3,
+body.dark .action-card p {
+    color: #f0f0f0 !important;
+}

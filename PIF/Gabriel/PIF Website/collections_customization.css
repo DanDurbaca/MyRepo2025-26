@@ -1,0 +1,151 @@
+/* collections_customization.css - COMPACT VERSION */
+
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #212a44;
+    color: white;
+    padding: 10px;
+}
+
+/* Make the page narrower so cards aren’t huge */
+.container {
+    max-width: 650px;   /* was 800 */
+    margin: 0 auto;
+}
+
+/* Back button */
+.btn {
+    display: inline-block;
+    background: #f0de3b;
+    color: #212a44;
+    padding: 6px 12px;   /* smaller */
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.btn:hover { background: #e0ce2b; }
+
+/* Smaller headings */
+h1 { text-align: center; margin: 10px 0; font-size: 22px; }
+h2 { color: #f0de3b; margin: 14px 0 8px; font-size: 18px; }
+h3 { margin: 10px 0 6px; font-size: 15px; }
+
+/* Cards: tighter spacing */
+.card {
+    background: #2c3557;
+    padding: 10px;       /* was 15 */
+    margin-bottom: 10px; /* was 15 */
+    border-radius: 6px;
+    border: 1px solid rgba(240, 222, 59, 0.2);
+}
+
+/* Title inside cards */
+.card strong {
+    display: block;
+    color: #f0de3b;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+/* Description box smaller */
+.card p {
+    color: #b0b7d0;
+    margin-bottom: 8px;
+    padding: 6px;        /* was 8 */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* Forms */
+form { margin: 8px 0; }
+
+/* Inputs smaller + not full width */
+input[type="text"],
+textarea,
+select {
+    width: 90%;          /* was 100% */
+    padding: 6px;        /* was 8 */
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+textarea { min-height: 50px; resize: vertical; }
+
+/* Buttons: no more giant blocks */
+button {
+    background: #f0de3b;
+    color: #212a44;
+    border: none;
+    padding: 6px 12px;   /* smaller */
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 6px;
+    width: auto;         /* NOT full width anymore */
+    font-weight: bold;
+    font-size: 13px;
+}
+
+button:hover { background: #e0ce2b; }
+
+/* Keep your colored buttons but smaller */
+button[name="create_collection"] { background: #4CAF50; color: white; }
+button[name="share_collection"] { background: #2196F3; color: white; }
+button[name="unshare_collection"] { background: #ff9800; color: white; }
+button[name="delete_collection"] { background: #e53935; color: white; }
+
+/* Dividers tighter */
+hr {
+    border: none;
+    height: 1px;
+    background: rgba(240, 222, 59, 0.3);
+    margin: 8px 0;   /* was 10 */
+}
+
+/* Lists more compact */
+ul { margin-left: 18px; margin-bottom: 8px; }
+li { margin-bottom: 2px; font-size: 13px; }
+
+/* Tables smaller & cleaner */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0;
+    font-size: 11px;   /* smaller */
+}
+
+th, td {
+    padding: 4px;      /* was 6 */
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background: rgba(240, 222, 59, 0.1);
+    color: #f0de3b;
+}
+
+/* Checkboxes tighter */
+label {
+    display: block;
+    margin-bottom: 2px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+    .container { padding: 6px; }
+    h1 { font-size: 19px; }
+    h2 { font-size: 17px; }
+    .card { padding: 8px; }
+    input, textarea, select { width: 100%; } /* full width only on mobile */
+}

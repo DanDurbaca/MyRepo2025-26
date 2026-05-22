@@ -1,0 +1,69 @@
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* unified meanings */
+.btn-primary {
+    background: #2eaf52;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #259445;
+}
+
+.btn-secondary {
+    background: #4a90e2;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #3a7bc8;
+}
+
+.btn-danger {
+    background: #e63946;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d62839;
+}
+
+.btn-sm {
+    padding: 8px 15px;
+    font-size: 13px;
+}
+
+.btn-small {
+    font-size: 0.85em;
+    padding: 0.25em 0.5em;
+    border-radius: 3px;
+}
+
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 16px;
+}
+
+/* icon-only buttons */
+.btn-icon {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 0.3s, background 0.3s;
+}
+
+.btn-icon:hover {
+    color: #2c3e50;
+    background: rgba(0,0,0,0.05);
+}

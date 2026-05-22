@@ -1,0 +1,168 @@
+/* ===============================
+   GLOBAL DARK THEME – FORCE READABLE
+   =============================== */
+
+:root {
+    --bg-main: #0e1116;
+    --bg-card: #1b2027;
+    --border-color: #2f3338;
+
+    --text-main: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #c8c8c8;
+
+    --primary: #0d6efd;
+}
+
+/* ===== GLOBAL ===== */
+
+html, body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main) !important;
+}
+
+/* 🚨 FORCE TEXT VISIBILITY EVERYWHERE */
+body *, 
+.card *, 
+.dashboard-card *, 
+.admin-card *, 
+.quick-action-card * {
+    color: var(--text-secondary) !important;
+    opacity: 1 !important;
+}
+
+/* ===== HEADINGS ===== */
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background-color: #141820 !important;
+}
+
+.navbar-brand {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+}
+
+/* ===== CARDS ===== */
+
+.card,
+.dashboard-card,
+.admin-card,
+.quick-action-card {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 14px;
+}
+
+/* Card titles */
+.card h5,
+.dashboard-card h5,
+.admin-card h5 {
+    color: #ffffff !important;
+}
+
+/* Big numbers */
+.dashboard-card h2 {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+/* Descriptions */
+p, span, small, li, label {
+    color: var(--text-secondary) !important;
+}
+
+/* ===== TABLES ===== */
+
+.table-dark {
+    background-color: var(--bg-card) !important;
+}
+
+.table-dark th {
+    background-color: #20242b !important;
+    color: #ffffff !important;
+}
+
+.table-dark td {
+    color: var(--text-secondary) !important;
+}
+
+.table-dark td,
+.table-dark th {
+    border-color: var(--border-color) !important;
+}
+
+/* ===== FORMS ===== */
+
+label {
+    color: #ffffff !important;
+}
+
+.form-control,
+.form-select,
+textarea {
+    background-color: #141820 !important;
+    color: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.form-control::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 1 !important;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn,
+.btn-primary,
+.btn-outline-primary {
+    color: #ffffff !important;
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary) !important;
+}
+
+/* ===== KILL BOOTSTRAP MUTED ===== */
+
+.text-muted,
+.opacity-50,
+.opacity-25 {
+    color: var(--text-secondary) !important;
+    opacity: 1 !important;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    color: var(--text-muted) !important;
+}
+
+/* ===== HOVER ===== */
+
+.card:hover,
+.dashboard-card:hover {
+    box-shadow: 0 0 0 1px rgba(13,110,253,0.6);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+}

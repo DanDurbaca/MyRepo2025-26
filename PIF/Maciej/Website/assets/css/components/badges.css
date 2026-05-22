@@ -1,0 +1,13 @@
+/* ===== BADGES ===== */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-admin { background: #e63946; color: white; }
+.badge-user { background: #6c757d; color: white; }
+.badge-owner { background: #2eaf52; color: white; }
+.badge-unassigned { background: #f39c12; color: white; }
