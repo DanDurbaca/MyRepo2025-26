@@ -1,0 +1,3 @@
+# Mail Queue Directory
+This directory stores queued emails for background processing.
+Files are automatically created and deleted by the mail system.

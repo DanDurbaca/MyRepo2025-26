@@ -1,0 +1,6 @@
+{
+    "to": "adminuser@mail.com",
+    "subject": "Station registered successfully",
+    "html": "<h2>Hi Admin,<\/h2><p>Your station has been registered to your account.<\/p><ul><li><strong>Serial:<\/strong> SN-001<\/li><li><strong>Name:<\/strong> SN-001<\/li><\/ul><p>You can edit details anytime in the Stations page.<\/p>",
+    "queued_at": "2026-05-12 08:19:38"
+}
