@@ -11,8 +11,8 @@ function getDb(): PDO
 
     $dbHost = '127.0.0.1';
     $dbName = 'moria904';
-    $dbUser = 'moria904';
-    $dbPass = '29112005';
+    $dbUser = 'root';
+    $dbPass = '';
 
     $dsn = "mysql:host={$dbHost};dbname={$dbName};charset=utf8mb4";
 

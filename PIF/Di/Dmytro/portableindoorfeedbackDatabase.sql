@@ -6,7 +6,7 @@
 -- Generation Time: May 22, 2026 at 09:48 AM
 -- Server version: 8.0.45-0ubuntu0.24.04.1
 -- PHP Version: 8.3.6
-
+drop database portableindoorfeedback;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";

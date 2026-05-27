@@ -6,7 +6,8 @@
 -- Generation Time: May 25, 2026 at 11:21 AM
 -- Server version: 10.11.14-MariaDB-0ubuntu0.24.04.1
 -- PHP Version: 8.3.6
-
+create database moria904;
+use moria904;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";

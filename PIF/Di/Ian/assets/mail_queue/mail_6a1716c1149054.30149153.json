@@ -1,0 +1,6 @@
+{
+    "to": "dd@dd.com",
+    "subject": "Your account details was updated",
+    "html": "<h2>Hello Dan2,<\/h2><p>This is a confirmation that your account details was changed.<\/p><p>If you did not make this change, please contact support immediately.<\/p>",
+    "queued_at": "2026-05-27 18:07:29"
+}

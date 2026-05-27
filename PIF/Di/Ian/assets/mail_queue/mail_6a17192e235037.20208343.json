@@ -1,0 +1,6 @@
+{
+    "to": "dd2@dd.com",
+    "subject": "Station registered successfully",
+    "html": "<h2>Hi Dan222,<\/h2><p>Your station has been registered to your account.<\/p><ul><li><strong>Serial:<\/strong> 222-222<\/li><li><strong>Name:<\/strong> 222-222<\/li><\/ul><p>You can edit details anytime in the Stations page.<\/p>",
+    "queued_at": "2026-05-27 18:17:50"
+}

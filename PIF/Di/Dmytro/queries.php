@@ -11,9 +11,9 @@ else{
     mysqli_connect_error($conn);
 }
 
-function queriesUser($connection, $uName, $passWrd, $fName, $lName, $emName, $qType){ //user registration
+function queriesUser($connection, $uName, $passWrd, $firstName, $lName, $emName, $qType){ //user registration
     if($qType == "insert"){
-        $sql = "INSERT INTO user(pk_userName, firstName, lastName, password, email) VALUES('$uName','$fname','$lName',$passWrd,'$emName');";
+        $sql = "INSERT INTO user(pk_userName, firstName, lastName, password, email, role) VALUES('$uName','$firstName','$lName','$passWrd','$emName','User');";
         if(mysqli_query($connection, $sql)){
             $confirmReg = "Your account was created. Log-In <a href='login.php?logout=1'>here</a>";
             return $confirmReg;

@@ -402,7 +402,7 @@
                         <th>Air Quality</tr>");
                     while($row = mysqli_fetch_assoc($result)){ //display measurements
                         print("<tr>");
-                        print("<td>".$row["pk_measurement"]."</td><td>".$row["fk_station_records"]."</td><td>".$row["timestamp"]."</td>"."<td>".$row["temperature"]."</td>"."<td>".$row["humidity"]."</td>"."<td>".$row["light"]."</td>"."<td>".$row["gas"]."</td><td><a href='adminpage.php?deleteRecord=1'>Delete</a></th></tr>"); //delete measurement link
+                        print("<td>".$row["pk_measurement"]."</td><td>".$row["fk_station_records"]."</td><td>".$row["timestamp"]."</td>"."<td>".$row["temperature"]."</td>"."<td>".$row["humidity"]."</td>"."<td>".$row["light"]."</td>"."<td>".$row["gas"]."</td><td><a href='adminpage.php?deleteRecord=".$row["pk_measurement"]."'>Delete</a></th></tr>"); //delete measurement link
                         print("</tr>");
                     }
                     print("</table>");

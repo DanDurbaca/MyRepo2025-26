@@ -19,9 +19,9 @@ session_start(); // Start the session to manage user data
         if($username == ""){ // Validate username
             $errorun = " Username must be filled out";
         }
-        $sql = "SELECT pk_userId FROM user WHERE username = '$username'";
+        $sql = "SELECT pk_userName FROM user WHERE pk_userName = '$username'";
         $result = mysqli_query($conn,$sql);
-        if(mysqli_num_rows($result)>1){ // Check for unique username
+        if(mysqli_num_rows($result)>0){ // Check for unique username
             $errorun = " Username is not unique";
         }
         if($email == "" || !filter_var($email, FILTER_VALIDATE_EMAIL)){ // Validate email
@@ -39,7 +39,10 @@ session_start(); // Start the session to manage user data
             $formvalid = TRUE;
         }
         if($formvalid == TRUE){
-            $confirmReg = queriesUser($conn,$username,$password,$ful,$email,"insert"); // Create the account
+            $confirmReg = queriesUser($conn,$username,$password,$fName,$lName,$email,"insert"); // Create the account
+            $_SESSION["username"] = $username; // Store username in session
+            $_SESSION["role"] = "User"; // Default role is User
+            header("Location: home_page.php"); // Redirect to login page
         }
     }
     ?>
@@ -48,8 +51,8 @@ session_start(); // Start the session to manage user data
     <h1> Create your Account </h1>
     <form method = "POST">
         <p><label>Enter your username: </label><input type = "text" placeholder="new username" name = "username" value =""><?php if(isset($errorun)){print($errorun);}//output error?></p>
-        <p><label>Enter your Full Name(optional): </label><input type = "text" placeholder="First Name" name = "firstname" value =""></p>
-        <p><label>Enter your Full Name(optional): </label><input type = "text" placeholder="Last Name" name = "lastname" value =""></p>
+        <p><label>Enter your First Name(optional): </label><input type = "text" placeholder="First Name" name = "firstname" value =""></p>
+        <p><label>Enter your Last Name(optional): </label><input type = "text" placeholder="Last Name" name = "lastname" value =""></p>
         <p><label>Enter your email: </label><input type = "text" placeholder="abc@xyz.com" name = "email" value =""><?php if(isset($errore)){print($errore);}//output error?></p>
         <br></br>
         <label>Enter your password: </label><input type = "password" placeholder="password" name = "password" value ="">

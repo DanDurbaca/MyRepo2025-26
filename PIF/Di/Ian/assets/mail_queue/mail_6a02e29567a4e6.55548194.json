@@ -1,6 +1,0 @@
-{
-    "to": "adminuser@mail.com",
-    "subject": "Welcome to Portable Indoor Feedback",
-    "html": "<h2>Welcome, Admin!<\/h2><p>Thank you for signing up for Portable Indoor Feedback.<\/p><p><strong>Account Details:<\/strong><\/p><ul><li>Username: adminuser<\/li><li>Email: adminuser@mail.com<\/li><\/ul><p>You can now log in and start managing your weather stations and measurements.<\/p><p>Best regards,<br>The Portable Indoor Feedback Team<\/p>",
-    "queued_at": "2026-05-12 08:19:33"
-}

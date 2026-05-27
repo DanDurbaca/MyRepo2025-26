@@ -5,17 +5,18 @@ define('BASE_URL', '');
 
 // Database credentials
 define('DB_HOST', 'localhost');     // Database server host
-define('DB_USER', 'admin');          // Database username
-define('DB_PASS', '1234');              // Database password
+define('DB_USER', 'root');          // Database username
+define('DB_PASS', '');              // Database password
 define('DB_NAME', 'portableindoorfeedback'); // Database name
 
 // Function to create and return a PDO database connection
-function getDbConnection() {
+function getDbConnection()
+{
     try {
         // Create PDO connection using MySQL driver
         $conn = new PDO(
-            "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, 
-            DB_USER, 
+            "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
+            DB_USER,
             DB_PASS
         );
 
@@ -26,7 +27,7 @@ function getDbConnection() {
         $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
         return $conn; // Return the connection object
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
         // Stop execution and display error message if connection fails
         die("Connection failed: " . $e->getMessage());
     }
@@ -36,4 +37,3 @@ function getDbConnection() {
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-?>
