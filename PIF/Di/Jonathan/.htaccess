@@ -1,0 +1,13 @@
+# PIF Application Configuration
+
+# FTP Backup Server Configuration
+# These environment variables are read by admin/backups.php to connect to the FTP server
+# hosting backup files. On production, ensure Apache can read these (via .htaccess or site config).
+SetEnv BACKUP_FTP_HOST 192.168.178.128
+SetEnv BACKUP_FTP_USER backupuser
+SetEnv BACKUP_FTP_PASS "Jojo+6842-"
+SetEnv BACKUP_FTP_PATH /
+
+# Backup mode: set to 'ftp' to enable remote FTP access
+# (local mode will scan /srv/pif_backups if it exists)
+SetEnv BACKUP_MODE ftp

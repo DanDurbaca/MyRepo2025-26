@@ -1,0 +1,13 @@
+[Unit]
+Description=PIF daily backup
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/pif_backup.sh
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,184 @@
+L6 — Backup Server Plan (for VM you will set up)
+
+Goal
+----
+Create a backup server VM that receives daily MySQL dumps of the project database at 08:00, stores backups, provides FTP access to the backup directory (jailed), retains backups for 7 days (auto-delete older), logs successes/failures, and documents restore procedures.
+
+Assumptions
+-----------
+- You will create an Ubuntu LTS VM (20.04/22.04/24.04 LTS as appropriate).
+- You have network connectivity between web/db server and the backup VM.
+- You will supply a static IP and IAM-based hostname (replace placeholders below).
+
+High-level steps
+----------------
+1. Provision VM and set hostname
+2. Secure OS and update packages
+3. Install required packages (OpenSSH, MySQL client, vsftpd)
+4. Create backup directory and user accounts
+5. Create a minimal-privilege MySQL user for backups
+6. Configure secure credential storage with `mysql_config_editor` (or use a protected `.my.cnf`)
+7. Create backup shell script using `mysqldump` and logging
+8. Configure retention (delete backups older than 7 days)
+9. Schedule daily cron job at 08:00
+10. Configure FTP server (jail to backup dir) and create FTP user
+11. Document restore steps and test backup/restore
+
+Detailed commands and sample scripts
+----------------------------------
+Replace placeholders: `BACKUP_DIR=/srv/pif_backups`, `DB_HOST=web-db-host`, `DB_NAME=portableindoorfeedback`, `BACKUP_USER=backupuser`, `IAM_CODE=your-iam-code`, `STATIC_IP=x.x.x.x`
+
+1) VM creation & hostname
+
+- Create VM in your preferred hypervisor/cloud and set the VM MAC address (if required by assignment). Set hostname to include your IAM code:
+
+  sudo hostnamectl set-hostname pif-backup-IAM_CODE
+
+2) Update OS and install packages
+
+  sudo apt update && sudo apt upgrade -y
+  sudo apt install -y openssh-server mysql-client mysqldump rsync pv gzip findutils util-linux vsftpd
+
+3) Networking
+
+- Configure static IP according to your teacher assignment (Netplan for Ubuntu): edit `/etc/netplan/01-netcfg.yaml` and apply `sudo netplan apply`.
+
+4) Create backup directory and user
+
+  sudo mkdir -p /srv/pif_backups
+  sudo chown root:backup /srv/pif_backups
+  sudo chmod 770 /srv/pif_backups
+  sudo groupadd backup || true
+  sudo useradd -M -s /usr/sbin/nologin -G backup backupuser
+  sudo passwd backupuser  # set a strong password or use SSH keys for transfers
+
+5) Create restricted MySQL user on web/db host
+
+- On the database server, create a user that can only connect from the backup VM IP and has minimal privileges for dump:
+
+  -- on DB server as root
+  CREATE USER 'pif_backup'@'BACKUP_VM_IP' IDENTIFIED BY 'strongpassword';
+  GRANT SELECT, LOCK TABLES, SHOW VIEW, EVENT ON DB_NAME.* TO 'pif_backup'@'BACKUP_VM_IP';
+  FLUSH PRIVILEGES;
+
+6) Secure credential storage
+
+- Use `mysql_config_editor` on the backup VM so scripts don't embed plaintext passwords:
+
+  mysql_config_editor set --login-path=pifbackup --host=DB_HOST --user=pif_backup --password
+  # Enter password when prompted.
+
+- Confirm with: `mysql_config_editor print --all` (never commit credentials to git)
+
+7) Backup shell script (example `/usr/local/bin/pif_backup.sh`)
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+BACKUP_DIR=/srv/pif_backups
+DB_NAME=portableindoorfeedback
+DATE=$(date -u +"%Y-%m-%dT%H%M%SZ")
+OUTFILE="$BACKUP_DIR/${DB_NAME}_$DATE.sql.gz"
+LOGFILE=/var/log/pif_backup.log
+
+echo "[$(date -u +'%Y-%m-%dT%H:%M:%SZ')] START backup" >> "$LOGFILE"
+
+if mysqldump --login-path=pifbackup --single-transaction --quick --routines --triggers --events "$DB_NAME" | gzip -c > "$OUTFILE"; then
+  echo "[$(date -u +'%Y-%m-%dT%H:%M:%SZ')] OK $OUTFILE" >> "$LOGFILE"
+else
+  echo "[$(date -u +'%Y-%m-%dT%H:%M:%SZ')] FAILED" >> "$LOGFILE"
+  exit 1
+fi
+
+# prune backups older than 7 days
+find "$BACKUP_DIR" -type f -name "${DB_NAME}_*.sql.gz" -mtime +7 -print -delete >> "$LOGFILE" 2>&1 || true
+
+echo "[$(date -u +'%Y-%m-%dT%H:%M:%SZ')] DONE" >> "$LOGFILE"
+```
+
+Make script executable:
+
+  sudo chmod 750 /usr/local/bin/pif_backup.sh
+  sudo chown root:backup /usr/local/bin/pif_backup.sh
+
+8) Cron schedule
+
+Run daily at 08:00 (system timezone). Edit root's crontab or use systemd timer. Example crontab:
+
+  0 8 * * * /usr/local/bin/pif_backup.sh
+
+Use `crontab -e` as root to add the line.
+
+9) FTP setup (vsftpd) and jail
+
+Install vsftpd already listed above. Minimal config changes in `/etc/vsftpd.conf`:
+
+  listen=YES
+  anonymous_enable=NO
+  local_enable=YES
+  write_enable=YES
+  chroot_local_user=YES
+  allow_writeable_chroot=YES
+  pasv_min_port=40000
+  pasv_max_port=40100
+  pasv_address=STATIC_IP
+
+Create an FTP user that has home directory at `/srv/pif_backups`:
+
+  sudo usermod -d /srv/pif_backups -s /usr/sbin/nologin ftpbackup
+  sudo passwd ftpbackup
+  sudo chown ftpbackup:backup /srv/pif_backups
+
+Restart vsftpd: `sudo systemctl restart vsftpd`.
+
+10) Logging and monitoring
+
+- Backups log to `/var/log/pif_backup.log` in the script. Ensure logrotate configuration for that file (`/etc/logrotate.d/pif_backup`):
+
+  /var/log/pif_backup.log {
+      weekly
+      rotate 12
+      compress
+      missingok
+      notifempty
+      create 640 root backup
+  }
+
+11) Restore procedure (documented steps)
+
+To restore a database from a backup file on the backup server:
+
+  gunzip -c portableindoorfeedback_2024-04-18T080000Z.sql.gz | mysql -u root -p portableindoorfeedback
+
+Or using login-path:
+
+  mysql --login-path=pifbackup portableindoorfeedback < /path/to/dump.sql
+
+12) Tests to perform
+
+- Run the backup script manually and verify `OUTFILE` exists and is a valid gzip SQL dump.
+- Test `mysqldump` with `--single-transaction` on your DB size.
+- Test restore to a staging DB: import the dump into a dev database and confirm tables and data.
+- Verify FTP login and that ftp user cannot escape the backup directory.
+
+Security considerations
+-----------------------
+- Never commit credentials to Git. Use `mysql_config_editor` or a secrets manager.
+- Limit MySQL backup user's allowed host to the backup VM IP.
+- Secure FTP with TLS if backups travel over untrusted networks (configure vsftpd with SSL certs).
+- Consider encrypting backups at rest with GPG if required: `gpg --encrypt --recipient your@key` before storing.
+
+Optional improvements
+---------------------
+- Use `rsync` or `duplicity` for full-system backups.
+- Use systemd timers instead of cron for more robust scheduling and logging.
+- Push backups to an offsite location (S3-compatible storage) using tools like `rclone`.
+- Configure email or webhook alerts on failure (script can `curl` a webhook or send mail).
+
+Support
+-------
+If you want, I can:
+- Create the `pif_backup.sh` file in the repo as a template.
+- Provide an example `vsftpd.conf` and `logrotate` configuration file.
+- Create a systemd timer unit example instead of cron.

@@ -1,0 +1,9 @@
+/var/log/pif_backup.log {
+    weekly
+    rotate 12
+    compress
+    missingok
+    notifempty
+    create 640 root backup
+    su root backup
+}

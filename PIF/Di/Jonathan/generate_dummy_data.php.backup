@@ -1,0 +1,428 @@
+<?php
+/**
+ * Dummy Data Generator for Station Measurements
+ *
+ * This script generates realistic test data for station measurements
+ * to help with development and testing when real sensors aren't available.
+ */
+
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/inc/csrf.php';
+
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit;
+}
+
+// Get stations based on user permissions
+$isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'];
+$currentUser = $_SESSION['username'];
+
+if ($isAdmin) {
+    // Admin sees all stations, organized by owner
+    $stmt = $pdo->prepare("
+        SELECT s.pk_serialNumber, s.name, s.fk_user_owns,
+               CASE WHEN s.fk_user_owns = ? THEN 1 ELSE 0 END as is_mine
+        FROM station s
+        ORDER BY is_mine DESC, s.fk_user_owns, s.pk_serialNumber
+    ");
+    $stmt->execute([$currentUser]);
+    $allStations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Separate into my stations and others
+    $myStations = array_filter($allStations, function($station) {
+        return $station['is_mine'];
+    });
+    $userStations = array_filter($allStations, function($station) {
+        return !$station['is_mine'];
+    });
+
+    $stations = $allStations; // For backward compatibility with existing code
+} else {
+    // Regular users only see their own stations
+    $stmt = $pdo->prepare("SELECT pk_serialNumber, name, fk_user_owns FROM station WHERE fk_user_owns = ? ORDER BY pk_serialNumber");
+    $stmt->execute([$currentUser]);
+    $stations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $myStations = $stations;
+    $userStations = [];
+}
+
+if (empty($isAdmin ? $allStations : $stations)) {
+    $message = $isAdmin
+        ? "No stations found in the system! Please create some stations first."
+        : "You don't have any stations yet! Please claim or create some stations first.";
+    echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+            <i class='fas fa-exclamation-triangle me-2'></i>{$message}
+            <a href='user/stations.php' class='alert-link ms-2'>Go to Stations Management</a>
+            <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+          </div>";
+    exit;
+}
+
+function generateDummyData($pdo, $stationId, $days, $intervalMinutes) {
+    // Clear existing data for this station (optional - comment out if you want to keep existing data)
+    // $pdo->prepare("DELETE FROM measurement WHERE fk_station_records = ?")->execute([$stationId]);
+
+    $endTime = new DateTime();
+    $startTime = clone $endTime;
+    $startTime->modify("-{$days} days");
+
+    $currentTime = clone $startTime;
+    $inserted = 0;
+
+    // Base values with some variation
+    $baseTemp = 22.0; // Celsius
+    $baseHumidity = 45.0; // %
+    $basePressure = 1013.25; // hPa
+    $baseLight = 500; // lux
+    $baseGas = 400; // CO2 ppm
+
+    while ($currentTime <= $endTime) {
+        // Add realistic variations based on time of day
+        $hour = (int)$currentTime->format('H');
+        $minute = (int)$currentTime->format('i');
+
+        // Temperature: cooler at night, warmer during day
+        $tempVariation = sin(($hour - 6) * M_PI / 12) * 5; // Daily cycle
+        $tempNoise = (mt_rand(-50, 50) / 100); // Random noise
+        $temperature = $baseTemp + $tempVariation + $tempNoise;
+
+        // Humidity: higher at night/cooler times
+        $humidityVariation = -sin(($hour - 6) * M_PI / 12) * 10;
+        $humidityNoise = (mt_rand(-20, 20) / 10);
+        $humidity = max(10, min(90, $baseHumidity + $humidityVariation + $humidityNoise));
+
+        // Pressure: slight daily variation
+        $pressureVariation = sin($hour * M_PI / 12) * 10;
+        $pressureNoise = (mt_rand(-50, 50) / 100);
+        $pressure = $basePressure + $pressureVariation + $pressureNoise;
+
+        // Light: bright during day, dark at night
+        if ($hour >= 6 && $hour <= 20) {
+            $light = $baseLight + mt_rand(0, 500);
+        } else {
+            $light = mt_rand(0, 10);
+        }
+
+        // Gas/CO2: higher during "occupied" hours
+        if ($hour >= 8 && $hour <= 18) {
+            $gas = $baseGas + mt_rand(0, 200);
+        } else {
+            $gas = $baseGas + mt_rand(-50, 50);
+        }
+
+        // Insert measurement
+        $stmt = $pdo->prepare("INSERT INTO measurement (timestamp, temperature, humidity, pressure, light, gas, fk_station_records) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([
+            $currentTime->format('Y-m-d H:i:s'),
+            round($temperature, 2),
+            round($humidity, 1),
+            round($pressure, 2),
+            $light,
+            $gas,
+            $stationId
+        ]);
+
+        $inserted++;
+
+        // Move to next interval
+        $currentTime->modify("+{$intervalMinutes} minutes");
+    }
+
+    return $inserted;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Data Generator - Indoor Climate Data Website</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <?php
+    $pageTitle = 'Dummy Data Generator';
+    require_once '../config.php';
+    require_once __DIR__ . '/../_header.php';
+    require_once __DIR__ . '/../inc/csrf.php';
+
+    // Check login
+    if (!isset($_SESSION['username'])) {
+        header('Location: ../login.php');
+        exit;
+    }
+    $username = $_SESSION['username'];
+
+    // Get stations based on user permissions
+    $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'];
+
+    if ($isAdmin) {
+        // Admin sees all stations, organized by owner
+        $stmt = $pdo->prepare("
+            SELECT s.pk_serialNumber, s.name, s.fk_user_owns,
+                   CASE WHEN s.fk_user_owns = ? THEN 1 ELSE 0 END as is_mine
+            FROM station s
+            ORDER BY is_mine DESC, s.fk_user_owns, s.pk_serialNumber
+        ");
+        $stmt->execute([$username]);
+        $allStations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Separate into my stations and others
+        $myStations = array_filter($allStations, function($station) {
+            return $station['is_mine'];
+        });
+        $userStations = array_filter($allStations, function($station) {
+            return !$station['is_mine'];
+        });
+
+        $stations = $allStations; // For backward compatibility
+    } else {
+        // Regular users only see their own stations
+        $stmt = $pdo->prepare("SELECT pk_serialNumber, name, fk_user_owns FROM station WHERE fk_user_owns = ? ORDER BY pk_serialNumber");
+        $stmt->execute([$username]);
+        $stations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $myStations = $stations;
+        $userStations = [];
+    }
+
+    if (empty($isAdmin ? $allStations : $stations)) {
+        $message = $isAdmin
+            ? "No stations found in the system! Please create some stations first."
+            : "You don't have any stations yet! Please claim or create some stations first.";
+        echo "<div class='alert alert-warning'>
+                <i class='fas fa-exclamation-triangle'></i> {$message}
+                <a href='user/stations.php' class='alert-link'>Go to Stations Management</a>
+              </div>";
+        exit;
+    }
+
+    // Handle form submission
+    $message = '';
+    $messageType = 'info';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate'])) {
+        if (!validate_csrf($_POST['csrf_token'] ?? '')) {
+            $message = 'Invalid CSRF token.';
+            $messageType = 'danger';
+        } else {
+            $stationId = $_POST['station'] ?? '';
+            $days = intval($_POST['days'] ?? 7);
+            $interval = intval($_POST['interval'] ?? 15);
+
+            $allowedStations = $isAdmin ? $allStations : $stations;
+            if (!$stationId || !in_array($stationId, array_column($allowedStations, 'pk_serialNumber'))) {
+                $message = 'Invalid station selected.';
+                $messageType = 'danger';
+            } elseif ($days < 1 || $days > 365) {
+                $message = 'Days must be between 1 and 365.';
+                $messageType = 'danger';
+            } elseif ($interval < 1 || $interval > 1440) {
+                $message = 'Interval must be between 1 and 1440 minutes.';
+                $messageType = 'danger';
+            } else {
+                $inserted = generateDummyData($pdo, $stationId, $days, $interval);
+                $message = "Dummy data generated successfully! {$inserted} measurements added to station {$stationId} over {$days} days.";
+                $messageType = 'success';
+            }
+        }
+    }
+    ?>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4"><i class="fas fa-magic"></i> Dummy Data Generator</h1>
+                <p class="lead">Generate realistic test data for your stations when real sensors aren't available.</p>
+            </div>
+        </div>
+
+        <?php if (!empty($message)): ?>
+            <div class="alert alert-<?php echo $messageType; ?>">
+                <i class="fas fa-<?php echo $messageType === 'success' ? 'check-circle' : ($messageType === 'danger' ? 'exclamation-triangle' : 'info-circle'); ?>"></i>
+                <?php echo htmlspecialchars($message); ?>
+                <?php if ($messageType === 'success'): ?>
+                    <a href="user/dashboard.php" class="alert-link ms-2">View on Dashboard</a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-cogs"></i> Generate Test Data</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <?php echo csrf_input(); ?>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="station" class="form-label">Select Station</label>
+                                    <select name="station" id="station" class="form-select" required>
+                                        <option value="">Choose a station...</option>
+                                        <?php if ($isAdmin): ?>
+                                            <?php if (!empty($myStations)): ?>
+                                                <optgroup label="🏠 My Stations">
+                                                    <?php foreach ($myStations as $station): ?>
+                                                        <option value="<?php echo htmlspecialchars($station['pk_serialNumber']); ?>">
+                                                            <?php echo htmlspecialchars($station['name'] . ' (' . $station['pk_serialNumber'] . ')'); ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                </optgroup>
+                                            <?php endif; ?>
+                                            <?php if (!empty($userStations)): ?>
+                                                <optgroup label="👥 User's Stations">
+                                                    <?php
+                                                    $currentOwner = null;
+                                                    foreach ($userStations as $station):
+                                                        if ($currentOwner !== $station['fk_user_owns']):
+                                                            if ($currentOwner !== null) echo '</optgroup>';
+                                                            $currentOwner = $station['fk_user_owns'];
+                                                            echo '<optgroup label="User: ' . htmlspecialchars($currentOwner) . '">';
+                                                        endif;
+                                                    ?>
+                                                        <option value="<?php echo htmlspecialchars($station['pk_serialNumber']); ?>">
+                                                            <?php echo htmlspecialchars($station['name'] . ' (' . $station['pk_serialNumber'] . ')'); ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
+                                                    <?php if ($currentOwner !== null) echo '</optgroup>'; ?>
+                                                </optgroup>
+                                            <?php endif; ?>
+                                        <?php else: ?>
+                                            <?php foreach ($stations as $station): ?>
+                                                <option value="<?php echo htmlspecialchars($station['pk_serialNumber']); ?>">
+                                                    <?php echo htmlspecialchars($station['name'] . ' (' . $station['pk_serialNumber'] . ')'); ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="days" class="form-label">Days of Data</label>
+                                    <input type="number" name="days" id="days" class="form-control" value="7" min="1" max="365" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="interval" class="form-label">Interval (minutes)</label>
+                                    <input type="number" name="interval" id="interval" class="form-control" value="15" min="1" max="1440" required>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info">
+                                <strong>What gets generated:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>Temperature: 17-27°C with daily cycles</li>
+                                    <li>Humidity: 10-90% with realistic variations</li>
+                                    <li>Pressure: ~1013 hPa with slight changes</li>
+                                    <li>Light: Bright during day (6AM-8PM), dark at night</li>
+                                    <li>CO2/Gas: Higher during "occupied" hours (8AM-6PM)</li>
+                                </ul>
+                            </div>
+
+                            <button type="submit" name="generate" class="btn btn-success">
+                                <i class="fas fa-play"></i> Generate Dummy Data
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-info-circle"></i> Quick Stats</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-12 mb-3">
+                                <div class="h4 text-primary"><?php echo number_format(count($isAdmin ? $allStations : $stations)); ?></div>
+                                <small class="text-muted">Stations Available</small>
+                            </div>
+                            <div class="col-6">
+                                <div class="h5 text-success" id="estimated-readings">672</div>
+                                <small class="text-muted">Readings</small>
+                            </div>
+                            <div class="col-6">
+                                <div class="h5 text-info">15 min</div>
+                                <small class="text-muted">Interval</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-question-circle"></i> Why Use This?</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0 small">
+                            <li class="mb-2"><i class="fas fa-chart-line text-primary me-2"></i>Test charts & dashboards</li>
+                            <li class="mb-2"><i class="fas fa-folder-plus text-success me-2"></i>Create collections</li>
+                            <li class="mb-2"><i class="fas fa-share-alt text-info me-2"></i>Test sharing features</li>
+                            <li class="mb-0"><i class="fas fa-download text-warning me-2"></i>Export functionality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><i class="fas fa-external-link-alt"></i> Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <a href="user/dashboard.php" class="btn btn-primary w-100">
+                                    <i class="fas fa-tachometer-alt"></i><br>View Dashboard
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="user/stations.php" class="btn btn-success w-100">
+                                    <i class="fas fa-broadcast-tower"></i><br>Manage Stations
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="user/collections.php" class="btn btn-info w-100">
+                                    <i class="fas fa-folder"></i><br>View Collections
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="user/data.php" class="btn btn-warning w-100">
+                                    <i class="fas fa-table"></i><br>View Data
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update estimated readings when parameters change
+        function updateEstimates() {
+            const days = parseInt(document.getElementById('days').value) || 7;
+            const interval = parseInt(document.getElementById('interval').value) || 15;
+            const readingsPerDay = Math.floor(1440 / interval);
+            const totalReadings = days * readingsPerDay;
+            document.getElementById('estimated-readings').textContent = totalReadings.toLocaleString();
+        }
+
+        // Initial calculation
+        updateEstimates();
+
+        // Update on input change
+        document.getElementById('days').addEventListener('input', updateEstimates);
+        document.getElementById('interval').addEventListener('input', updateEstimates);
+    </script>
+
+</body>
+</html>

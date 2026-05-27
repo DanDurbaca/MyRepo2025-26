@@ -1,0 +1,16 @@
+# Minimal vsftpd config for PIF backup server (sample)
+listen=YES
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+allow_writeable_chroot=YES
+pasv_min_port=40000
+pasv_max_port=40100
+#pasv_address=YOUR_PUBLIC_IP_OR_DOMAIN
+local_root=/srv/pif_backups
+
+# TLS (optional):
+# ssl_enable=YES
+# rsa_cert_file=/etc/ssl/certs/vsftpd.pem
+# rsa_private_key_file=/etc/ssl/private/vsftpd.key

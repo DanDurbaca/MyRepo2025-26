@@ -1,0 +1,7 @@
+# Apache configuration for PIF backup FTP access
+# Add this to your Apache site config or .htaccess file
+
+SetEnv BACKUP_FTP_HOST 192.168.178.128
+SetEnv BACKUP_FTP_USER backupuser
+SetEnv BACKUP_FTP_PASS "Jojo+6842-"
+SetEnv BACKUP_FTP_PATH /

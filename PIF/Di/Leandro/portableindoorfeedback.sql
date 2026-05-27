@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `portableindoorfeedback`
 --
+drop Database portableindoorfeedback;
+create Database portableindoorfeedback;
+use portableindoorfeedback;
 
 -- --------------------------------------------------------
 

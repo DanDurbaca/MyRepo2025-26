@@ -1,0 +1,13 @@
+[Unit]
+Description=PIF database backup job
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=-/etc/pif-backup.env
+Environment=PIF_APP_ROOT=/Users/jonathansofra/pif
+Environment=BACKUP_LOCAL_DIR=/srv/pif_backups
+Environment=BACKUP_LOG_FILE=/var/log/pif_backup.log
+ExecStart=/bin/bash /Users/jonathansofra/pif/deploy/pif_backup.sh
+Nice=10
