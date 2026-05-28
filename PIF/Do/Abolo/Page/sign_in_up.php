@@ -79,7 +79,7 @@ if (isset($_POST['signin_username'], $_POST['signin_password'])) {
                             echo "<script>alert('This username already taken. Please choose a different username.');</script>";
                         } else {
                             $insertValues = $connection->prepare("INSERT INTO Users(Fullname,Email,Username,Password,AccessLevelID) values (?,?,?,?,?)");
-                            $insertValues->bind_param("ssssi", $FullName, $EmailAddress, $Username, $Password, $DefaultAccessLevel);
+                            $insertValues->bind_param("ssssi", $FullName, $EmailAddress, $Username, $hashedPass, $DefaultAccessLevel);
                             if ($insertValues->execute()) {
                                 echo "<script>alert('Form submitted successfully');</script>";
                             };
