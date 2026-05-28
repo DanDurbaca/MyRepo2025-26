@@ -27,18 +27,33 @@
         if (isset($_POST["Logout"])) {
             session_unset();
             session_destroy();
-            header("Refresh:0");
+    // Delete session cookie to ensure complete logout
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(session_name(), '', time() - 42000,
+            $params["path"], $params["domain"],
+            $params["secure"], $params["httponly"]
+        );
+    }
+    // Redirect to home after logout
+    header("Location: ./index.php");
+    exit();
         }
 
-        //User registration
+        //Create new user registration
         if (isset($_POST["uName"], $_POST["uPassword"], $_POST["cPassword"], $_POST["uEmail"])) {
             if ($_POST["uPassword"] == $_POST["cPassword"]) {
                 $passHash = password_hash($_POST["uPassword"], PASSWORD_DEFAULT);
                 $sqlInsert = $conn->prepare("insert into User(userName,password,emailAddress,userRole) values(?,?,?,0)");
-                $sqlInsert->bind_param("sss", $_POST["uName"], $passHash, $_POST["uEmail"], );
+                $sqlInsert->bind_param("sss", $_POST["uName"], $passHash, $_POST["uEmail"]);
                 $sqlInsert->execute();
+                echo "User created successfully!";
+            } else {
+                echo "Passwords do not match.";
             }
         }
+        
+        
 
         //User login
         function userAlreadyExists($a, $b)
@@ -212,7 +227,7 @@
         }
 
 
-        if (isset($_SESSION["UserLoggedIn"]) || isset($_SESSION["adminLoggedIn"])) {
+        if (!empty($_SESSION["UserLoggedIn"]) || !empty($_SESSION["adminLoggedIn"])) {
             ?>
             <h1><?= htmlspecialchars($text['changePassword']) ?></h1>
             <form method="POST">
@@ -354,7 +369,7 @@
         ?>
 
         <!-- Logout button moved here for prominence -->
-        <?php if (isset($_SESSION["UserLoggedIn"]) || isset($_SESSION["adminLoggedIn"])) { ?>
+        <?php if (!empty($_SESSION["UserLoggedIn"]) || !empty($_SESSION["adminLoggedIn"])) { ?>
             <form method="POST" aria-label="Logout" style="margin-top:18px;">
                 <div style="display:flex;justify-content:flex-end">
                     <button type="submit" name="Logout" class="icon-btn icon-btn-lg"

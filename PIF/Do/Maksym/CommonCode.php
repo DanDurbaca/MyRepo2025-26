@@ -3,10 +3,10 @@
 session_start();
 
 // Connection to DB
-$host = 'database';
+$host = '';
 $db   = 'portableindoorfeedback';
-$user = 'pif_user';
-$pass = 'pif_password';
+$user = 'root';
+$pass = '';
 $conn = mysqli_connect($host, $user, $pass, $db);
 if ($conn) {
     mysqli_set_charset($conn, 'utf8mb4');
@@ -382,29 +382,32 @@ $TRANSLATIONS = [
 ];
 
 // Get current interface language
-function getLang() {
-    if (isset($_SESSION['language']) && in_array($_SESSION['language'], ['en','uk','lb'])) {
+function getLang()
+{
+    if (isset($_SESSION['language']) && in_array($_SESSION['language'], ['en', 'uk', 'lb'])) {
         return $_SESSION['language'];
     }
-    if (isset($_COOKIE['pif_lang']) && in_array($_COOKIE['pif_lang'], ['en','uk','lb'])) {
+    if (isset($_COOKIE['pif_lang']) && in_array($_COOKIE['pif_lang'], ['en', 'uk', 'lb'])) {
         return $_COOKIE['pif_lang'];
     }
     return 'en';
 }
 
 // Get current theme
-function getTheme() {
-    if (isset($_SESSION['theme']) && in_array($_SESSION['theme'], ['dark','light'])) {
+function getTheme()
+{
+    if (isset($_SESSION['theme']) && in_array($_SESSION['theme'], ['dark', 'light'])) {
         return $_SESSION['theme'];
     }
-    if (isset($_COOKIE['pif_theme']) && in_array($_COOKIE['pif_theme'], ['dark','light'])) {
+    if (isset($_COOKIE['pif_theme']) && in_array($_COOKIE['pif_theme'], ['dark', 'light'])) {
         return $_COOKIE['pif_theme'];
     }
     return 'dark';
 }
 
 // Translate a key
-function t($key) {
+function t($key)
+{
     global $TRANSLATIONS;
     $lang = getLang();
     if (isset($TRANSLATIONS[$lang][$key])) return $TRANSLATIONS[$lang][$key];
@@ -413,7 +416,8 @@ function t($key) {
 }
 
 // Function to render the navigation bar
-function NavigationBar($activePage) {
+function NavigationBar($activePage)
+{
     if (!isset($_SESSION['username'])) {
         return;
     }
@@ -422,206 +426,295 @@ function NavigationBar($activePage) {
     $unreadMsgs   = getUnreadMessageCount($_SESSION['username']);
     $lang  = getLang();
     $theme = getTheme();
-    ?>
+?>
     <nav>
-      <a href="Dashboard.php" class="nav-logo">
-        <span class="lp">P</span><span class="li">I</span><span class="lf">F</span>
-        <span class="nav-logo-sub">Portable Indoor Feedback</span>
-        <span class="nav-live-dot"></span>
-      </a>
+        <a href="Dashboard.php" class="nav-logo">
+            <span class="lp">P</span><span class="li">I</span><span class="lf">F</span>
+            <span class="nav-logo-sub">Portable Indoor Feedback</span>
+            <span class="nav-live-dot"></span>
+        </a>
 
-      <div class="nav-links">
-        <a href="Dashboard.php" class="nav-link <?php if ($activePage == 'dashboard') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <?php echo t('dashboard'); ?>
-        </a>
-        <a href="Stations.php" class="nav-link <?php if ($activePage == 'stations') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
-          <?php echo t('stations'); ?>
-        </a>
-        <a href="Measurements.php" class="nav-link <?php if ($activePage == 'measurements') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <?php echo t('measurements'); ?>
-        </a>
-        <a href="MyCollections.php" class="nav-link <?php if ($activePage == 'collections') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-          <?php echo t('collections'); ?>
-        </a>
-        <a href="Shared.php" class="nav-link <?php if ($activePage == 'shared') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          <?php echo t('shared_with_me'); ?>
-        </a>
-        <a href="Friends.php" class="nav-link <?php if ($activePage == 'friends') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <?php echo t('friends'); ?>
-        </a>
-        <a href="Chat.php" class="nav-link <?php if ($activePage == 'chat') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <?php echo t('chat'); ?>
-          <?php if ($unreadMsgs > 0): ?>
-            <span class="nav-pill-badge"><?php echo (int)$unreadMsgs; ?></span>
-          <?php endif; ?>
-        </a>
-        <?php if ($isAdmin): ?>
-        <a href="AdminPanel.php" class="nav-link <?php if ($activePage == 'admin') echo 'active'; ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M20 12h2M2 12h2M12 20v2M12 2v2"/></svg>
-          <?php echo t('admin'); ?>
-        </a>
-        <?php endif; ?>
-      </div>
+        <div class="nav-links">
+            <a href="Dashboard.php" class="nav-link <?php if ($activePage == 'dashboard') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <?php echo t('dashboard'); ?>
+            </a>
+            <a href="Stations.php" class="nav-link <?php if ($activePage == 'stations') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                    <circle cx="12" cy="20" r="1" fill="currentColor" />
+                </svg>
+                <?php echo t('stations'); ?>
+            </a>
+            <a href="Measurements.php" class="nav-link <?php if ($activePage == 'measurements') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+                <?php echo t('measurements'); ?>
+            </a>
+            <a href="MyCollections.php" class="nav-link <?php if ($activePage == 'collections') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                </svg>
+                <?php echo t('collections'); ?>
+            </a>
+            <a href="Shared.php" class="nav-link <?php if ($activePage == 'shared') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3" />
+                    <circle cx="6" cy="12" r="3" />
+                    <circle cx="18" cy="19" r="3" />
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </svg>
+                <?php echo t('shared_with_me'); ?>
+            </a>
+            <a href="Friends.php" class="nav-link <?php if ($activePage == 'friends') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+                <?php echo t('friends'); ?>
+            </a>
+            <a href="Chat.php" class="nav-link <?php if ($activePage == 'chat') echo 'active'; ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                <?php echo t('chat'); ?>
+                <?php if ($unreadMsgs > 0): ?>
+                    <span class="nav-pill-badge"><?php echo (int)$unreadMsgs; ?></span>
+                <?php endif; ?>
+            </a>
+            <?php if ($isAdmin): ?>
+                <a href="AdminPanel.php" class="nav-link <?php if ($activePage == 'admin') echo 'active'; ?>">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M4.93 19.07l1.41-1.41M19.07 19.07l-1.41-1.41M20 12h2M2 12h2M12 20v2M12 2v2" />
+                    </svg>
+                    <?php echo t('admin'); ?>
+                </a>
+            <?php endif; ?>
+        </div>
 
-      <div class="nav-spacer"></div>
+        <div class="nav-spacer"></div>
 
-      <div class="nav-right">
-        <!-- Notifications -->
-        <button class="nav-icon-btn" id="notifToggle" type="button" title="<?php echo t('notifications'); ?>">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <?php if ($unreadNotifs > 0): ?>
-            <span class="notif-badge"><?php echo (int)$unreadNotifs; ?></span>
-          <?php endif; ?>
-        </button>
+        <div class="nav-right">
+            <!-- Notifications -->
+            <button class="nav-icon-btn" id="notifToggle" type="button" title="<?php echo t('notifications'); ?>">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <?php if ($unreadNotifs > 0): ?>
+                    <span class="notif-badge"><?php echo (int)$unreadNotifs; ?></span>
+                <?php endif; ?>
+            </button>
 
-        <!-- Theme toggle -->
-        <button class="nav-icon-btn" id="themeToggle" type="button" title="<?php echo t('theme'); ?>">
-          <?php if ($theme === 'dark'): ?>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <?php else: ?>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <?php endif; ?>
-        </button>
+            <!-- Theme toggle -->
+            <button class="nav-icon-btn" id="themeToggle" type="button" title="<?php echo t('theme'); ?>">
+                <?php if ($theme === 'dark'): ?>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                    </svg>
+                <?php else: ?>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                <?php endif; ?>
+            </button>
 
-        <!-- Language selector -->
-        <select id="langSelect" title="<?php echo t('language'); ?>" style="width:auto;padding:.26rem .4rem;font-size:.75rem;border-radius:7px;">
-          <option value="en" <?php if ($lang === 'en') echo 'selected'; ?>>EN</option>
-          <option value="uk" <?php if ($lang === 'uk') echo 'selected'; ?>>UK</option>
-          <option value="lb" <?php if ($lang === 'lb') echo 'selected'; ?>>LB</option>
-        </select>
+            <!-- Language selector -->
+            <select id="langSelect" title="<?php echo t('language'); ?>" style="width:auto;padding:.26rem .4rem;font-size:.75rem;border-radius:7px;">
+                <option value="en" <?php if ($lang === 'en') echo 'selected'; ?>>EN</option>
+                <option value="uk" <?php if ($lang === 'uk') echo 'selected'; ?>>UK</option>
+                <option value="lb" <?php if ($lang === 'lb') echo 'selected'; ?>>LB</option>
+            </select>
 
-        <!-- Account -->
-        <a href="Account.php" class="nav-link <?php if ($activePage == 'account') echo 'active'; ?>" style="gap:.4rem;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;opacity:.65;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <?php echo htmlspecialchars($_SESSION['firstName']); ?>
-          <?php if ($isAdmin): ?><span class="badge badge-admin">Admin</span><?php endif; ?>
-        </a>
-        <a class="btn-logout" href="Logout.php"><?php echo t('logout'); ?></a>
-        <button class="hamburger" id="hamburgerBtn" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </div>
+            <!-- Account -->
+            <a href="Account.php" class="nav-link <?php if ($activePage == 'account') echo 'active'; ?>" style="gap:.4rem;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;opacity:.65;">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                </svg>
+                <?php echo htmlspecialchars($_SESSION['firstName']); ?>
+                <?php if ($isAdmin): ?><span class="badge badge-admin">Admin</span><?php endif; ?>
+            </a>
+            <a class="btn-logout" href="Logout.php"><?php echo t('logout'); ?></a>
+            <button class="hamburger" id="hamburgerBtn" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
     </nav>
 
     <div class="nav-mobile-menu" id="mobileMenu">
-      <a href="Dashboard.php"><?php echo t('dashboard'); ?></a>
-      <a href="Stations.php"><?php echo t('stations'); ?></a>
-      <a href="Measurements.php"><?php echo t('measurements'); ?></a>
-      <a href="MyCollections.php"><?php echo t('collections'); ?></a>
-      <a href="Shared.php"><?php echo t('shared_with_me'); ?></a>
-      <a href="Friends.php"><?php echo t('friends'); ?></a>
-      <a href="Chat.php"><?php echo t('chat'); ?></a>
-      <?php if ($isAdmin): ?>
-      <a href="AdminPanel.php"><?php echo t('admin'); ?></a>
-      <?php endif; ?>
-      <a href="Account.php"><?php echo t('account'); ?></a>
-      <a href="Logout.php"><?php echo t('logout'); ?></a>
+        <a href="Dashboard.php"><?php echo t('dashboard'); ?></a>
+        <a href="Stations.php"><?php echo t('stations'); ?></a>
+        <a href="Measurements.php"><?php echo t('measurements'); ?></a>
+        <a href="MyCollections.php"><?php echo t('collections'); ?></a>
+        <a href="Shared.php"><?php echo t('shared_with_me'); ?></a>
+        <a href="Friends.php"><?php echo t('friends'); ?></a>
+        <a href="Chat.php"><?php echo t('chat'); ?></a>
+        <?php if ($isAdmin): ?>
+            <a href="AdminPanel.php"><?php echo t('admin'); ?></a>
+        <?php endif; ?>
+        <a href="Account.php"><?php echo t('account'); ?></a>
+        <a href="Logout.php"><?php echo t('logout'); ?></a>
     </div>
 
     <!-- Notifications dropdown panel -->
     <div class="notif-dropdown" id="notifDropdown">
-      <div class="notif-header">
-        <span><?php echo t('notifications'); ?></span>
-        <button type="button" class="btn-xs" id="markAllReadBtn"><?php echo t('mark_all_read'); ?></button>
-      </div>
-      <div id="notifList"><div class="empty" style="padding:1.5rem;"><?php echo t('no_notifications'); ?></div></div>
+        <div class="notif-header">
+            <span><?php echo t('notifications'); ?></span>
+            <button type="button" class="btn-xs" id="markAllReadBtn"><?php echo t('mark_all_read'); ?></button>
+        </div>
+        <div id="notifList">
+            <div class="empty" style="padding:1.5rem;"><?php echo t('no_notifications'); ?></div>
+        </div>
     </div>
 
     <script>
-      (function(){
-        // Mobile hamburger
-        var hamb = document.getElementById('hamburgerBtn');
-        var menu = document.getElementById('mobileMenu');
-        if (hamb && menu) {
-          hamb.onclick = function(e){ e.stopPropagation(); menu.classList.toggle('open'); };
-          document.addEventListener('click', function(e){
-            if (!menu.contains(e.target) && e.target !== hamb) menu.classList.remove('open');
-          });
-        }
-
-        // Notifications dropdown
-        var notifBtn   = document.getElementById('notifToggle');
-        var notifDD    = document.getElementById('notifDropdown');
-        var notifList  = document.getElementById('notifList');
-        var markAllBtn = document.getElementById('markAllReadBtn');
-
-        function loadNotifications() {
-          fetch('Api.php?action=notifications').then(function(r){return r.json();}).then(function(data){
-            if (!data.items || data.items.length === 0) {
-              notifList.innerHTML = '<div class="empty" style="padding:1.5rem;"><?php echo t('no_notifications'); ?></div>';
-              return;
+        (function() {
+            // Mobile hamburger
+            var hamb = document.getElementById('hamburgerBtn');
+            var menu = document.getElementById('mobileMenu');
+            if (hamb && menu) {
+                hamb.onclick = function(e) {
+                    e.stopPropagation();
+                    menu.classList.toggle('open');
+                };
+                document.addEventListener('click', function(e) {
+                    if (!menu.contains(e.target) && e.target !== hamb) menu.classList.remove('open');
+                });
             }
-            var icons = { friend_request:'\u{1F465}', share:'\u{1F4C1}', message:'\u{1F4AC}' };
-            var html = '';
-            for (var i = 0; i < data.items.length; i++) {
-              var n = data.items[i];
-              var icon = icons[n.type] || '\u{1F514}';
-              var msg  = String(n.message).replace(/[&<>"']/g, function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});
-              html += '<div class="notif-item' + (n.is_read == 0 ? ' unread' : '') + '">' +
-                      '<span style="font-size:1.1rem; flex-shrink:0;">' + icon + '</span>' +
-                      '<div style="flex:1;"><div>' + msg + '</div>' +
-                      (n.link ? '<a href="' + n.link + '">View &rarr;</a>' : '') +
-                      '<div class="notif-time">' + n.created_at + '</div></div></div>';
+
+            // Notifications dropdown
+            var notifBtn = document.getElementById('notifToggle');
+            var notifDD = document.getElementById('notifDropdown');
+            var notifList = document.getElementById('notifList');
+            var markAllBtn = document.getElementById('markAllReadBtn');
+
+            function loadNotifications() {
+                fetch('Api.php?action=notifications').then(function(r) {
+                    return r.json();
+                }).then(function(data) {
+                    if (!data.items || data.items.length === 0) {
+                        notifList.innerHTML = '<div class="empty" style="padding:1.5rem;"><?php echo t('no_notifications'); ?></div>';
+                        return;
+                    }
+                    var icons = {
+                        friend_request: '\u{1F465}',
+                        share: '\u{1F4C1}',
+                        message: '\u{1F4AC}'
+                    };
+                    var html = '';
+                    for (var i = 0; i < data.items.length; i++) {
+                        var n = data.items[i];
+                        var icon = icons[n.type] || '\u{1F514}';
+                        var msg = String(n.message).replace(/[&<>"']/g, function(c) {
+                            return ({
+                                '&': '&amp;',
+                                '<': '&lt;',
+                                '>': '&gt;',
+                                '"': '&quot;',
+                                "'": '&#39;'
+                            })[c];
+                        });
+                        html += '<div class="notif-item' + (n.is_read == 0 ? ' unread' : '') + '">' +
+                            '<span style="font-size:1.1rem; flex-shrink:0;">' + icon + '</span>' +
+                            '<div style="flex:1;"><div>' + msg + '</div>' +
+                            (n.link ? '<a href="' + n.link + '">View &rarr;</a>' : '') +
+                            '<div class="notif-time">' + n.created_at + '</div></div></div>';
+                    }
+                    notifList.innerHTML = html;
+                });
             }
-            notifList.innerHTML = html;
-          });
-        }
 
-        if (notifBtn) {
-          notifBtn.onclick = function(e){
-            e.stopPropagation();
-            if (notifDD.style.display === 'block') { notifDD.style.display = 'none'; return; }
-            notifDD.style.display = 'block';
-            loadNotifications();
-          };
-          document.addEventListener('click', function(e){
-            if (!notifDD.contains(e.target) && e.target !== notifBtn) notifDD.style.display = 'none';
-          });
-        }
-        if (markAllBtn) {
-          markAllBtn.onclick = function(e){
-            e.stopPropagation();
-            var fd = new FormData(); fd.append('action','mark_notifs_read');
-            fetch('Api.php', {method:'POST', body:fd}).then(function(){
-              var b = document.querySelector('.notif-badge'); if (b) b.remove();
-              document.querySelectorAll('.notif-item.unread').forEach(function(el){ el.classList.remove('unread'); });
-            });
-          };
-        }
+            if (notifBtn) {
+                notifBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    if (notifDD.style.display === 'block') {
+                        notifDD.style.display = 'none';
+                        return;
+                    }
+                    notifDD.style.display = 'block';
+                    loadNotifications();
+                };
+                document.addEventListener('click', function(e) {
+                    if (!notifDD.contains(e.target) && e.target !== notifBtn) notifDD.style.display = 'none';
+                });
+            }
+            if (markAllBtn) {
+                markAllBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    var fd = new FormData();
+                    fd.append('action', 'mark_notifs_read');
+                    fetch('Api.php', {
+                        method: 'POST',
+                        body: fd
+                    }).then(function() {
+                        var b = document.querySelector('.notif-badge');
+                        if (b) b.remove();
+                        document.querySelectorAll('.notif-item.unread').forEach(function(el) {
+                            el.classList.remove('unread');
+                        });
+                    });
+                };
+            }
 
-        // Theme toggle
-        var themeBtn = document.getElementById('themeToggle');
-        if (themeBtn) {
-          themeBtn.onclick = function(){
-            var current = document.documentElement.getAttribute('data-theme') || 'dark';
-            var next = current === 'dark' ? 'light' : 'dark';
-            var fd = new FormData(); fd.append('action','set_theme'); fd.append('theme', next);
-            fetch('Api.php', {method:'POST', body:fd}).then(function(){ location.reload(); });
-          };
-        }
+            // Theme toggle
+            var themeBtn = document.getElementById('themeToggle');
+            if (themeBtn) {
+                themeBtn.onclick = function() {
+                    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+                    var next = current === 'dark' ? 'light' : 'dark';
+                    var fd = new FormData();
+                    fd.append('action', 'set_theme');
+                    fd.append('theme', next);
+                    fetch('Api.php', {
+                        method: 'POST',
+                        body: fd
+                    }).then(function() {
+                        location.reload();
+                    });
+                };
+            }
 
-        // Language selector
-        var langSel = document.getElementById('langSelect');
-        if (langSel) {
-          langSel.onchange = function(){
-            var fd = new FormData(); fd.append('action','set_lang'); fd.append('lang', this.value);
-            fetch('Api.php', {method:'POST', body:fd}).then(function(){ location.reload(); });
-          };
-        }
-      })();
+            // Language selector
+            var langSel = document.getElementById('langSelect');
+            if (langSel) {
+                langSel.onchange = function() {
+                    var fd = new FormData();
+                    fd.append('action', 'set_lang');
+                    fd.append('lang', this.value);
+                    fetch('Api.php', {
+                        method: 'POST',
+                        body: fd
+                    }).then(function() {
+                        location.reload();
+                    });
+                };
+            }
+        })();
     </script>
-    <?php
+<?php
 }
 
 // Function to require login
-function requireLogin() {
+function requireLogin()
+{
     if (!isset($_SESSION['username'])) {
         header("Location: Login.php");
         exit();
@@ -629,7 +722,8 @@ function requireLogin() {
 }
 
 // Function to require admin role
-function requireAdmin() {
+function requireAdmin()
+{
     requireLogin();
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
         http_response_code(403);
@@ -639,7 +733,8 @@ function requireAdmin() {
 }
 
 // Function to check if username exists
-function userExists($username) {
+function userExists($username)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT pk_username FROM user WHERE pk_username = ?");
     $stmt->bind_param("s", $username);
@@ -651,7 +746,8 @@ function userExists($username) {
 }
 
 // Function to check if email exists
-function emailExists($email) {
+function emailExists($email)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT pk_username FROM user WHERE email = ?");
     $stmt->bind_param("s", $email);
@@ -663,7 +759,8 @@ function emailExists($email) {
 }
 
 // Function to get user by username (selects only the columns we always need)
-function getUserByUsername($username) {
+function getUserByUsername($username)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT pk_username, firstName, lastName, email, password, role, theme, language FROM user WHERE pk_username = ?");
     $stmt->bind_param("s", $username);
@@ -675,14 +772,16 @@ function getUserByUsername($username) {
 }
 
 // Verify password for a given username
-function verifyPassword($username, $password) {
+function verifyPassword($username, $password)
+{
     $user = getUserByUsername($username);
     if (!$user) return false;
     return password_verify($password, $user['password']);
 }
 
 // Update user in database
-function updateUser($username, $firstName, $lastName, $email, $passwordHash, $theme = 'dark', $language = 'en') {
+function updateUser($username, $firstName, $lastName, $email, $passwordHash, $theme = 'dark', $language = 'en')
+{
     global $conn;
     $stmt = $conn->prepare("
         UPDATE user
@@ -696,7 +795,8 @@ function updateUser($username, $firstName, $lastName, $email, $passwordHash, $th
 }
 
 // Update session data after account edit
-function updateSessionUser($firstName, $lastName, $email, $theme = null, $language = null) {
+function updateSessionUser($firstName, $lastName, $email, $theme = null, $language = null)
+{
     $_SESSION['firstName'] = $firstName;
     $_SESSION['lastName']  = $lastName;
     $_SESSION['email']     = $email;
@@ -707,7 +807,8 @@ function updateSessionUser($firstName, $lastName, $email, $theme = null, $langua
 // ===== Friend helpers =====
 
 // Check if two users are friends
-function areFriends($u1, $u2) {
+function areFriends($u1, $u2)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT 1 FROM isfriend WHERE pkfk_user_user = ? AND pkfk_user_friend = ?");
     $stmt->bind_param("ss", $u1, $u2);
@@ -719,7 +820,8 @@ function areFriends($u1, $u2) {
 }
 
 // Get friends usernames of a user
-function getFriends($username) {
+function getFriends($username)
+{
     global $conn;
     $friends = [];
     $stmt = $conn->prepare("SELECT pkfk_user_friend FROM isfriend WHERE pkfk_user_user = ? ORDER BY pkfk_user_friend");
@@ -734,7 +836,8 @@ function getFriends($username) {
 }
 
 // Get friends with their first/last names for displaying
-function getFriendsWithInfo($username) {
+function getFriendsWithInfo($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT u.pk_username, u.firstName, u.lastName, u.email FROM isfriend f JOIN user u ON f.pkfk_user_friend = u.pk_username WHERE f.pkfk_user_user = ? ORDER BY u.firstName");
@@ -747,7 +850,8 @@ function getFriendsWithInfo($username) {
 }
 
 // Send a friend request from one user to another
-function sendFriendRequest($fromUsername, $toUsername) {
+function sendFriendRequest($fromUsername, $toUsername)
+{
     global $conn;
     if ($fromUsername === $toUsername) return [false, 'Cannot send request to yourself'];
     if (!userExists($toUsername)) return [false, 'User not found'];
@@ -800,7 +904,8 @@ function sendFriendRequest($fromUsername, $toUsername) {
 }
 
 // Cancel a sent friend request
-function cancelFriendRequest($fromUsername, $toUsername) {
+function cancelFriendRequest($fromUsername, $toUsername)
+{
     global $conn;
     $stmt = $conn->prepare("DELETE FROM friendrequest WHERE fk_sender = ? AND fk_receiver = ? AND status = 'pending'");
     $stmt->bind_param("ss", $fromUsername, $toUsername);
@@ -810,7 +915,8 @@ function cancelFriendRequest($fromUsername, $toUsername) {
 }
 
 // Get usernames of pending requests we sent
-function getSentRequests($username) {
+function getSentRequests($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT fk_receiver FROM friendrequest WHERE fk_sender = ? AND status = 'pending' ORDER BY created_at DESC");
@@ -823,7 +929,8 @@ function getSentRequests($username) {
 }
 
 // Get usernames of pending requests sent to us
-function getIncomingRequests($username) {
+function getIncomingRequests($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT fk_sender FROM friendrequest WHERE fk_receiver = ? AND status = 'pending' ORDER BY created_at DESC");
@@ -836,7 +943,8 @@ function getIncomingRequests($username) {
 }
 
 // Accept an incoming friend request
-function acceptFriendRequest($currentUsername, $fromUsername) {
+function acceptFriendRequest($currentUsername, $fromUsername)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE friendrequest SET status = 'accepted' WHERE fk_sender = ? AND fk_receiver = ? AND status = 'pending'");
     $stmt->bind_param("ss", $fromUsername, $currentUsername);
@@ -862,7 +970,8 @@ function acceptFriendRequest($currentUsername, $fromUsername) {
 }
 
 // Decline an incoming friend request
-function declineFriendRequest($currentUsername, $fromUsername) {
+function declineFriendRequest($currentUsername, $fromUsername)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE friendrequest SET status = 'declined' WHERE fk_sender = ? AND fk_receiver = ? AND status = 'pending'");
     $stmt->bind_param("ss", $fromUsername, $currentUsername);
@@ -872,7 +981,8 @@ function declineFriendRequest($currentUsername, $fromUsername) {
 }
 
 // Remove a friend (and revoke any shared collection access between them)
-function removeFriend($username, $friendUsername) {
+function removeFriend($username, $friendUsername)
+{
     global $conn;
     $stmt = $conn->prepare("DELETE ha FROM hasaccess ha JOIN collection c ON ha.pkfk_collection = c.pk_collection WHERE ha.pkfk_user = ? AND c.fk_user_creates = ?");
     $stmt->bind_param("ss", $friendUsername, $username);
@@ -892,7 +1002,8 @@ function removeFriend($username, $friendUsername) {
 
 // ===== Station helpers =====
 
-function fetchStationsForUser($username) {
+function fetchStationsForUser($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT pk_serialNumber, name, description FROM station WHERE fk_user_owns = ? ORDER BY name, pk_serialNumber");
@@ -904,7 +1015,8 @@ function fetchStationsForUser($username) {
     return $out;
 }
 
-function getStationBySerial($serial) {
+function getStationBySerial($serial)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT pk_serialNumber, name, description, fk_user_owns FROM station WHERE pk_serialNumber = ?");
     $stmt->bind_param("s", $serial);
@@ -915,7 +1027,8 @@ function getStationBySerial($serial) {
     return $row;
 }
 
-function claimStation($serial, $username) {
+function claimStation($serial, $username)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE station SET fk_user_owns = ? WHERE pk_serialNumber = ? AND fk_user_owns IS NULL");
     $stmt->bind_param("ss", $username, $serial);
@@ -924,7 +1037,8 @@ function claimStation($serial, $username) {
     return $ok;
 }
 
-function updateStation($serial, $username, $name, $description) {
+function updateStation($serial, $username, $name, $description)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE station SET name = ?, description = ? WHERE pk_serialNumber = ? AND fk_user_owns = ?");
     $stmt->bind_param("ssss", $name, $description, $serial, $username);
@@ -933,7 +1047,8 @@ function updateStation($serial, $username, $name, $description) {
     return $ok;
 }
 
-function releaseStation($serial, $username) {
+function releaseStation($serial, $username)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE station SET fk_user_owns = NULL WHERE pk_serialNumber = ? AND fk_user_owns = ?");
     $stmt->bind_param("ss", $serial, $username);
@@ -943,7 +1058,8 @@ function releaseStation($serial, $username) {
 }
 
 // Fetch stations for a user with their latest measurement (one row per station)
-function fetchStationsWithLatestMeasurement($username) {
+function fetchStationsWithLatestMeasurement($username)
+{
     global $conn;
     $out = [];
     $sql = "SELECT s.pk_serialNumber, s.name, s.description,
@@ -966,7 +1082,8 @@ function fetchStationsWithLatestMeasurement($username) {
 }
 
 // Fetch the last 24h of measurements for one station
-function fetchLast24hForStation($serial) {
+function fetchLast24hForStation($serial)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT timestamp, temperature, humidity, pressure, light, gas FROM measurement WHERE fk_station_records = ? AND timestamp >= DATE_SUB(NOW(), INTERVAL 24 HOUR) ORDER BY timestamp ASC LIMIT 200");
@@ -980,7 +1097,8 @@ function fetchLast24hForStation($serial) {
 
 // ===== Measurement helpers =====
 
-function fetchMeasurementIDs($serial, $startSql = '', $endSql = '') {
+function fetchMeasurementIDs($serial, $startSql = '', $endSql = '')
+{
     global $conn;
     $ids = [];
     if ($serial === '') return $ids;
@@ -1007,7 +1125,8 @@ function fetchMeasurementIDs($serial, $startSql = '', $endSql = '') {
     return $ids;
 }
 
-function fetchMeasurementsForStation($serial, $startSql = '', $endSql = '') {
+function fetchMeasurementsForStation($serial, $startSql = '', $endSql = '')
+{
     global $conn;
     $out = [];
     if ($serial === '') return $out;
@@ -1032,7 +1151,8 @@ function fetchMeasurementsForStation($serial, $startSql = '', $endSql = '') {
     return $out;
 }
 
-function deleteMeasurement($measurementID, $currentUsername, $adminBypass = false) {
+function deleteMeasurement($measurementID, $currentUsername, $adminBypass = false)
+{
     global $conn;
     if ($adminBypass) {
         $stmt = $conn->prepare("DELETE FROM measurement WHERE pk_measurement = ?");
@@ -1050,7 +1170,8 @@ function deleteMeasurement($measurementID, $currentUsername, $adminBypass = fals
 
 // ===== Collection helpers =====
 
-function createCollectionFromMeasurements($creatorUsername, $name, $description, $measurementIDs) {
+function createCollectionFromMeasurements($creatorUsername, $name, $description, $measurementIDs)
+{
     global $conn;
     if (empty($measurementIDs) || trim($name) === '') return [false, 'Invalid input', 0];
     $name = mb_substr($name, 0, 50);
@@ -1071,7 +1192,8 @@ function createCollectionFromMeasurements($creatorUsername, $name, $description,
     return [true, 'Collection created successfully.', $newCID];
 }
 
-function getUserCollections($username) {
+function getUserCollections($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT c.pk_collection, c.name, c.description, (SELECT COUNT(*) FROM contains ct WHERE ct.pkfk_collection = c.pk_collection) AS measurement_count FROM collection c WHERE c.fk_user_creates = ? ORDER BY c.name");
@@ -1083,7 +1205,8 @@ function getUserCollections($username) {
     return $out;
 }
 
-function getCollectionByID($collectionID) {
+function getCollectionByID($collectionID)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT c.pk_collection, c.name, c.description, c.fk_user_creates, u.firstName, u.lastName FROM collection c JOIN user u ON c.fk_user_creates = u.pk_username WHERE c.pk_collection = ?");
     $stmt->bind_param("i", $collectionID);
@@ -1094,7 +1217,8 @@ function getCollectionByID($collectionID) {
     return $row;
 }
 
-function canUserAccessCollection($username, $collectionID) {
+function canUserAccessCollection($username, $collectionID)
+{
     global $conn;
     if ($username === '' || $collectionID <= 0) return false;
     $stmt = $conn->prepare("SELECT fk_user_creates FROM collection WHERE pk_collection = ?");
@@ -1118,7 +1242,8 @@ function canUserAccessCollection($username, $collectionID) {
     return $allowed;
 }
 
-function getMeasurementsForCollection($collectionID) {
+function getMeasurementsForCollection($collectionID)
+{
     global $conn;
     $out = [];
     $q = $conn->prepare("SELECT m.pk_measurement, m.timestamp, m.temperature, m.humidity, m.pressure, m.light, m.gas FROM measurement m JOIN contains ct ON m.pk_measurement = ct.pkfk_measurement WHERE ct.pkfk_collection = ? ORDER BY m.timestamp DESC");
@@ -1130,7 +1255,8 @@ function getMeasurementsForCollection($collectionID) {
     return $out;
 }
 
-function getCollectionAccessUsernames($collectionID) {
+function getCollectionAccessUsernames($collectionID)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT pkfk_user FROM hasaccess WHERE pkfk_collection = ? ORDER BY pkfk_user");
@@ -1142,7 +1268,8 @@ function getCollectionAccessUsernames($collectionID) {
     return $out;
 }
 
-function setCollectionAccessByUsernames($collectionID, $ownerUsername, $usernames) {
+function setCollectionAccessByUsernames($collectionID, $ownerUsername, $usernames)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT name, fk_user_creates FROM collection WHERE pk_collection = ?");
     $stmt->bind_param("i", $collectionID);
@@ -1196,7 +1323,8 @@ function setCollectionAccessByUsernames($collectionID, $ownerUsername, $username
     return [true, 'Access updated'];
 }
 
-function getCollectionsSharedWithUser($username) {
+function getCollectionsSharedWithUser($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT c.pk_collection, c.name, c.description, u.firstName, u.lastName, c.fk_user_creates AS owner_username, (SELECT COUNT(*) FROM contains ct WHERE ct.pkfk_collection = c.pk_collection) AS measurement_count FROM collection c JOIN hasaccess ha ON c.pk_collection = ha.pkfk_collection JOIN user u ON c.fk_user_creates = u.pk_username WHERE ha.pkfk_user = ? ORDER BY c.name");
@@ -1208,7 +1336,8 @@ function getCollectionsSharedWithUser($username) {
     return $out;
 }
 
-function deleteUserCollection($username, $collectionID) {
+function deleteUserCollection($username, $collectionID)
+{
     global $conn;
     $stmt = $conn->prepare("DELETE FROM collection WHERE pk_collection = ? AND fk_user_creates = ?");
     $stmt->bind_param("is", $collectionID, $username);
@@ -1217,7 +1346,8 @@ function deleteUserCollection($username, $collectionID) {
     return $ok;
 }
 
-function updateUserCollection($username, $collectionID, $name, $description) {
+function updateUserCollection($username, $collectionID, $name, $description)
+{
     global $conn;
     if ($collectionID <= 0 || trim($name) === '') return false;
     $stmt = $conn->prepare("UPDATE collection SET name = ?, description = ? WHERE pk_collection = ? AND fk_user_creates = ?");
@@ -1229,7 +1359,8 @@ function updateUserCollection($username, $collectionID, $name, $description) {
 
 // ===== Display helpers (dashboard color coding) =====
 
-function tempColor($v) {
+function tempColor($v)
+{
     if ($v === null || $v === '') return '#60a5fa';
     $v = (float)$v;
     if ($v <= 0)  return '#93c5fd';
@@ -1240,7 +1371,8 @@ function tempColor($v) {
     return '#f87171';
 }
 
-function gasColor($v) {
+function gasColor($v)
+{
     if ($v === null || $v === '') return '#4ade80';
     $v = (float)$v;
     if ($v < 800)  return '#4ade80';
@@ -1248,7 +1380,8 @@ function gasColor($v) {
     return '#f87171';
 }
 
-function gasLabel($v) {
+function gasLabel($v)
+{
     if ($v === null || $v === '') return '-';
     $v = (float)$v;
     if ($v < 800)  return 'Good';
@@ -1258,7 +1391,8 @@ function gasLabel($v) {
 
 // ===== Notifications =====
 
-function createNotification($forUser, $type, $message, $link = '') {
+function createNotification($forUser, $type, $message, $link = '')
+{
     global $conn;
     if (!isset($conn) || !$forUser || !$message) return;
     $stmt = $conn->prepare("INSERT INTO notification (fk_user, type, message, link) VALUES (?, ?, ?, ?)");
@@ -1269,7 +1403,8 @@ function createNotification($forUser, $type, $message, $link = '') {
     }
 }
 
-function getNotifications($username, $limit = 30) {
+function getNotifications($username, $limit = 30)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT pk_id, type, message, link, is_read, created_at FROM notification WHERE fk_user = ? ORDER BY created_at DESC LIMIT ?");
@@ -1281,7 +1416,8 @@ function getNotifications($username, $limit = 30) {
     return $out;
 }
 
-function getUnreadNotificationCount($username) {
+function getUnreadNotificationCount($username)
+{
     global $conn;
     if (!isset($conn) || !$username) return 0;
     $stmt = $conn->prepare("SELECT COUNT(*) AS c FROM notification WHERE fk_user = ? AND is_read = 0");
@@ -1294,7 +1430,8 @@ function getUnreadNotificationCount($username) {
     return (int)$row['c'];
 }
 
-function markAllNotificationsRead($username) {
+function markAllNotificationsRead($username)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE notification SET is_read = 1 WHERE fk_user = ? AND is_read = 0");
     $stmt->bind_param("s", $username);
@@ -1304,7 +1441,8 @@ function markAllNotificationsRead($username) {
 
 // ===== Chat / messaging =====
 
-function getUnreadMessageCount($username) {
+function getUnreadMessageCount($username)
+{
     global $conn;
     if (!isset($conn) || !$username) return 0;
     $stmt = $conn->prepare("SELECT COUNT(*) AS c FROM message WHERE fk_receiver = ? AND is_read = 0");
@@ -1318,7 +1456,8 @@ function getUnreadMessageCount($username) {
 }
 
 // Returns map [fromUsername => unreadCount]
-function getUnreadMessagesByFriend($username) {
+function getUnreadMessagesByFriend($username)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT fk_sender, COUNT(*) AS c FROM message WHERE fk_receiver = ? AND is_read = 0 GROUP BY fk_sender");
@@ -1331,7 +1470,8 @@ function getUnreadMessagesByFriend($username) {
 }
 
 // Get last 100 messages between two users; also marks incoming messages as read
-function getChatMessages($me, $friend) {
+function getChatMessages($me, $friend)
+{
     global $conn;
     $out = [];
     if (!areFriends($me, $friend)) return $out;
@@ -1351,7 +1491,8 @@ function getChatMessages($me, $friend) {
 }
 
 // Send a chat message (only between friends). Returns [ok, error].
-function sendChatMessage($from, $to, $body) {
+function sendChatMessage($from, $to, $body)
+{
     global $conn;
     $body = trim($body);
     if ($body === '') return [false, 'empty'];
@@ -1370,7 +1511,8 @@ function sendChatMessage($from, $to, $body) {
 
 // ===== Invite helpers =====
 
-function createInvite($creatorUsername) {
+function createInvite($creatorUsername)
+{
     global $conn;
     $token = bin2hex(random_bytes(24));
     $expires = date('Y-m-d H:i:s', strtotime('+7 days'));
@@ -1382,7 +1524,8 @@ function createInvite($creatorUsername) {
 }
 
 // Returns the creator's username if the token is valid and unused, or null otherwise.
-function validateInvite($token) {
+function validateInvite($token)
+{
     global $conn;
     if (!$token) return null;
     $stmt = $conn->prepare("SELECT fk_creator FROM invite WHERE pk_token = ? AND used_by IS NULL AND (expires_at IS NULL OR expires_at > NOW())");
@@ -1398,7 +1541,8 @@ function validateInvite($token) {
     return $creator;
 }
 
-function markInviteUsed($token, $usedBy) {
+function markInviteUsed($token, $usedBy)
+{
     global $conn;
     $stmt = $conn->prepare("UPDATE invite SET used_by = ? WHERE pk_token = ? AND used_by IS NULL");
     $stmt->bind_param("ss", $usedBy, $token);
@@ -1406,7 +1550,8 @@ function markInviteUsed($token, $usedBy) {
     $stmt->close();
 }
 
-function getRecentInvites($creatorUsername, $limit = 5) {
+function getRecentInvites($creatorUsername, $limit = 5)
+{
     global $conn;
     $out = [];
     $stmt = $conn->prepare("SELECT pk_token, used_by, created_at, expires_at FROM invite WHERE fk_creator = ? ORDER BY created_at DESC LIMIT ?");
