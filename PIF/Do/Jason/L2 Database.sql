@@ -3,7 +3,7 @@ create database PIF;
 use PIF;
 
 -- Users
-create table User (
+create table `User`(
     user_ID int not null auto_increment primary key,
     full_name varchar(255),
     administrator int,
@@ -11,13 +11,13 @@ create table User (
     friends int,
     Upswd varchar(255),
     UName varchar(255)
-) 
+);
 
 -- Friendlist
 create table Friendlist (
     friendlist_ID int not null auto_increment primary key,
     user int
-) 
+); 
 
 -- Friendship relations table for accepted friends
 create table Friendship (
@@ -26,7 +26,7 @@ create table Friendship (
     primary key (user_id, friend_id),
     foreign key (user_id) references User(user_ID) ON DELETE CASCADE ON UPDATE CASCADE,
     foreign key (friend_id) references User(user_ID) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- Friend requests table for pending/accepted/refused requests
 create table FriendRequests (
@@ -37,7 +37,7 @@ create table FriendRequests (
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     foreign key (sender_id) references User(user_ID) ON DELETE CASCADE ON UPDATE CASCADE,
     foreign key (receiver_id) references User(user_ID) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- add FK after both tables exist (handles circular relation)
 ALTER TABLE Friendlist
@@ -53,14 +53,14 @@ create table Station (
     station_description varchar(255),
     user_station int,
     foreign key (user_station) references User(user_ID) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- Collections
 create table Collection (
     collection_ID int not null auto_increment primary key,
     collection_name varchar(255),
     station_description varchar(255)
-) 
+); 
 
 -- Measurements (keeps measurement_ID PK and a DATETIME timestamp)
 create table Measurement (
@@ -73,7 +73,7 @@ create table Measurement (
     airquality INT,
     station INT,
     FOREIGN KEY (station) REFERENCES Station(serial_number) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- User <-> Collection mapping
 create table User_Collections (
@@ -81,7 +81,7 @@ create table User_Collections (
     collection_ID INT,
     foreign key (user) references User(user_ID) ON DELETE CASCADE ON UPDATE CASCADE,
     foreign key (collection_ID) references Collection(collection_ID) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- Collection <-> Measurements mapping: reference measurement_ID (was incorrectly referencing timestamp)
 create table Collection_Measurements (
@@ -89,7 +89,7 @@ create table Collection_Measurements (
     measurement INT,
     foreign key (collection_ID) references Collection(collection_ID) ON DELETE CASCADE ON UPDATE CASCADE,
     foreign key (measurement) references Measurement(measurement_ID) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 -- Seed data (order chosen to satisfy FKs)
 INSERT INTO Friendlist (user) VALUES
