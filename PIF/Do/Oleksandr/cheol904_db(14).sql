@@ -7,7 +7,7 @@
 -- Server version: 11.8.6-MariaDB-ubu2404
 -- PHP Version: 8.3.26
 
-drop Database cheol904_db;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
