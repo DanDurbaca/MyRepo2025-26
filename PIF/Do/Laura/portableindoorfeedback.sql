@@ -6,6 +6,7 @@
 -- Generation Time: Dec 08, 2025 at 08:25 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.2.0
+drop database Project_Database;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;

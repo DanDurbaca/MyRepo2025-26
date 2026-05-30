@@ -5,8 +5,8 @@ session_start();
 
 // Adjust these credentials to your local setup if needed
 define('DB_HOST', '127.0.0.1');
-define('DB_USER', 'webuser');
-define('DB_PASS', '123');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_NAME', 'webapp');
 
 // Create a persistent connection in $conn
@@ -17,27 +17,32 @@ if (!$conn) {
 }
 mysqli_set_charset($conn, 'utf8mb4');
 
-function db_connect() {
+function db_connect()
+{
     global $conn;
     return $conn;
 }
 
-function is_logged_in() {
+function is_logged_in()
+{
     return !empty($_SESSION['user_id']);
 }
 
-function current_user_id() {
+function current_user_id()
+{
     return $_SESSION['user_id'] ?? null;
 }
 
-function require_login() {
+function require_login()
+{
     if (!is_logged_in()) {
         header('Location: index.php');
         exit;
     }
 }
 
-function is_admin() {
+function is_admin()
+{
     return !empty($_SESSION['is_admin']);
 }
 
@@ -48,5 +53,3 @@ if (!empty($_SESSION['user_id']) && empty($_SESSION['username'])) {
     $_SESSION['User'] = $_SESSION['user_id'];
     $_SESSION['UserLoggedIn'] = true;
 }
-
-?>
