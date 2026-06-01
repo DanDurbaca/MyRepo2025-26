@@ -1,0 +1,135 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define styles -->
+  <defs>
+    <style>
+      .entity { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .entity-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #1565c0; }
+      .relationship { stroke: #424242; stroke-width: 2; fill: none; }
+      .relationship-label { font-family: Arial, sans-serif; font-size: 12px; fill: #424242; }
+      .cardinality { font-family: Arial, sans-serif; font-size: 11px; fill: #666; }
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="700" y="30" text-anchor="middle" class="title">Weather Station System - Conceptual Data Model</text>
+  
+  <!-- USER Entity -->
+  <ellipse cx="200" cy="150" rx="70" ry="40" class="entity"/>
+  <text x="200" y="155" text-anchor="middle" class="entity-text">USER</text>
+  
+  <!-- STATION Entity -->
+  <ellipse cx="500" cy="150" rx="70" ry="40" class="entity"/>
+  <text x="500" y="155" text-anchor="middle" class="entity-text">STATION</text>
+  
+  <!-- MEASUREMENT Entity -->
+  <ellipse cx="850" cy="150" rx="90" ry="40" class="entity"/>
+  <text x="850" y="155" text-anchor="middle" class="entity-text">MEASUREMENT</text>
+  
+  <!-- COLLECTION Entity -->
+  <ellipse cx="200" cy="400" rx="80" ry="40" class="entity"/>
+  <text x="200" y="405" text-anchor="middle" class="entity-text">COLLECTION</text>
+  
+  <!-- ALERT Entity -->
+  <ellipse cx="850" cy="400" rx="70" ry="40" class="entity"/>
+  <text x="850" y="405" text-anchor="middle" class="entity-text">ALERT</text>
+  
+  <!-- MAINTENANCE Entity -->
+  <ellipse cx="500" cy="400" rx="100" ry="40" class="entity"/>
+  <text x="500" y="405" text-anchor="middle" class="entity-text">MAINTENANCE</text>
+  
+  <!-- CONFIGURATION Entity -->
+  <ellipse cx="500" cy="650" rx="100" ry="40" class="entity"/>
+  <text x="500" y="655" text-anchor="middle" class="entity-text">CONFIGURATION</text>
+  
+  <!-- Relationship: USER owns STATION -->
+  <path d="M 270 150 L 430 150" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="350" y="140" text-anchor="middle" class="relationship-label">owns</text>
+  <text x="280" y="165" class="cardinality">1</text>
+  <text x="415" y="165" class="cardinality">0..*</text>
+  
+  <!-- Relationship: USER creates STATION -->
+  <path d="M 250 130 L 450 130" class="relationship" stroke-dasharray="5,5"/>
+  <text x="350" y="120" text-anchor="middle" class="relationship-label">creates</text>
+  
+  <!-- Relationship: STATION generates MEASUREMENT -->
+  <path d="M 570 150 L 760 150" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="665" y="140" text-anchor="middle" class="relationship-label">generates</text>
+  <text x="580" y="165" class="cardinality">1</text>
+  <text x="745" y="165" class="cardinality">0..*</text>
+  
+  <!-- Relationship: USER creates COLLECTION -->
+  <path d="M 200 190 L 200 360" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="220" y="275" text-anchor="start" class="relationship-label">creates</text>
+  <text x="180" y="200" class="cardinality">1</text>
+  <text x="180" y="355" class="cardinality">0..*</text>
+  
+  <!-- Relationship: COLLECTION contains MEASUREMENT -->
+  <path d="M 280 390 Q 550 270 770 160" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="500" y="250" text-anchor="middle" class="relationship-label">contains</text>
+  <text x="300" y="375" class="cardinality">*</text>
+  <text x="755" y="175" class="cardinality">*</text>
+  
+  <!-- Relationship: USER shares COLLECTION -->
+  <path d="M 150 170 Q 100 280 150 380" class="relationship" stroke-dasharray="5,5"/>
+  <text x="70" y="275" text-anchor="middle" class="relationship-label">shares with</text>
+  <text x="130" y="185" class="cardinality">*</text>
+  <text x="130" y="375" class="cardinality">*</text>
+  
+  <!-- Relationship: USER has friendship with USER (self-relationship) -->
+  <path d="M 150 120 Q 80 80 120 100" class="relationship"/>
+  <ellipse cx="100" cy="90" rx="3" ry="3" fill="#424242"/>
+  <text x="60" y="85" text-anchor="middle" class="relationship-label">friends with</text>
+  <text x="125" y="105" class="cardinality">*:*</text>
+  
+  <!-- Relationship: STATION has MAINTENANCE -->
+  <path d="M 500 190 L 500 360" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="520" y="275" text-anchor="start" class="relationship-label">has</text>
+  <text x="480" y="200" class="cardinality">1</text>
+  <text x="480" y="355" class="cardinality">0..*</text>
+  
+  <!-- Relationship: USER performs MAINTENANCE -->
+  <path d="M 280 170 Q 380 285 400 390" class="relationship" stroke-dasharray="5,5"/>
+  <text x="320" y="280" text-anchor="middle" class="relationship-label">performs</text>
+  <text x="290" y="185" class="cardinality">0..1</text>
+  <text x="385" y="385" class="cardinality">0..*</text>
+  
+  <!-- Relationship: STATION has CONFIGURATION -->
+  <path d="M 500 440 L 500 610" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="520" y="525" text-anchor="start" class="relationship-label">has</text>
+  <text x="480" y="450" class="cardinality">1</text>
+  <text x="480" y="605" class="cardinality">0..1</text>
+  
+  <!-- Relationship: STATION triggers ALERT -->
+  <path d="M 570 170 Q 710 285 780 380" class="relationship" stroke-dasharray="5,5"/>
+  <text x="650" y="280" text-anchor="middle" class="relationship-label">triggers</text>
+  <text x="580" y="185" class="cardinality">0..1</text>
+  <text x="765" y="375" class="cardinality">0..*</text>
+  
+  <!-- Relationship: USER receives ALERT -->
+  <path d="M 280 170 Q 550 285 780 390" class="relationship" marker-end="url(#arrowhead)"/>
+  <text x="530" y="310" text-anchor="middle" class="relationship-label">receives</text>
+  <text x="290" y="185" class="cardinality">1</text>
+  <text x="765" y="385" class="cardinality">0..*</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <g transform="translate(1050, 100)">
+    <text x="0" y="0" class="entity-text">Legend:</text>
+    <line x1="0" y1="20" x2="60" y2="20" class="relationship" marker-end="url(#arrowhead)"/>
+    <text x="70" y="25" class="relationship-label">Mandatory relationship</text>
+    <line x1="0" y1="45" x2="60" y2="45" class="relationship" stroke-dasharray="5,5"/>
+    <text x="70" y="50" class="relationship-label">Optional relationship</text>
+    <text x="0" y="75" class="relationship-label">Cardinality notation:</text>
+    <text x="0" y="95" class="relationship-label">1 = exactly one</text>
+    <text x="0" y="115" class="relationship-label">0..1 = zero or one</text>
+    <text x="0" y="135" class="relationship-label">0..* = zero or many</text>
+    <text x="0" y="155" class="relationship-label">* = many</text>
+  </g>
+</svg>

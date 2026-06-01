@@ -1,0 +1,232 @@
+<svg viewBox="0 0 1600 1100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define styles -->
+  <defs>
+    <style>
+      .table { fill: white; stroke: #1976d2; stroke-width: 2; }
+      .table-header { fill: #1976d2; }
+      .table-name { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: white; }
+      .attribute { font-family: Arial, sans-serif; font-size: 11px; fill: #333; }
+      .pk { font-weight: bold; fill: #d32f2f; }
+      .fk { fill: #1976d2; font-style: italic; }
+      .relationship { stroke: #424242; stroke-width: 1.5; fill: none; }
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #1565c0; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="800" y="30" text-anchor="middle" class="title">Weather Station System - Logical Data Model</text>
+  
+  <!-- USER Table -->
+  <g transform="translate(50, 60)">
+    <rect width="250" height="200" class="table"/>
+    <rect width="250" height="25" class="table-header"/>
+    <text x="125" y="17" text-anchor="middle" class="table-name">USER</text>
+    <text x="10" y="45" class="attribute pk">PK user_id: INTEGER</text>
+    <text x="10" y="65" class="attribute">username: VARCHAR(50)</text>
+    <text x="10" y="85" class="attribute">email: VARCHAR(100)</text>
+    <text x="10" y="105" class="attribute">full_name: VARCHAR(100)</text>
+    <text x="10" y="125" class="attribute">password_hash: VARCHAR(255)</text>
+    <text x="10" y="145" class="attribute">user_type: ENUM</text>
+    <text x="10" y="165" class="attribute">created_at: TIMESTAMP</text>
+    <text x="10" y="185" class="attribute">last_login: TIMESTAMP</text>
+  </g>
+  
+  <!-- STATION Table -->
+  <g transform="translate(400, 60)">
+    <rect width="280" height="240" class="table"/>
+    <rect width="280" height="25" class="table-header"/>
+    <text x="140" y="17" text-anchor="middle" class="table-name">STATION</text>
+    <text x="10" y="45" class="attribute pk">PK station_id: INTEGER</text>
+    <text x="10" y="65" class="attribute">serial_number: VARCHAR(20)</text>
+    <text x="10" y="85" class="attribute">name: VARCHAR(100)</text>
+    <text x="10" y="105" class="attribute">description: TEXT</text>
+    <text x="10" y="125" class="attribute fk">FK created_by: INTEGER → USER</text>
+    <text x="10" y="145" class="attribute fk">FK owned_by: INTEGER → USER</text>
+    <text x="10" y="165" class="attribute">created_at: TIMESTAMP</text>
+    <text x="10" y="185" class="attribute">latitude: DECIMAL(10,8)</text>
+    <text x="10" y="205" class="attribute">longitude: DECIMAL(11,8)</text>
+    <text x="10" y="225" class="attribute">indoor_station: BOOLEAN</text>
+  </g>
+  
+  <!-- MEASUREMENT Table -->
+  <g transform="translate(780, 60)">
+    <rect width="300" height="260" class="table"/>
+    <rect width="300" height="25" class="table-header"/>
+    <text x="150" y="17" text-anchor="middle" class="table-name">MEASUREMENT</text>
+    <text x="10" y="45" class="attribute pk">PK measurement_id: BIGINT</text>
+    <text x="10" y="65" class="attribute fk">FK station_id: INTEGER → STATION</text>
+    <text x="10" y="85" class="attribute">timestamp: TIMESTAMP</text>
+    <text x="10" y="105" class="attribute">temperature: DECIMAL(5,2)</text>
+    <text x="10" y="125" class="attribute">humidity: DECIMAL(5,2)</text>
+    <text x="10" y="145" class="attribute">air_pressure: DECIMAL(7,2)</text>
+    <text x="10" y="165" class="attribute">light_intensity: INTEGER</text>
+    <text x="10" y="185" class="attribute">air_quality: INTEGER</text>
+    <text x="10" y="205" class="attribute">battery_level: DECIMAL(4,1)</text>
+    <text x="10" y="225" class="attribute">wind_speed: DECIMAL(5,2)</text>
+    <text x="10" y="245" class="attribute">measurement_status: ENUM</text>
+  </g>
+  
+  <!-- COLLECTION Table -->
+  <g transform="translate(50, 400)">
+    <rect width="280" height="180" class="table"/>
+    <rect width="280" height="25" class="table-header"/>
+    <text x="140" y="17" text-anchor="middle" class="table-name">COLLECTION</text>
+    <text x="10" y="45" class="attribute pk">PK collection_id: INTEGER</text>
+    <text x="10" y="65" class="attribute">name: VARCHAR(100)</text>
+    <text x="10" y="85" class="attribute">description: TEXT</text>
+    <text x="10" y="105" class="attribute fk">FK created_by: INTEGER → USER</text>
+    <text x="10" y="125" class="attribute">created_at: TIMESTAMP</text>
+    <text x="10" y="145" class="attribute">is_public: BOOLEAN</text>
+    <text x="10" y="165" class="attribute">collection_type: ENUM</text>
+  </g>
+  
+  <!-- COLLECTION_MEASUREMENT (Junction Table) -->
+  <g transform="translate(400, 400)">
+    <rect width="320" height="140" class="table"/>
+    <rect width="320" height="25" class="table-header"/>
+    <text x="160" y="17" text-anchor="middle" class="table-name">COLLECTION_MEASUREMENT</text>
+    <text x="10" y="45" class="attribute pk">PK,FK collection_id: INTEGER → COLLECTION</text>
+    <text x="10" y="65" class="attribute pk">PK,FK measurement_id: BIGINT → MEASUREMENT</text>
+    <text x="10" y="85" class="attribute">added_at: TIMESTAMP</text>
+    <text x="10" y="105" class="attribute fk">FK added_by: INTEGER → USER</text>
+    <text x="10" y="125" class="attribute">note: TEXT</text>
+  </g>
+  
+  <!-- COLLECTION_SHARING Table -->
+  <g transform="translate(50, 650)">
+    <rect width="310" height="140" class="table"/>
+    <rect width="310" height="25" class="table-header"/>
+    <text x="155" y="17" text-anchor="middle" class="table-name">COLLECTION_SHARING</text>
+    <text x="10" y="45" class="attribute pk">PK,FK collection_id: INTEGER → COLLECTION</text>
+    <text x="10" y="65" class="attribute pk">PK,FK shared_with: INTEGER → USER</text>
+    <text x="10" y="85" class="attribute fk">FK shared_by: INTEGER → USER</text>
+    <text x="10" y="105" class="attribute">permission_level: ENUM</text>
+    <text x="10" y="125" class="attribute">expires_at: TIMESTAMP</text>
+  </g>
+  
+  <!-- FRIENDSHIP Table -->
+  <g transform="translate(50, 850)">
+    <rect width="260" height="120" class="table"/>
+    <rect width="260" height="25" class="table-header"/>
+    <text x="130" y="17" text-anchor="middle" class="table-name">FRIENDSHIP</text>
+    <text x="10" y="45" class="attribute pk">PK,FK user_id: INTEGER → USER</text>
+    <text x="10" y="65" class="attribute pk">PK,FK friend_id: INTEGER → USER</text>
+    <text x="10" y="85" class="attribute">status: ENUM</text>
+    <text x="10" y="105" class="attribute">last_interaction: TIMESTAMP</text>
+  </g>
+  
+  <!-- ALERT Table -->
+  <g transform="translate(780, 400)">
+    <rect width="280" height="200" class="table"/>
+    <rect width="280" height="25" class="table-header"/>
+    <text x="140" y="17" text-anchor="middle" class="table-name">ALERT</text>
+    <text x="10" y="45" class="attribute pk">PK alert_id: INTEGER</text>
+    <text x="10" y="65" class="attribute fk">FK user_id: INTEGER → USER</text>
+    <text x="10" y="85" class="attribute fk">FK station_id: INTEGER → STATION</text>
+    <text x="10" y="105" class="attribute">alert_type: ENUM</text>
+    <text x="10" y="125" class="attribute">title: VARCHAR(100)</text>
+    <text x="10" y="145" class="attribute">message: TEXT</text>
+    <text x="10" y="165" class="attribute">triggered_at: TIMESTAMP</text>
+    <text x="10" y="185" class="attribute">severity: ENUM</text>
+  </g>
+  
+  <!-- MAINTENANCE_LOG Table -->
+  <g transform="translate(400, 650)">
+    <rect width="320" height="180" class="table"/>
+    <rect width="320" height="25" class="table-header"/>
+    <text x="160" y="17" text-anchor="middle" class="table-name">MAINTENANCE_LOG</text>
+    <text x="10" y="45" class="attribute pk">PK log_id: INTEGER</text>
+    <text x="10" y="65" class="attribute fk">FK station_id: INTEGER → STATION</text>
+    <text x="10" y="85" class="attribute fk">FK performed_by: INTEGER → USER</text>
+    <text x="10" y="105" class="attribute">maintenance_date: DATE</text>
+    <text x="10" y="125" class="attribute">maintenance_type: ENUM</text>
+    <text x="10" y="145" class="attribute">description: TEXT</text>
+    <text x="10" y="165" class="attribute">cost: DECIMAL(10,2)</text>
+  </g>
+  
+  <!-- STATION_CONFIG Table -->
+  <g transform="translate(780, 650)">
+    <rect width="320" height="200" class="table"/>
+    <rect width="320" height="25" class="table-header"/>
+    <text x="160" y="17" text-anchor="middle" class="table-name">STATION_CONFIG</text>
+    <text x="10" y="45" class="attribute pk">PK config_id: INTEGER</text>
+    <text x="10" y="65" class="attribute fk">FK station_id: INTEGER → STATION</text>
+    <text x="10" y="85" class="attribute">measurement_interval: INTEGER</text>
+    <text x="10" y="105" class="attribute">data_retention_days: INTEGER</text>
+    <text x="10" y="125" class="attribute">temperature_threshold_min: DECIMAL</text>
+    <text x="10" y="145" class="attribute">temperature_threshold_max: DECIMAL</text>
+    <text x="10" y="165" class="attribute">air_quality_threshold: INTEGER</text>
+    <text x="10" y="185" class="attribute">battery_warning_level: DECIMAL</text>
+  </g>
+  
+  <!-- Relationships -->
+  <!-- USER to STATION (created_by) -->
+  <path d="M 300 150 L 400 150" class="relationship"/>
+  
+  <!-- USER to STATION (owned_by) -->
+  <path d="M 300 170 L 400 170" class="relationship"/>
+  
+  <!-- STATION to MEASUREMENT -->
+  <path d="M 680 160 L 780 160" class="relationship"/>
+  
+  <!-- USER to COLLECTION -->
+  <path d="M 175 260 L 175 400" class="relationship"/>
+  
+  <!-- COLLECTION to COLLECTION_MEASUREMENT -->
+  <path d="M 330 490 L 400 490" class="relationship"/>
+  
+  <!-- MEASUREMENT to COLLECTION_MEASUREMENT -->
+  <path d="M 930 320 L 930 370 L 650 370 L 650 400" class="relationship"/>
+  
+  <!-- USER to COLLECTION_SHARING -->
+  <path d="M 175 260 L 175 650" class="relationship"/>
+  
+  <!-- COLLECTION to COLLECTION_SHARING -->
+  <path d="M 190 580 L 190 650" class="relationship"/>
+  
+  <!-- USER to FRIENDSHIP (self-referencing) -->
+  <path d="M 50 150 L 30 150 L 30 900 L 50 900" class="relationship"/>
+  
+  <!-- STATION to MAINTENANCE_LOG -->
+  <path d="M 540 300 L 540 650" class="relationship"/>
+  
+  <!-- USER to MAINTENANCE_LOG -->
+  <path d="M 250 260 L 250 600 L 400 600 L 400 710" class="relationship"/>
+  
+  <!-- STATION to ALERT -->
+  <path d="M 680 180 L 750 180 L 750 480 L 780 480" class="relationship"/>
+  
+  <!-- USER to ALERT -->
+  <path d="M 250 260 L 250 350 L 750 350 L 750 480 L 780 480" class="relationship"/>
+  
+  <!-- STATION to STATION_CONFIG -->
+  <path d="M 620 300 L 620 750 L 780 750" class="relationship"/>
+  
+  <!-- Legend -->
+  <g transform="translate(1200, 100)">
+    <rect width="320" height="200" fill="#f5f5f5" stroke="#999" stroke-width="1"/>
+    <text x="10" y="25" class="attribute" font-weight="bold">Legend:</text>
+    <text x="10" y="50" class="attribute pk">PK = Primary Key (Bold, Red)</text>
+    <text x="10" y="70" class="attribute fk">FK = Foreign Key (Italic, Blue)</text>
+    <line x1="10" y1="85" x2="100" y2="85" class="relationship"/>
+    <text x="110" y="90" class="attribute">= Relationship</text>
+    <text x="10" y="120" class="attribute" font-size="10px">Data Types:</text>
+    <text x="10" y="140" class="attribute" font-size="10px">• INTEGER, BIGINT: Numeric identifiers</text>
+    <text x="10" y="155" class="attribute" font-size="10px">• VARCHAR(n): Variable text (max n chars)</text>
+    <text x="10" y="170" class="attribute" font-size="10px">• DECIMAL(m,n): Precise numbers</text>
+    <text x="10" y="185" class="attribute" font-size="10px">• ENUM: Predefined value sets</text>
+  </g>
+  
+  <!-- Notes -->
+  <g transform="translate(1200, 320)">
+    <rect width="320" height="180" fill="#fff9e6" stroke="#ffa000" stroke-width="1"/>
+    <text x="10" y="25" class="attribute" font-weight="bold">Key Features:</text>
+    <text x="10" y="50" class="attribute" font-size="10px">• Users can own multiple stations</text>
+    <text x="10" y="70" class="attribute" font-size="10px">• Stations generate measurements</text>
+    <text x="10" y="90" class="attribute" font-size="10px">• Collections group measurements</text>
+    <text x="10" y="110" class="attribute" font-size="10px">• Collections can be shared between users</text>
+    <text x="10" y="130" class="attribute" font-size="10px">• Users form friendships (M:N)</text>
+    <text x="10" y="150" class="attribute" font-size="10px">• Alerts notify users about stations</text>
+    <text x="10" y="170" class="attribute" font-size="10px">• Maintenance logs track station upkeep</text>
+  </g>
+</svg>
