@@ -1,0 +1,65 @@
+#orders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2em;
+  background: #808080;
+  min-height: 90vh;
+}
+
+#order {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 1em 30%;
+  height: 45em;
+  margin-bottom: 2em;
+  padding: 1em;
+  border: 0.2em solid #000;
+  border-radius: 1em;
+  background: #303030;
+}
+
+#order-image {
+  border: 0.2em solid #000;
+  border-radius: 1em;
+}
+
+#order-image img {
+  width: 30em;
+  height: 30em;
+}
+
+#order-title h2 {
+  color: #fff;
+}
+
+#order-description h2 {
+  color: #fff;
+}
+
+#order-quantity h2 {
+  color: #fff;
+}
+
+#order-price h2 {
+  color: #fff;
+}
+
+#order-status h2 {
+  color: #fff;
+}
+
+#order-username h2 {
+  color: #fff;
+}
+
+#approve-btn input {
+  width: 10em;
+  font-size: 1.5em;
+  border: 0.1em solid #000;
+  border-radius: 1em;
+  margin-top: 1em;
+  cursor: pointer;
+}

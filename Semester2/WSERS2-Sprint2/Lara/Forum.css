@@ -1,0 +1,98 @@
+
+.cart-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(20, 10, 35, 0.95); 
+    border: 3px solid #8e6fff;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+
+#AllPreviousMessages {
+    margin-bottom: 25px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 15px;
+    text-align: left;
+}
+
+.forum-message {
+    background: rgba(255, 255, 255, 0.05); 
+    border-left: 5px solid #ffbcff;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+
+.message-user {
+    color: #ffbcff; 
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px black;
+}
+
+.message-text {
+    color: #ffffff; 
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    display: block;
+}
+
+
+.forum-input-container {
+    display: flex;
+    gap: 10px;
+    border-top: 2px solid #8e6fff;
+    padding-top: 20px;
+}
+
+.forum-input {
+    flex-grow: 1;
+    background: #1a0b2e;
+    border: 2px solid #8e6fff;
+    color: #a3fffd; 
+    padding: 15px;
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    border-radius: 5px;
+}
+
+.forum-submit {
+    background: #ffd700;
+    color: #1a0b2e;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    padding: 0 25px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #b8860b;
+}
+
+.forum-submit:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+
+.cart-title {
+    font-family: 'Cinzel Decorative', cursive;
+    display: inline-block; 
+    padding: 12px 40px;
+    margin: 40px auto; 
+    
+   
+    background: rgba(26, 15, 46, 0.85); 
+    border: 2px solid rgba(160, 100, 255, 0.4); 
+    border-radius: 50px; 
+    
+    color: #f5eaff !important; 
+    text-shadow: 0 0 15px rgba(166, 120, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 2.2rem;   
+}

@@ -1,0 +1,174 @@
+/* Admin Invoice Management Section Styling */
+.invoice-container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: rgba(20, 10, 35, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #ffaa00;
+    color: white;
+    font-family: 'VT323', monospace;
+}
+
+.invoice-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.invoice-header h2 {
+    font-size: 2rem;
+    color: #ffaa00;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.invoice-header-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffaa00, transparent);
+    margin-top: 5px;
+}
+
+/* Individual Order Cards */
+.order-card {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.order-card-pending {
+    border-left: 4px solid #ffaa00;
+}
+
+/* Updated to Delivered to match Sprint 2 rules perfectly */
+.order-card-delivered {
+    border-left: 4px solid #4caf50;
+}
+
+.order-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.order-id {
+    font-size: 1.4rem;
+    color: #a064ff;
+    font-weight: bold;
+}
+
+.order-buyer {
+    margin-left: 15px;
+    color: #bbb;
+}
+
+/* Status Badges */
+.status-badge {
+    color: black;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.status-pending {
+    background: #ffaa00;
+}
+
+/* Updated to Delivered to match Sprint 2 rules perfectly */
+.status-delivered {
+    background: #4caf50;
+}
+
+/* Items List details */
+.order-items-wrapper {
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+.items-label {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.items-list {
+    list-style: square;
+    padding-left: 20px;
+    margin: 0;
+    color: #ddd;
+    font-size: 1.15rem;
+}
+
+.item-price-total {
+    color: #f1c40f;
+}
+
+.grand-total-display {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: #f1c40f;
+}
+
+/* Approval Actions Form Button */
+.action-alignment {
+    text-align: right;
+}
+
+.confirm-order-btn {
+    background: #ffaa00;
+    color: black;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.confirm-order-btn:hover {
+    background: #e69900;
+}
+
+/* Magical Admin Alert Banners - High Visibility Edition */
+.admin-alert {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 18px 24px;
+    border-radius: 8px;
+    font-family: 'VT323', monospace;
+    font-size: 1.6rem;
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(160, 100, 255, 0.2);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+.admin-alert-success {
+    background: #112618; /* Solid deep slate green */
+    border: 3px solid #00ff66; /* Neon neon green border */
+    color: #00ff66;
+    text-shadow: 2px 2px 0px #000, 0 0 10px rgba(0, 255, 102, 0.5); /* Crisp black background font trace */
+}
+
+.admin-alert-error {
+    background: #2a1111; /* Solid deep slate red */
+    border: 3px solid #ff3333;
+    color: #ff3333;
+    text-shadow: 2px 2px 0px #000, 0 0 10px rgba(255, 51, 51, 0.5);
+}
+
+/* Retro alert scale bounce animation */
+@keyframes pulseGlow {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.01); }
+}

@@ -1,0 +1,4 @@
+#page-content form {
+  display: flex;
+  flex-flow: column;
+}

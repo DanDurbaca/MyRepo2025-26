@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* ── Navigation Bar ── */
+.navBar {
+    background-color: #00539f;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 20px;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.navBar a:hover {
+    background-color: #003d7a;
+}
+
+.navBar a.highlight,
+.highlight {
+    background-color: #ee1c2e !important;
+    color: #ffffff !important;
+    border-radius: 4px;
+}
+
+.navBar select {
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ── Page headings ── */
+h1 {
+    color: #00539f;
+    text-align: center;
+    margin: 30px 0 20px;
+}
+
+h2 {
+    color: #00539f;
+}
+
+/* ── Products grid ── */
+.AllProducts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 30px 20px;
+}
+
+.Product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 210px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+}
+
+.Product:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.Product img {
+    max-width: 100%;
+    height: 140px;
+    object-fit: contain;
+    margin: 10px 0;
+}
+
+.Product div:first-child {
+    font-weight: bold;
+    font-size: 16px;
+    color: #00539f;
+    margin-bottom: 4px;
+}
+
+/* price line */
+.Product div:nth-child(4) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ee1c2e;
+    margin: 6px 0;
+}
+
+.product-action-form {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+
+.quantity-display {
+    font-weight: bold;
+    font-size: 17px;
+    min-width: 28px;
+    text-align: center;
+    color: #00539f;
+}
+
+/* ── Buttons ── */
+.product-action-btn {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.product-action-btn.add {
+    background-color: #00539f;
+}
+
+.product-action-btn.add:hover {
+    background-color: #003d7a;
+}
+
+.product-action-btn.remove {
+    background-color: #ee1c2e;
+}
+
+.product-action-btn.remove:hover {
+    background-color: #c0152a;
+}
+
+.product-action-btn.remove-one {
+    background-color: #f57c00;
+}
+
+.product-action-btn.remove-one:hover {
+    background-color: #d97706;
+}
+
+/* ── Login / Register / Admin forms ── */
+.login-container {
+    max-width: 420px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #00539f;
+    margin-top: 0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.login-form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.login-form input,
+.login-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.login-form input:focus,
+.login-form textarea:focus {
+    border-color: #00539f;
+    outline: none;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+input[type="submit"],
+button[type="submit"] {
+    padding: 12px;
+    background-color: #00539f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 6px;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #003d7a;
+}
+
+/* ── Messages ── */
+.error-message,
+.success-message {
+    padding: 14px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.error-message {
+    background-color: #fdecea;
+    color: #c0152a;
+    border: 1px solid #ee1c2e;
+}
+
+.success-message {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    border: 1px solid #2e7d32;
+}
+
+.success-message a {
+    color: #00539f;
+    font-weight: bold;
+}
+
+/* ── Cart page ── */
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+ul li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+ul li form {
+    margin: 0;
+}
+
+ul li button {
+    background-color: #ee1c2e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background-color 0.2s;
+    width: auto;
+    margin-top: 0;
+}
+
+ul li button:hover {
+    background-color: #c0152a;
+}
+
+/* ── Forum posts ── */
+.forum-post {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin: 12px auto;
+    padding: 14px 18px;
+    max-width: 700px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.forum-post strong {
+    color: #00539f;
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}
