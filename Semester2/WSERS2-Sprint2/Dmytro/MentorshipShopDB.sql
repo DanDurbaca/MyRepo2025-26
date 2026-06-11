@@ -1,3 +1,4 @@
+drop DATABASE MentorshipShop;
 CREATE DATABASE IF NOT EXISTS MentorshipShop;
 use MentorshipShop;
 

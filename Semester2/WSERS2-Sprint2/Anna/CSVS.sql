@@ -119,7 +119,7 @@ values
 ('ItemRemoved', 'Item removed from cart.', 'Товар удален из корзины.'),
 ('OrderNum', 'Order #', 'Заказ №'),
 ('StatusPending', 'PENDING', 'В ОЖИДАНИИ'),
-('StatusDelivered', 'DELIVERED', 'ДОСТАВЛЕН');
+('StatusDelivered', 'DELIVERED', 'ДОСТАВЛЕН'),
 ('AllPreviousMessages','All Previous Messages','Все предыдущие сообщения');
 
 insert into Client

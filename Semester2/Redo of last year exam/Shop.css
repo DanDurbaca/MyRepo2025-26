@@ -1,0 +1,78 @@
+.active {
+    background-color: lightgreen;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.NavCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.NavBar {
+    width: 90%;
+    background-color: cadetblue;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.MainLinks {
+    width: 50%;
+    height: 40px;
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Icons {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.NavBar a {
+    margin: 10px;
+    text-decoration: none;
+    color: brown;
+}
+
+.NavBar a:hover {
+    background-color: lightyellow;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.Icons img {
+    height: 40px;
+}
+.Icons * {
+    margin: 5px;
+}
+
+.AllProducts {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.OneProduct {
+    border: 1px solid red;
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.OneProduct img {
+    margin: 10px;
+}
+
+tabletable,
+th,
+td {
+    border: 1px solid;
+    padding: 10px;
+}
