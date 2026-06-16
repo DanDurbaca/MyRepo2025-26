@@ -1,5 +1,8 @@
 -- Database
--- CREATE OR REPLACE DATABASE Webshop2025_26;
+drop Database Webshop2025_26;
+
+
+CREATE OR REPLACE DATABASE Webshop2025_26;
 USE Webshop2025_26;
 
 CREATE TABLE Products (
@@ -40,6 +43,7 @@ CREATE TABLE Translations (
 Create Table Orders (
     OrderID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT,
+    OrderStatus varchar(50) DEFAULT 'Pending',
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
