@@ -1,3 +1,4 @@
+drop database Ppl;
 create database Ppl;
 use Ppl;
 
@@ -15,7 +16,7 @@ create table Cities(
 
  create table Ppl(
     PersonId int not null primary key auto_increment,
-    PersonName varchar(25) unique,
+    PersonName varchar(25),
     CityId int not null,
     Age int,
     FOREIGN KEY (CityId) REFERENCES Cities(CityId)
@@ -95,9 +96,9 @@ INSERT INTO Ppl (PersonId, PersonName, CityId) VALUES
   (6, 'Emma Muller', 6),
   (7, 'Bianca Wagner', 33),
   (8, 'Bruno Muller', 36),
-  (9, 'Zofia Fernandez', 42),
-  (10, 'Omar Wolf', 27),
-  (11, 'Cedric Moreau', 38),
+  (9, 'John Smith', 20),
+  (10,'John Smith', 20),
+  (11, 'John Smith', 20),
   (12, 'Jonas Martin', 49),
   (13, 'Ugo Gallo', 28),
   (14, 'Sara Sanchez', 10),
